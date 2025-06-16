@@ -2,10 +2,14 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const UserAvatar = ({ name, image }: { name: string; image: string }) => {
+  const router = useRouter();
+
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <>
       <div className="flex flex-col items-center gap-2">
@@ -22,7 +26,7 @@ const UserAvatar = ({ name, image }: { name: string; image: string }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => {
-            alert(name);
+            router.push(`/${name.toLowerCase()}`);
           }}
         >
           <AvatarImage src={image} alt={name} />
