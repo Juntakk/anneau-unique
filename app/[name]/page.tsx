@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Home = async ({ params }: Props) => {
-  const { name } = await params;
+  const { name } = params;
 
   return <MainPage name={name} />;
 };
