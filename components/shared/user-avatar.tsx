@@ -1,39 +1,40 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const UserAvatar = ({ name, image }: { name: string; image: string }) => {
   const router = useRouter();
-
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <>
-      <div className="flex flex-col items-center gap-2">
+    <div className="relative flex flex-col items-center gap-2 group">
+      <Avatar
+        className="relative w-56 h-56 rounded-full overflow-hidden cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => router.push(`/${name.toLowerCase()}`)}
+      >
+        <AvatarImage
+          src={image}
+          alt={name}
+          className={cn(
+            "w-full h-full object-cover transition-opacity duration-300",
+            isHovered ? "opacity-30" : "opacity-100"
+          )}
+        />
         <div
           className={cn(
-            "text-black font-semibold mb-8 text-4xl font-[MedievalSharp] tracking-widest",
-            isHovered ? "text-black" : "text-background"
+            "absolute inset-0 flex items-center justify-center text-black font-[MedievalSharp] translate-y-1 font-semibold text-5xl transition-opacity duration-300 pointer-events-none",
+            isHovered ? "opacity-100" : "opacity-0"
           )}
         >
           {name}
         </div>
-        <Avatar
-          className="w-60 h-60 hover:transform hover:scale-110 transition-transform duration-300 ease-in-out hover:cursor-pointer"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onClick={() => {
-            router.push(`/${name.toLowerCase()}`);
-          }}
-        >
-          <AvatarImage src={image} alt={name} />
-          <AvatarFallback>{name.charAt(0)}</AvatarFallback>
-        </Avatar>
-      </div>
-    </>
+      </Avatar>
+    </div>
   );
 };
 

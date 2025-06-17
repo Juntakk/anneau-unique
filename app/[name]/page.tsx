@@ -1,4 +1,4 @@
-import MainPage from "../components/main-page";
+import MainPage from "./components/main-page";
 
 type Props = {
   params: {
@@ -8,6 +8,7 @@ type Props = {
 
 const Home = async ({ params }: Props) => {
   const { name } = await params;
+
   return <MainPage name={name} />;
 };
 
