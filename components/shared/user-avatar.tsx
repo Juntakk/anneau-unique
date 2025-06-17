@@ -22,7 +22,7 @@ const UserAvatar = ({ name, image }: { name: string; image: string }) => {
           alt={name}
           className={cn(
             "w-full h-full object-cover transition-opacity duration-300",
-            isHovered ? "opacity-30" : "opacity-100"
+            isHovered ? "opacity-70" : "opacity-100"
           )}
         />
         <div

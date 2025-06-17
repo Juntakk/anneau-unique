@@ -8,11 +8,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link
-        href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
-        rel="stylesheet"
-        precedence="default"
-      />
+      <head>
+        <title>Les Sentinelles de l&apos;Est</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
+          rel="stylesheet"
+          precedence="default"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
