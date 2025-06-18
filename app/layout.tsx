@@ -1,5 +1,10 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import "./globals.css";
+import { MedievalSharp } from "next/font/google";
+
+const medievalSharp = MedievalSharp({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function RootLayout({
   children,
@@ -7,14 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={medievalSharp.className}>
       <head>
         <title>Les Sentinelles de l&apos;Est</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
-          rel="stylesheet"
-          precedence="default"
-        />
       </head>
       <body>{children}</body>
     </html>

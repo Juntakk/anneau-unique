@@ -27,7 +27,7 @@ const UserAvatar = ({ name, image }: { name: string; image: string }) => {
         />
         <div
           className={cn(
-            "absolute inset-0 flex items-center justify-center text-black font-[MedievalSharp] translate-y-1 font-semibold text-5xl transition-opacity duration-300 pointer-events-none",
+            "absolute inset-0 flex items-center justify-center text-black translate-y-1 font-semibold text-5xl transition-opacity duration-300 pointer-events-none",
             isHovered ? "opacity-100" : "opacity-0"
           )}
         >
