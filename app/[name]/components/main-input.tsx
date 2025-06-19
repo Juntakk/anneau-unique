@@ -8,7 +8,7 @@ const MainInput = ({
 }: {
   name?: string;
   label: string;
-  width: string;
+  width?: boolean | string;
 }) => {
   const [isSelected, setIsSelected] = useState(false);
   const [nameField, setNameField] = useState(
@@ -16,16 +16,19 @@ const MainInput = ({
   );
 
   return (
-    <div className="flex flex-wrap items-start gap-x-4 gap-y-2">
-      <label htmlFor="name" className="text-4xl font-bold text-foreground">
+    <div className="flex flex-wrap items-start gap-x-4 gap-y-1 w-full">
+      <label
+        htmlFor="name"
+        className="text-2xl font-bold text-foreground whitespace-nowrap underline"
+      >
         {label}
       </label>
       <input
         type="text"
         value={nameField || ""}
-        style={{ maxWidth: `${width}px` }}
+        style={!width ? { width: "100%" } : { width: "200px" }}
         className={cn(
-          `text-4xl outline-none border-b border-foreground font-bold text-foreground/80`,
+          "text-2xl outline-none font-bold text-foreground/80 placeholder:text-foreground/50 bg-transparent border-b border-foreground/20 focus:border-foreground/80 transition-colors duration-200",
           isSelected ? "bg-white/10" : "bg-transparent"
         )}
         onChange={(e) => {
