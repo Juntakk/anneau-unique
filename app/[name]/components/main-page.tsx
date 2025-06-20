@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import MainInput from "./main-input";
+import AttributeCircles from "./attribute-circles";
 
 const MainPage = ({ name }: { name: string }) => {
   return (
@@ -74,6 +75,11 @@ const MainPage = ({ name }: { name: string }) => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="flex w-3/4 justify-around items-center">
+        <AttributeCircles outerLabel="Corps" innerLabel="Amélioré" />
+        <AttributeCircles outerLabel="Coeur" innerLabel="Amélioré" />
+        <AttributeCircles outerLabel="Esprit" innerLabel="Amélioré" />
       </div>
     </div>
   );
