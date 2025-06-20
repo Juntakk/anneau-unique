@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import MainInput from "./main-input";
 
 const MainPage = ({ name }: { name: string }) => {
@@ -37,10 +38,41 @@ const MainPage = ({ name }: { name: string }) => {
           </section>
         </div>
 
-        <div className="flex flex-col gap-6 items-center justify-start w-64 p-6 rounded-lg ">
-          <div className="w-full aspect-square bg-green-900 rounded-md" />
-          <div className="w-full aspect-square bg-green-900 rounded-md" />
-          <div className="w-full aspect-square bg-green-900 rounded-md" />
+        <div className="flex flex-col gap-12 items-center justify-start w-64 p-6 rounded-lg">
+          {["Expérience", "Vaillance", "Sagesse"].map((title, index) => (
+            <div
+              key={title}
+              className="flex flex-col items-center gap-4 w-full"
+            >
+              <h2 className="text-center text-2xl font-bold tracking-widest">
+                {title}
+              </h2>
+              {index === 0 && (
+                <div className="flex justify-start items-center space-x-2 w-full">
+                  <label className="text font-semibold text-foreground">
+                    Total
+                  </label>
+                  <input
+                    type="text"
+                    className="w-10 h-10 text-lg text-center font-bold bg-transparent outline-3 outline-black/80 rounded-full text-foreground/80 placeholder:text-foreground/50 focus:border-foreground/80 transition-colors duration-200"
+                  />
+                </div>
+              )}
+
+              <div className="relative w-[115px] h-[115px] rotate-45">
+                <Image
+                  src="/images/medieval-square.png"
+                  alt={title}
+                  fill
+                  className="object-contain"
+                />
+                <input
+                  type="text"
+                  className="absolute inset-0 m-auto w-12 h-12 text-center text-3xl outline-none font-bold text-foreground/80 placeholder:text-foreground/50 bg-transparent focus:border-foreground/80 transition-colors duration-200 rotate-[-45deg]"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
