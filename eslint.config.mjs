@@ -15,7 +15,7 @@ const eslintConfig = [
   {
     ignores: [
       "node_modules/",
-      "lib/generated/prisma/", // 👈 ignore Prisma generated client
+      "app/generated/prisma/", // 👈 ignore Prisma generated client
       ".next/",
       "dist/",
     ],
