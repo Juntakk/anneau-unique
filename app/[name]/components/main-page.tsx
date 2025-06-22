@@ -3,10 +3,31 @@
 import MainInput from "./main-input";
 import AttributeCircles from "./attribute-circles";
 import MainCircle from "./main-circles";
+import Competence from "./competence-commune";
 
 type MainPageProps = {
   name: string;
 };
+const competenceLabels = [
+  "Athlétisme",
+  "Discrétion",
+  "Survie",
+  "Perception",
+  "Soins",
+  "Intuition",
+  "Savoir",
+  "Traditions",
+  "Langues",
+  "Combat",
+  "Chasse",
+  "Voyage",
+  "Artisanat",
+  "Persuasion",
+  "Chant",
+  "Énigmes",
+  "Connaissances",
+  "Vol",
+];
 
 const MainPage = ({ name }: MainPageProps) => {
   return (
@@ -66,6 +87,11 @@ const MainPage = ({ name }: MainPageProps) => {
       <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
         – COMPÉTENCES COMMUNES –
       </h2>
+      <div className="w-11/12 grid grid-cols-3 gap-x-12 gap-y-4">
+        {competenceLabels.map((label) => (
+          <Competence key={label} label={label} />
+        ))}
+      </div>
     </div>
   );
 };
