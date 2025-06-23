@@ -1,6 +1,6 @@
-import { ChevronLeft } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { ChevronLeft } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const MainLayout = ({
   children,
@@ -37,7 +37,7 @@ const MainLayout = ({
         />
       </div>
 
-      <main className="px-20 relative z-10">{children}</main>
+      <main className="px-0 relative z-10">{children}</main>
     </div>
   );
 };

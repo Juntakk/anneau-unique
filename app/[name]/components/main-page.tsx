@@ -1,37 +1,46 @@
-"use client";
+'use client';
 
-import MainInput from "./main-input";
-import AttributeCircles from "./attribute-circles";
-import MainCircle from "./main-circles";
-import Competence from "./competence-commune";
+import MainInput from './main-input';
+import AttributeCircles from './attribute-circles';
+import MainCircle from './main-circles';
+import Competence from './competence-commune';
+import GroupeCompetence from './groupes-competences';
 
 type MainPageProps = {
   name: string;
 };
 const competenceLabels = [
-  "Athlétisme",
-  "Discrétion",
-  "Survie",
-  "Perception",
-  "Soins",
-  "Intuition",
-  "Savoir",
-  "Traditions",
-  "Langues",
-  "Combat",
-  "Chasse",
-  "Voyage",
-  "Artisanat",
-  "Persuasion",
-  "Chant",
-  "Énigmes",
-  "Connaissances",
-  "Vol",
+  'Athlétisme',
+  'Discrétion',
+  'Survie',
+  'Perception',
+  'Soins',
+  'Intuition',
+  'Savoir',
+  'Traditions',
+  'Langues',
+  'Combat',
+  'Chasse',
+  'Voyage',
+  'Artisanat',
+  'Persuasion',
+  'Chant',
+  'Énigmes',
+  'Connaissances',
+  'Vol',
+];
+const groupeCompetences = [
+  'personnalité',
+  'déplacement',
+  'percéption',
+  'survie',
+  'coutume',
+  'métier',
 ];
 
 const MainPage = ({ name }: MainPageProps) => {
   return (
-    <div className="min-h-screen px-20 text-foreground font-[MedievalSharp]">
+    <div className="min-h-screen px-10 text-foreground font-[MedievalSharp]">
       <div className="flex gap-12">
         {/* Left Column */}
         <div className="flex-1 space-y-10 p-10 rounded-lg">
@@ -84,13 +93,25 @@ const MainPage = ({ name }: MainPageProps) => {
       </div>
 
       {/* Skills Section Header */}
-      <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
-        – COMPÉTENCES COMMUNES –
-      </h2>
-      <div className="w-11/12 grid grid-cols-3 gap-x-12 gap-y-4">
-        {competenceLabels.map((label) => (
-          <Competence key={label} label={label} />
-        ))}
+      <div className="flex justify-between">
+        <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
+          – COMPÉTENCES COMMUNES –
+        </h2>
+        <h2 className="text-end text-xl h-full mt-12 w-1/5 mb-6 tracking-widest">
+          GROUPES DE COMPÉTENCES
+        </h2>
+      </div>
+      <div className="flex mb-12">
+        <div className="w-9/12 grid grid-cols-3 gap-x-8 gap-y-4">
+          {competenceLabels.map((label) => (
+            <Competence key={label} label={label} />
+          ))}
+        </div>
+        <div className="flex flex-col justify-end items-end w-3/12 gap-y-4">
+          {groupeCompetences.map((label) => (
+            <GroupeCompetence key={label} label={label} />
+          ))}
+        </div>
       </div>
     </div>
   );
