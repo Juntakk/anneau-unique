@@ -1,7 +1,7 @@
 import Image from "next/image";
 import UserAvatar from "../components/shared/user-avatar";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="min-h-screen text-foreground flex items-center justify-center px-4 py-10">
       <Image
