@@ -4,11 +4,11 @@ const WeaponRow = () => (
   <div className="flex flex-wrap justify-start items-center gap-x-4 mb-4 w-full">
     <input
       type="text"
-      className="min-w-[295px] outline-none text-2xl mr-24"
+      className="min-w-[200px] outline-none text-2xl mr-24"
       placeholder="Nom"
     />
     <Competence />
-    <div className="ml-12">
+    <div className="ml-12 flex gap-x-4 gap-y-2">
       <LabeledInput label="dégâts" />
       <LabeledInput label="taille" />
       <LabeledInput label="blessure" />
