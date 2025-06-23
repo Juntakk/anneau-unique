@@ -1,9 +1,11 @@
-const Competence = ({ label }: { label: string }) => {
+const Competence = ({ label }: { label?: string }) => {
   return (
     <div className="flex items-center gap-2">
-      <label className="min-w-[120px] text-lg font-semibold text-foreground">
-        {label}
-      </label>
+      {label && (
+        <label className="min-w-[120px] text-lg font-semibold text-foreground">
+          {label}
+        </label>
+      )}
       {Array.from({ length: 6 }).map((_, i) => (
         <input
           key={i}

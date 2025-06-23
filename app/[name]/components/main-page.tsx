@@ -5,29 +5,30 @@ import AttributeCircles from './attribute-circles';
 import MainCircle from './main-circles';
 import Competence from './competence-commune';
 import GroupeCompetence from './groupes-competences';
+import WeaponRow from './weapon-row';
 
 type MainPageProps = {
   name: string;
 };
 const competenceLabels = [
-  'Athlétisme',
-  'Discrétion',
-  'Survie',
-  'Perception',
-  'Soins',
-  'Intuition',
-  'Savoir',
-  'Traditions',
-  'Langues',
-  'Combat',
-  'Chasse',
-  'Voyage',
-  'Artisanat',
+  'Présence',
+  'Inspiration',
   'Persuasion',
+  'Athlétisme',
+  'Voyage',
+  'Discrétion',
+  'Vigilance',
+  'Intuition',
+  'Fouille',
+  'Exploration',
+  'Guérison',
+  'Chasse',
   'Chant',
+  'Courtoisie',
   'Énigmes',
+  'Artisanat',
+  'Art de la Guerre',
   'Connaissances',
-  'Vol',
 ];
 const groupeCompetences = [
   'personnalité',
@@ -41,6 +42,7 @@ const groupeCompetences = [
 const MainPage = ({ name }: MainPageProps) => {
   return (
     <div className="min-h-screen px-10 text-foreground font-[MedievalSharp]">
+      {/* Nom et tout + Expérience et tout */}
       <div className="flex gap-12">
         {/* Left Column */}
         <div className="flex-1 space-y-10 p-10 rounded-lg">
@@ -84,15 +86,13 @@ const MainPage = ({ name }: MainPageProps) => {
           <MainCircle isFirst={false} attribute="Sagesse" />
         </div>
       </div>
-
       {/* Attribute Circles */}
       <div className="flex w-3/4 justify-around items-center">
         <AttributeCircles outerLabel="Corps" innerLabel="Amélioré" />
         <AttributeCircles outerLabel="Coeur" innerLabel="Amélioré" />
         <AttributeCircles outerLabel="Esprit" innerLabel="Amélioré" />
       </div>
-
-      {/* Skills Section Header */}
+      {/* Compétences et tout */}
       <div className="flex justify-between">
         <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
           – COMPÉTENCES COMMUNES –
@@ -112,6 +112,17 @@ const MainPage = ({ name }: MainPageProps) => {
             <GroupeCompetence key={label} label={label} />
           ))}
         </div>
+      </div>
+
+      {/* Compétences d'armes et dégâts et tout */}
+      <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
+        – COMPÉTENCES D&apos;ARMES –
+      </h2>
+
+      <div className="flex flex-col items-center mb-12 w-4/5">
+        {[...Array(4)].map((_, i) => (
+          <WeaponRow key={i} />
+        ))}
       </div>
     </div>
   );
