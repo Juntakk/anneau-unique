@@ -1,43 +1,46 @@
-'use client';
+"use client";
 
-import MainInput from './main-input';
-import AttributeCircle from './attribute-circles';
-import MainCircle from './main-circles';
-import Competence from './competence-commune';
-import GroupeCompetence from './groupes-competences';
-import WeaponRow from './weapon-row';
-import CombatCircle from './combat-circle';
+import MainInput from "./main-input";
+import AttributeCircle from "./attribute-circles";
+import MainCircle from "./main-circles";
+import Competence from "./competence-commune";
+import GroupeCompetence from "./groupes-competences";
+import WeaponRow from "./weapon-row";
+import CombatCircle from "./combat-circle";
+import EnduranceEspoirCircle from "./endurance-espoir-circle";
+import CustomCheckbox from "./custom-checkbox";
+import EquipementRow from "./equipement-encombrement";
 
 type MainPageProps = {
   name: string;
 };
 const competenceLabels = [
-  'Présence',
-  'Inspiration',
-  'Persuasion',
-  'Athlétisme',
-  'Voyage',
-  'Discrétion',
-  'Vigilance',
-  'Intuition',
-  'Fouille',
-  'Exploration',
-  'Guérison',
-  'Chasse',
-  'Chant',
-  'Courtoisie',
-  'Énigmes',
-  'Artisanat',
-  'Art de la Guerre',
-  'Connaissances',
+  "Présence",
+  "Inspiration",
+  "Persuasion",
+  "Athlétisme",
+  "Voyage",
+  "Discrétion",
+  "Vigilance",
+  "Intuition",
+  "Fouille",
+  "Exploration",
+  "Guérison",
+  "Chasse",
+  "Chant",
+  "Courtoisie",
+  "Énigmes",
+  "Artisanat",
+  "Art de la Guerre",
+  "Connaissances",
 ];
 const groupeCompetences = [
-  'personnalité',
-  'déplacement',
-  'percéption',
-  'survie',
-  'coutume',
-  'métier',
+  "personnalité",
+  "déplacement",
+  "percéption",
+  "survie",
+  "coutume",
+  "métier",
 ];
 
 const MainPage = ({ name }: MainPageProps) => {
@@ -149,6 +152,54 @@ const MainPage = ({ name }: MainPageProps) => {
           <CombatCircle innerLabel="À distance" label="Bonus aux dégâts" />
           <CombatCircle innerLabel="Bouclier" label="Parade" />
           <CombatCircle innerLabel="Casque" label="Armure" />
+        </div>
+      </div>
+      {/* 4th section */}
+      <div className="flex mb-20 mt-12 w-full">
+        {/* Équipement */}
+        <div className="flex flex-col w-1/4 mr-20">
+          <h2 className="text-center text-xl w-full mt-12 mb-6 tracking-widest">
+            - ÉQUIPEMENT -
+          </h2>
+          <div className="flex flex-col gap-y-8">
+            {" "}
+            <EquipementRow />
+            <EquipementRow />
+            <EquipementRow />
+            <input type="text" />
+          </div>
+        </div>
+        {/* Endurance Espoir */}
+        <div className="flex w-full justify-around items-center p-6">
+          <div className="flex flex-col">
+            <h2 className="w-full text-center text-3xl mb-2">Endurance</h2>
+            <EnduranceEspoirCircle
+              upperLabel="Valeur de départ"
+              lowerLabel="Fatigue"
+            />
+          </div>
+          <div className="flex-col">
+            <h2 className="w-full text-center text-3xl mb-2">Espoir</h2>
+            <EnduranceEspoirCircle
+              upperLabel="Valeur de départ"
+              lowerLabel="Ombre"
+            />
+          </div>
+        </div>
+        {/* Épuisement et tout */}
+        <div className="flex flex-col justify-end items-end w-1/2 mr-20">
+          <div className="flex gap-x-4 p-6">
+            <label className="text-3xl">Épuisement</label>
+            <CustomCheckbox />
+          </div>
+          <div className="flex gap-x-4 p-6">
+            <label className="text-3xl">Mélancolie</label>
+            <CustomCheckbox />
+          </div>
+          <div className="flex gap-x-4 p-6">
+            <label className="text-3xl">Blessé</label>
+            <CustomCheckbox />
+          </div>
         </div>
       </div>
     </div>
