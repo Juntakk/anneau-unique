@@ -1,11 +1,12 @@
 'use client';
 
 import MainInput from './main-input';
-import AttributeCircles from './attribute-circles';
+import AttributeCircle from './attribute-circles';
 import MainCircle from './main-circles';
 import Competence from './competence-commune';
 import GroupeCompetence from './groupes-competences';
 import WeaponRow from './weapon-row';
+import CombatCircle from './combat-circle';
 
 type MainPageProps = {
   name: string;
@@ -42,11 +43,9 @@ const groupeCompetences = [
 const MainPage = ({ name }: MainPageProps) => {
   return (
     <div className="min-h-screen px-10 text-foreground font-[MedievalSharp]">
-      {/* Nom et tout + Expérience et tout */}
+      {/* Nom et tout */}
       <div className="flex gap-12">
-        {/* Left Column */}
         <div className="flex-1 space-y-10 p-10 rounded-lg">
-          {/* Basic Info Section */}
           <section className="space-y-6">
             <MainInput name={name} width label="Nom" />
             <div className="flex gap-6">
@@ -59,8 +58,6 @@ const MainPage = ({ name }: MainPageProps) => {
               <MainInput label="Part d'Ombre" />
             </div>
           </section>
-
-          {/* Traits Section */}
           <section>
             <h2 className="text-center text-xl mt-12 mb-6 tracking-widest">
               – TRAITS –
@@ -70,8 +67,6 @@ const MainPage = ({ name }: MainPageProps) => {
               <MainInput label="Particularités" />
             </div>
           </section>
-
-          {/* Attributes Header */}
           <section>
             <h2 className="text-center text-xl mt-12 tracking-widest">
               – ATTRIBUTS –
@@ -79,20 +74,20 @@ const MainPage = ({ name }: MainPageProps) => {
           </section>
         </div>
 
-        {/* Right Column - Attributes */}
+        {/* Exp et tout */}
         <div className="flex flex-col gap-12 items-center justify-start w-64 p-6 rounded-lg">
           <MainCircle isFirst={true} attribute="Expérience" />
           <MainCircle isFirst={false} attribute="Vaillance" />
           <MainCircle isFirst={false} attribute="Sagesse" />
         </div>
       </div>
-      {/* Attribute Circles */}
+      {/* Cercle attributs */}
       <div className="flex w-3/4 justify-around items-center">
-        <AttributeCircles outerLabel="Corps" innerLabel="Amélioré" />
-        <AttributeCircles outerLabel="Coeur" innerLabel="Amélioré" />
-        <AttributeCircles outerLabel="Esprit" innerLabel="Amélioré" />
+        <AttributeCircle outerLabel="Corps" innerLabel="Amélioré" />
+        <AttributeCircle outerLabel="Coeur" innerLabel="Amélioré" />
+        <AttributeCircle outerLabel="Esprit" innerLabel="Amélioré" />
       </div>
-      {/* Compétences et tout */}
+      {/* Compétences communes */}
       <div className="flex justify-between">
         <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
           – COMPÉTENCES COMMUNES –
@@ -101,6 +96,7 @@ const MainPage = ({ name }: MainPageProps) => {
           GROUPES DE COMPÉTENCES
         </h2>
       </div>
+      {/* Groupe compétences */}
       <div className="flex mb-12">
         <div className="w-9/12 grid grid-cols-3 gap-x-8 gap-y-4">
           {competenceLabels.map((label) => (
@@ -114,15 +110,46 @@ const MainPage = ({ name }: MainPageProps) => {
         </div>
       </div>
 
-      {/* Compétences d'armes et dégâts et tout */}
-      <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
-        – COMPÉTENCES D&apos;ARMES –
-      </h2>
-
-      <div className="flex flex-col items-center mb-12 w-4/5">
-        {[...Array(4)].map((_, i) => (
-          <WeaponRow key={i} />
-        ))}
+      {/* Compétences d'armes */}
+      <div className="flex w-full">
+        <div className="flex-col w-4/5">
+          <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
+            – COMPÉTENCES D&apos;ARMES –
+          </h2>
+          {/* Lines */}
+          <div className="flex flex-col items-center mb-12 min-w-4/5">
+            {[...Array(4)].map((_, i) => (
+              <WeaponRow key={i} />
+            ))}
+          </div>
+          {/* Récompenses et vertus */}
+          <div className="flex w-full justify-around items-center mb-12">
+            <div className="flex flex-col text-center w-full p-12">
+              <h2>- RÉCOMPENSES -</h2>
+              <textarea
+                rows={6}
+                className="w-full p-[0.3rem_1rem] text-2xl font-mono resize-none leading-[2rem]
+             bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
+             bg-[length:100%_2rem] bg-repeat outline-none rounded"
+              />
+            </div>
+            <div className="flex flex-col text-center w-full p-12">
+              <h2>- VERTUS -</h2>
+              <textarea
+                rows={6}
+                className="w-full p-[0.3rem_1rem] text-2xl font-mono resize-none leading-[2rem]
+             bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
+             bg-[length:100%_2rem] bg-repeat outline-none rounded"
+              />
+            </div>
+          </div>
+        </div>
+        {/* Cercles bons aux dégâts */}
+        <div className="flex flex-col mt-8 gap-y-20 w-1/5 items-center justify-center">
+          <CombatCircle innerLabel="À distance" label="Bonus aux dégâts" />
+          <CombatCircle innerLabel="Bouclier" label="Parade" />
+          <CombatCircle innerLabel="Casque" label="Armure" />
+        </div>
       </div>
     </div>
   );

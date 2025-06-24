@@ -3,10 +3,7 @@ type AttributeCirclesProps = {
   innerLabel: string;
 };
 
-const AttributeCircles = ({
-  outerLabel,
-  innerLabel,
-}: AttributeCirclesProps) => {
+const AttributeCircle = ({ outerLabel, innerLabel }: AttributeCirclesProps) => {
   return (
     <div className="relative w-[140px] h-[140px]">
       <label className="absolute left-[-3.5rem] top-1/2 -translate-y-1/2 text-lg font-semibold text-foreground">
@@ -35,4 +32,4 @@ const AttributeCircles = ({
   );
 };
 
-export default AttributeCircles;
+export default AttributeCircle;
