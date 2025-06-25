@@ -226,7 +226,7 @@ const MainPage = ({ name }: MainPageProps) => {
           {/* Bouton Verso */}
           <div className="space-x-8 w-full flex justify-end items-center p-6">
             <button
-              className="text-primary text-2xl font-bold flex hover:text-secondary hover:cursor-pointer"
+              className="text-primary text-3xl font-bold flex hover:text-secondary hover:cursor-pointer"
               onClick={handlePageChange}
             >
               Verso
@@ -240,7 +240,7 @@ const MainPage = ({ name }: MainPageProps) => {
           {/* Bouton Recto */}
           <div className="space-x-8 w-full flex justify-start items-center p-6">
             <button
-              className="text-primary text-2xl font-bold flex hover:text-secondary hover:cursor-pointer"
+              className="text-primary text-3xl font-bold flex hover:text-secondary hover:cursor-pointer"
               onClick={handlePageChange}
             >
               <ChevronLeft size={32} strokeWidth={2.5} />
