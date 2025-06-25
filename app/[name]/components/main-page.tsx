@@ -1,5 +1,4 @@
 'use client';
-
 import MainInput from './main-input';
 import AttributeCircle from './attribute-circles';
 import MainCircle from './main-circles';
@@ -64,6 +63,7 @@ const MainPage = ({ name }: MainPageProps) => {
     <div className="min-h-screen px-10 text-foreground font-[MedievalSharp]">
       {!isNextPage ? (
         <>
+          {/* Noms et tout */}
           <div className="flex gap-12">
             <div className="flex-1 space-y-10 p-10 rounded-lg">
               <section className="space-y-6">
@@ -100,11 +100,15 @@ const MainPage = ({ name }: MainPageProps) => {
               <MainCircle isFirst={false} attribute="Sagesse" />
             </div>
           </div>
+
+          {/* EXP, Vaillance et Sagesse */}
           <div className="flex w-3/4 justify-around items-center">
             <AttributeCircle outerLabel="Corps" innerLabel="Amélioré" />
             <AttributeCircle outerLabel="Coeur" innerLabel="Amélioré" />
             <AttributeCircle outerLabel="Esprit" innerLabel="Amélioré" />
           </div>
+
+          {/* Compétences */}
           <div className="flex justify-between">
             <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
               – COMPÉTENCES COMMUNES –
@@ -114,11 +118,13 @@ const MainPage = ({ name }: MainPageProps) => {
             </h2>
           </div>
           <div className="flex mb-12">
+            {/* Compétences communes */}
             <div className="w-9/12 grid grid-cols-3 gap-x-8 gap-y-4">
               {competenceLabels.map((label) => (
                 <Competence key={label} label={label} />
               ))}
             </div>
+            {/* Groupes de compétences */}
             <div className="flex flex-col justify-end items-end w-3/12 gap-y-4">
               {groupeCompetences.map((label) => (
                 <GroupeCompetence key={label} label={label} />
@@ -126,17 +132,20 @@ const MainPage = ({ name }: MainPageProps) => {
             </div>
           </div>
 
+          {/* Compétences d'armes, récompenses, vertus et stats combats */}
           <div className="flex w-full">
             <div className="flex-col w-4/5">
               <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
                 – COMPÉTENCES D&apos;ARMES –
               </h2>
+              {/* Armes */}
               <div className="flex flex-col items-center mb-12 min-w-4/5">
                 {[...Array(4)].map((_, i) => (
                   <WeaponRow key={i} />
                 ))}
               </div>
               <div className="flex w-full justify-around items-center mb-12">
+                {/* Récompenses */}
                 <div className="flex flex-col text-center w-full p-12">
                   <h2>- RÉCOMPENSES -</h2>
                   <textarea
@@ -146,6 +155,7 @@ const MainPage = ({ name }: MainPageProps) => {
                  bg-[length:100%_2rem] bg-repeat outline-none rounded"
                   />
                 </div>
+                {/* Vertus */}
                 <div className="flex flex-col text-center w-full p-12">
                   <h2>- VERTUS -</h2>
                   <textarea
@@ -157,13 +167,17 @@ const MainPage = ({ name }: MainPageProps) => {
                 </div>
               </div>
             </div>
+            {/* Stats combats */}
             <div className="flex flex-col mt-8 gap-y-20 w-1/5 items-center justify-center">
               <CombatCircle innerLabel="À distance" label="Bonus aux dégâts" />
               <CombatCircle innerLabel="Bouclier" label="Parade" />
               <CombatCircle innerLabel="Casque" label="Armure" />
             </div>
           </div>
+
+          {/* Équipement, endurance, espoir et états */}
           <div className="flex mb-20 mt-12 w-full">
+            {/* Équipement */}
             <div className="flex flex-col w-1/4 mr-20">
               <h2 className="text-center text-xl w-full mt-12 mb-6 tracking-widest">
                 - ÉQUIPEMENT -
@@ -176,6 +190,7 @@ const MainPage = ({ name }: MainPageProps) => {
                 <input type="text" />
               </div>
             </div>
+            {/* Endurance et Espoir */}
             <div className="flex w-full justify-around items-center p-6">
               <div className="flex flex-col">
                 <h2 className="w-full text-center text-3xl mb-2">Endurance</h2>
@@ -192,6 +207,7 @@ const MainPage = ({ name }: MainPageProps) => {
                 />
               </div>
             </div>
+            {/* États */}
             <div className="flex flex-col justify-end items-end w-1/2 mr-20">
               <div className="flex gap-x-4 p-6">
                 <label className="text-3xl">Épuisement</label>
@@ -207,6 +223,7 @@ const MainPage = ({ name }: MainPageProps) => {
               </div>
             </div>
           </div>
+          {/* Bouton Verso */}
           <div className="space-x-8 w-full flex justify-end items-center p-6">
             <button
               className="text-primary text-2xl font-bold flex hover:text-secondary hover:cursor-pointer"
@@ -218,7 +235,9 @@ const MainPage = ({ name }: MainPageProps) => {
           </div>
         </>
       ) : (
+        // Page Verso
         <div className="flex flex-col">
+          {/* Bouton Recto */}
           <div className="space-x-8 w-full flex justify-start items-center p-6">
             <button
               className="text-primary text-2xl font-bold flex hover:text-secondary hover:cursor-pointer"
@@ -228,10 +247,11 @@ const MainPage = ({ name }: MainPageProps) => {
               Recto
             </button>
           </div>
+          {/* Cercles Communauté et tout*/}
           <div className="flex w-full justify-around items-center mb-2">
             <CommunauteSection />
           </div>
-          {/* ORIGINE */}
+          {/* Origine */}
           <div className="flex flex-col text-center w-full p-12">
             <h2>- ORIGINE -</h2>
             <textarea
