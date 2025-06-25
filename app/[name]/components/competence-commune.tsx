@@ -2,7 +2,7 @@ const Competence = ({ label }: { label?: string }) => {
   return (
     <div className="flex items-center gap-2">
       {label && (
-        <label className="min-w-[120px] text-lg font-semibold text-foreground">
+        <label className="min-w-[120px] text-md font-semibold text-foreground">
           {label}
         </label>
       )}

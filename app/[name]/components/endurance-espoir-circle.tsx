@@ -7,7 +7,7 @@ const EnduranceEspoirCircle = ({
 }) => {
   return (
     <div className="relative w-[180px] h-[180px]">
-      <label className="absolute text-sm right-[95%] min-w-[100px] font-semibold text-foreground">
+      <label className="absolute text-sm right-[105%] min-w-[100px] font-semibold text-foreground">
         {upperLabel}
       </label>
 
@@ -22,18 +22,18 @@ const EnduranceEspoirCircle = ({
       <input
         type="text"
         maxLength={1}
-        className="absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none right-[75%] top-[-10%]"
+        className="absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none right-[85%] top-[-10%]"
       />
       {/* Small Circle Input 2*/}
 
       <input
         type="text"
         maxLength={1}
-        className="absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold outline-none right-[75%] top-[70%]"
+        className="absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold outline-none right-[85%] top-[73%]"
       />
 
       {/* Label for inner input - right side */}
-      <label className="absolute right-[120%] bottom-[0%] text-sm font-semibold text-foreground">
+      <label className="absolute right-[125%] bottom-[0%] text-sm font-semibold text-foreground">
         {lowerLabel}
       </label>
     </div>

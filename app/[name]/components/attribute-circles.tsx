@@ -21,11 +21,11 @@ const AttributeCircle = ({ outerLabel, innerLabel }: AttributeCirclesProps) => {
       <input
         type="text"
         maxLength={1}
-        className="absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none left-[75%] top-[-10%]"
+        className="absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none left-[85%] top-[-16%]"
       />
 
       {/* Label for inner input - right side */}
-      <label className="absolute left-[80%] top-[-10%] translate-x-[105%] translate-y-[40%] text-sm font-semibold text-foreground">
+      <label className="absolute left-[95%] top-[-10%] translate-x-[105%] translate-y-[40%] text-sm font-semibold text-foreground">
         {innerLabel}
       </label>
     </div>

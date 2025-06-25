@@ -1,7 +1,7 @@
 const GroupeCompetence = ({ label }: { label: string }) => {
   return (
     <div className="flex items- justify-end w-full gap-2">
-      <label className="min-w-[120px] text-lg font-semibold text-foreground">
+      <label className="min-w-[120px] text-md font-semibold text-foreground">
         {label}
       </label>
       {Array.from({ length: 3 }).map((_, i) => (

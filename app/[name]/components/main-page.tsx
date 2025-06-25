@@ -66,42 +66,49 @@ const MainPage = ({ name }: MainPageProps) => {
           {/* Noms et tout */}
           <div className="flex gap-12">
             <div className="flex-1 space-y-10 p-10 rounded-lg">
-              <section className="space-y-6">
+              {/* Identité */}
+              <div className="space-y-6">
                 <MainInput name={name} width label="Nom" />
+
                 <div className="flex gap-6">
                   <MainInput label="Culture" />
                   <MainInput label="Niveau de Vie" />
                 </div>
+
                 <MainInput label="Avantage Culturel" />
+
                 <div className="flex gap-6">
                   <MainInput label="Vocation" />
                   <MainInput label="Part d'Ombre" />
                 </div>
-              </section>
-              <section>
+              </div>
+
+              {/* Traits */}
+              <div className="space-y-4">
                 <h2 className="text-center text-xl mt-12 mb-6 tracking-widest">
                   – TRAITS –
                 </h2>
-                <div className="space-y-4">
-                  <MainInput label="Spécialités" />
-                  <MainInput label="Particularités" />
-                </div>
-              </section>
-              <section>
+                <MainInput label="Spécialités" />
+                <MainInput label="Particularités" />
+              </div>
+
+              {/* Attributs */}
+              <div>
                 <h2 className="text-center text-xl mt-12 tracking-widest">
                   – ATTRIBUTS –
                 </h2>
-              </section>
+              </div>
             </div>
 
+            {/*  XP, Vaillance, Sagesse */}
             <div className="flex flex-col gap-12 items-center justify-start w-64 p-6 rounded-lg">
-              <MainCircle isFirst={true} attribute="Expérience" />
-              <MainCircle isFirst={false} attribute="Vaillance" />
-              <MainCircle isFirst={false} attribute="Sagesse" />
+              <MainCircle isFirst attribute="Expérience" />
+              <MainCircle attribute="Vaillance" />
+              <MainCircle attribute="Sagesse" />
             </div>
           </div>
 
-          {/* EXP, Vaillance et Sagesse */}
+          {/* Attributs */}
           <div className="flex w-3/4 justify-around items-center">
             <AttributeCircle outerLabel="Corps" innerLabel="Amélioré" />
             <AttributeCircle outerLabel="Coeur" innerLabel="Amélioré" />
@@ -110,22 +117,23 @@ const MainPage = ({ name }: MainPageProps) => {
 
           {/* Compétences */}
           <div className="flex justify-between">
-            <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
+            <h2 className="text-xl w-4/5 mt-12 mb-6 tracking-widest text-center">
               – COMPÉTENCES COMMUNES –
             </h2>
-            <h2 className="text-end text-xl h-full mt-12 w-1/5 mb-6 tracking-widest">
+            <h2 className="text-xl w-1/5 mt-12 mb-6 tracking-widest text-end">
               GROUPES DE COMPÉTENCES
             </h2>
           </div>
-          <div className="flex mb-12">
+          <div className="flex mb-12 gap-8">
             {/* Compétences communes */}
             <div className="w-9/12 grid grid-cols-3 gap-x-8 gap-y-4">
               {competenceLabels.map((label) => (
                 <Competence key={label} label={label} />
               ))}
             </div>
+
             {/* Groupes de compétences */}
-            <div className="flex flex-col justify-end items-end w-3/12 gap-y-4">
+            <div className="w-3/12 flex flex-col items-end justify-end gap-y-4">
               {groupeCompetences.map((label) => (
                 <GroupeCompetence key={label} label={label} />
               ))}
@@ -134,40 +142,46 @@ const MainPage = ({ name }: MainPageProps) => {
 
           {/* Compétences d'armes, récompenses, vertus et stats combats */}
           <div className="flex w-full">
-            <div className="flex-col w-4/5">
-              <h2 className="text-center text-xl w-4/5 mt-12 mb-6 tracking-widest">
+            {/* Left side: Armes, Récompenses, Vertus */}
+            <div className="flex flex-col w-4/5">
+              <h2 className="text-center text-xl mt-12 mb-6 tracking-widest">
                 – COMPÉTENCES D&apos;ARMES –
               </h2>
+
               {/* Armes */}
-              <div className="flex flex-col items-center mb-12 min-w-4/5">
+              <div className="flex flex-col items-center mb-12">
                 {[...Array(4)].map((_, i) => (
                   <WeaponRow key={i} />
                 ))}
               </div>
-              <div className="flex w-full justify-around items-center mb-12">
-                {/* Récompenses */}
-                <div className="flex flex-col text-center w-full p-12">
-                  <h2>- RÉCOMPENSES -</h2>
+
+              {/* Récompenses & Vertus */}
+              <div className="flex justify-around items-start mb-12 gap-8">
+                <div className="flex flex-col text-center w-full p-6">
+                  <h2 className="mb-4 text-lg font-semibold">
+                    - RÉCOMPENSES -
+                  </h2>
                   <textarea
                     rows={6}
                     className="w-full p-[0.3rem_1rem] text-2xl font-mono resize-none leading-[2rem]
-                 bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
-                 bg-[length:100%_2rem] bg-repeat outline-none rounded"
+            bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
+            bg-[length:100%_2rem] bg-repeat outline-none rounded"
                   />
                 </div>
-                {/* Vertus */}
-                <div className="flex flex-col text-center w-full p-12">
-                  <h2>- VERTUS -</h2>
+
+                <div className="flex flex-col text-center w-full p-6">
+                  <h2 className="mb-4 text-lg font-semibold">- VERTUS -</h2>
                   <textarea
                     rows={6}
                     className="w-full p-[0.3rem_1rem] text-2xl font-mono resize-none leading-[2rem]
-                 bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
-                 bg-[length:100%_2rem] bg-repeat outline-none rounded"
+            bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
+            bg-[length:100%_2rem] bg-repeat outline-none rounded"
                   />
                 </div>
               </div>
             </div>
-            {/* Stats combats */}
+
+            {/* Right side: Stats combats */}
             <div className="flex flex-col mt-8 gap-y-20 w-1/5 items-center justify-center">
               <CombatCircle innerLabel="À distance" label="Bonus aux dégâts" />
               <CombatCircle innerLabel="Bouclier" label="Parade" />
@@ -176,31 +190,29 @@ const MainPage = ({ name }: MainPageProps) => {
           </div>
 
           {/* Équipement, endurance, espoir et états */}
-          <div className="flex mb-20 mt-12 w-full">
+          <div className="flex mb-20 mt-20  w-full">
             {/* Équipement */}
             <div className="flex flex-col w-1/4 mr-20">
               <h2 className="text-center text-xl w-full mt-12 mb-6 tracking-widest">
                 - ÉQUIPEMENT -
               </h2>
               <div className="flex flex-col gap-y-8">
-                {' '}
                 <EquipementRow />
                 <EquipementRow />
                 <EquipementRow />
-                <input type="text" />
               </div>
             </div>
             {/* Endurance et Espoir */}
-            <div className="flex w-full justify-around items-center p-6">
+            <div className="flex w-full justify-evenly gap-x-24 items-center p-6">
               <div className="flex flex-col">
-                <h2 className="w-full text-center text-3xl mb-2">Endurance</h2>
+                <h4 className="w-full text-center text-3xl mb-4">Endurance</h4>
                 <EnduranceEspoirCircle
                   upperLabel="Valeur de départ"
                   lowerLabel="Fatigue"
                 />
               </div>
               <div className="flex-col">
-                <h2 className="w-full text-center text-3xl mb-2">Espoir</h2>
+                <h2 className="w-full text-center text-3xl mb-4">Espoir</h2>
                 <EnduranceEspoirCircle
                   upperLabel="Valeur de départ"
                   lowerLabel="Ombre"
@@ -223,6 +235,7 @@ const MainPage = ({ name }: MainPageProps) => {
               </div>
             </div>
           </div>
+
           {/* Bouton Verso */}
           <div className="space-x-8 w-full flex justify-end items-center p-6">
             <button
