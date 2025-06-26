@@ -1,4 +1,4 @@
-import Competence from './competence-commune';
+import Competence from "./competence-commune";
 
 const WeaponRow = () => (
   <div className="flex flex-wrap justify-start items-center gap-x-4 mb-4 w-full">
