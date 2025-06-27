@@ -1,36 +1,13 @@
-"use client";
-import { useState } from "react";
-import CharacterSheetBack from "./components/character-sheet/character-sheet-back";
-import CharacterSheetFront from "./components/character-sheet/character-sheet-front";
+import MainPage from "./components/main-page";
 
-type MainPageProps = {
-  name: string;
+type Props = {
+  params: Promise<{ name: string }>;
 };
 
-const MainPage = ({ name }: MainPageProps) => {
-  const [isNextPage, setIsNextPage] = useState(false);
+const Home = async ({ params }: Props) => {
+  const { name } = await params;
 
-  function handlePageChange() {
-    setIsNextPage(!isNextPage);
-    scrollToTop();
-  }
-
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
-
-  return (
-    <div className="min-h-screen px-10 text-foreground font-[MedievalSharp]">
-      {isNextPage ? (
-        <CharacterSheetBack onPageChange={handlePageChange} />
-      ) : (
-        <CharacterSheetFront name={name} onPageChange={handlePageChange} />
-      )}
-    </div>
-  );
+  return <MainPage name={name} />;
 };
 
-export default MainPage;
+export default Home;

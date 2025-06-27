@@ -1,6 +1,6 @@
-import { ChevronLeft } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { ChevronLeft } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const MainLayout = ({
   children,
@@ -16,7 +16,7 @@ const MainLayout = ({
             className="text-primary text-2xl font-bold flex hover:text-secondary"
           >
             <ChevronLeft size={32} strokeWidth={2.5} />
-            Accueil
+            Home
           </Link>
         </div>
       </nav>

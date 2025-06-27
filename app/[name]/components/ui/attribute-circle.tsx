@@ -5,7 +5,7 @@ type AttributeCirclesProps = {
 
 const AttributeCircle = ({ outerLabel, innerLabel }: AttributeCirclesProps) => {
   return (
-    <div className="relative w-[140px] h-[140px]">
+    <div className="relative w-[150px] h-[150px]">
       <label className="absolute left-[-3.5rem] top-1/2 -translate-y-1/2 text-lg font-semibold text-foreground">
         {outerLabel}
       </label>
