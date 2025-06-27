@@ -120,26 +120,14 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PostScalarFieldEnum = {
-  id: 'id',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  title: 'title',
-  content: 'content',
-  published: 'published',
-  authorId: 'authorId'
+exports.Prisma.PlayerScalarFieldEnum = {
+  id: 'id'
 };
 
-exports.Prisma.ProfileScalarFieldEnum = {
+exports.Prisma.PlayerInfoScalarFieldEnum = {
   id: 'id',
-  bio: 'bio',
-  userId: 'userId'
-};
-
-exports.Prisma.UserScalarFieldEnum = {
-  id: 'id',
-  email: 'email',
-  name: 'name'
+  playerId: 'playerId',
+  culture: 'culture'
 };
 
 exports.Prisma.SortOrder = {
@@ -152,16 +140,10 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
-
 
 exports.Prisma.ModelName = {
-  Post: 'Post',
-  Profile: 'Profile',
-  User: 'User'
+  Player: 'Player',
+  PlayerInfo: 'PlayerInfo'
 };
 
 /**
