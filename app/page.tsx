@@ -1,5 +1,5 @@
-import Image from "next/image";
-import UserAvatar from "../components/shared/user-avatar";
+import Image from 'next/image';
+import UserAvatar from '../components/shared/user-avatar';
 
 export default async function Home() {
   return (
