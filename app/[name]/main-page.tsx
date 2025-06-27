@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import CharacterSheetBack from "./character-sheet/character-sheet-back";
-import CharacterSheetFront from "./character-sheet/character-sheet-front";
+import CharacterSheetBack from "./components/character-sheet/character-sheet-back";
+import CharacterSheetFront from "./components/character-sheet/character-sheet-front";
 
 type MainPageProps = {
   name: string;

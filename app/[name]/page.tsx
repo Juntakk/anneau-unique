@@ -1,4 +1,4 @@
-import MainPage from "./components/main-page";
+import MainPage from "./main-page";
 
 type Props = {
   params: Promise<{ name: string }>;
