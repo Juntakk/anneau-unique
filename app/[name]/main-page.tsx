@@ -23,7 +23,7 @@ const MainPage = ({ name }: MainPageProps) => {
   }
 
   return (
-    <div className="min-h-screen px-10 text-foreground font-[MedievalSharp]">
+    <div className="min-h-screen px-10 text-foreground font-[MedievalSharp] ">
       {isNextPage ? (
         <CharacterSheetBack onPageChange={handlePageChange} />
       ) : (
