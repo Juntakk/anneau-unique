@@ -1,22 +1,22 @@
-import AttributesSection from "./attribute-section";
-import CombatStatsSection from "./combat-stats-section";
-import CompetencesSection from "./competences-section";
-import EquipmentSection from "./equipment-section";
-import IdentitySection from "./identity-section";
-import MainCirclesSection from "./main-circles-section";
-import PageNavigation from "./page-navigation";
-import TraitsSection from "./traits-section";
-import WeaponsSection from "./weapons-section";
+import { useName } from '@/providers/useName';
+import AttributesSection from './attribute-section';
+import CombatStatsSection from './combat-stats-section';
+import CompetencesSection from './competences-section';
+import EquipmentSection from './equipment-section';
+import IdentitySection from './identity-section';
+import MainCirclesSection from './main-circles-section';
+import PageNavigation from './page-navigation';
+import TraitsSection from './traits-section';
+import WeaponsSection from './weapons-section';
 
 interface CharacterSheetFrontProps {
-  name: string;
   onPageChange: () => void;
 }
 
 export default function CharacterSheetFront({
-  name,
   onPageChange,
 }: CharacterSheetFrontProps) {
+  const name = useName();
   return (
     <>
       {/* Identity and Main Stats */}

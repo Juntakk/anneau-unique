@@ -1,22 +1,26 @@
+'use client';
+
 interface FormFieldProps {
   label: string;
+  value: string;
+  onChange: (value: string) => void;
   className?: string;
-  minWidth?: string;
 }
 
 export default function FormField({
   label,
-  className = "",
-  minWidth = "12rem",
+  value,
+  onChange,
+  className = '',
 }: FormFieldProps) {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
-      <label className={`min-w-[${minWidth}] text-base font-medium`}>
-        {label}
-      </label>
+      <label className="w-[200px] text-lg font-medium">{label}</label>
       <input
         type="text"
-        className="border-b border-black w-full bg-transparent outline-none"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="border-b border-black w-full bg-transparent outline-none text-xl"
       />
     </div>
   );

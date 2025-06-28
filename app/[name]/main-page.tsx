@@ -1,13 +1,9 @@
-"use client";
-import { useState } from "react";
-import CharacterSheetBack from "./components/character-sheet/character-sheet-back";
-import CharacterSheetFront from "./components/character-sheet/character-sheet-front";
+'use client';
+import { useState } from 'react';
+import CharacterSheetBack from './components/character-sheet/character-sheet-back';
+import CharacterSheetFront from './components/character-sheet/character-sheet-front';
 
-type MainPageProps = {
-  name: string;
-};
-
-const MainPage = ({ name }: MainPageProps) => {
+const MainPage = () => {
   const [isNextPage, setIsNextPage] = useState(false);
 
   function handlePageChange() {
@@ -18,7 +14,7 @@ const MainPage = ({ name }: MainPageProps) => {
   function scrollToTop() {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   }
 
@@ -27,7 +23,7 @@ const MainPage = ({ name }: MainPageProps) => {
       {isNextPage ? (
         <CharacterSheetBack onPageChange={handlePageChange} />
       ) : (
-        <CharacterSheetFront name={name} onPageChange={handlePageChange} />
+        <CharacterSheetFront onPageChange={handlePageChange} />
       )}
     </div>
   );

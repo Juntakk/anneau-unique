@@ -82,7 +82,7 @@ model User {
   prestige            String
 
   origine             String
-  guide               String
+  guide               String @default("Yo mama")
   eclaireur           String
   chasseur            String
   guetteur            String
