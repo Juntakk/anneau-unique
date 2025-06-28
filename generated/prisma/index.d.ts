@@ -14,15 +14,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Player
+ * Model User
  * 
  */
-export type Player = $Result.DefaultSelection<Prisma.$PlayerPayload>
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model PlayerInfo
+ * Model Weapon
  * 
  */
-export type PlayerInfo = $Result.DefaultSelection<Prisma.$PlayerInfoPayload>
+export type Weapon = $Result.DefaultSelection<Prisma.$WeaponPayload>
+/**
+ * Model Equipment
+ * 
+ */
+export type Equipment = $Result.DefaultSelection<Prisma.$EquipmentPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -31,8 +36,8 @@ export type PlayerInfo = $Result.DefaultSelection<Prisma.$PlayerInfoPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Players
- * const players = await prisma.player.findMany()
+ * // Fetch zero or more Users
+ * const users = await prisma.user.findMany()
  * ```
  *
  *
@@ -52,8 +57,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Players
-   * const players = await prisma.player.findMany()
+   * // Fetch zero or more Users
+   * const users = await prisma.user.findMany()
    * ```
    *
    *
@@ -150,24 +155,34 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.player`: Exposes CRUD operations for the **Player** model.
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Players
-    * const players = await prisma.player.findMany()
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
     * ```
     */
-  get player(): Prisma.PlayerDelegate<ExtArgs, ClientOptions>;
+  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.playerInfo`: Exposes CRUD operations for the **PlayerInfo** model.
+   * `prisma.weapon`: Exposes CRUD operations for the **Weapon** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more PlayerInfos
-    * const playerInfos = await prisma.playerInfo.findMany()
+    * // Fetch zero or more Weapons
+    * const weapons = await prisma.weapon.findMany()
     * ```
     */
-  get playerInfo(): Prisma.PlayerInfoDelegate<ExtArgs, ClientOptions>;
+  get weapon(): Prisma.WeaponDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.equipment`: Exposes CRUD operations for the **Equipment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Equipment
+    * const equipment = await prisma.equipment.findMany()
+    * ```
+    */
+  get equipment(): Prisma.EquipmentDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -608,8 +623,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Player: 'Player',
-    PlayerInfo: 'PlayerInfo'
+    User: 'User',
+    Weapon: 'Weapon',
+    Equipment: 'Equipment'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,155 +644,229 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "player" | "playerInfo"
+      modelProps: "user" | "weapon" | "equipment"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Player: {
-        payload: Prisma.$PlayerPayload<ExtArgs>
-        fields: Prisma.PlayerFieldRefs
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PlayerFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload> | null
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PlayerFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           findFirst: {
-            args: Prisma.PlayerFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload> | null
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PlayerFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           findMany: {
-            args: Prisma.PlayerFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>[]
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
           }
           create: {
-            args: Prisma.PlayerCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           createMany: {
-            args: Prisma.PlayerCreateManyArgs<ExtArgs>
+            args: Prisma.UserCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PlayerCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>[]
+            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
           }
           delete: {
-            args: Prisma.PlayerDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           update: {
-            args: Prisma.PlayerUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           deleteMany: {
-            args: Prisma.PlayerDeleteManyArgs<ExtArgs>
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PlayerUpdateManyArgs<ExtArgs>
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PlayerUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>[]
+            args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
           }
           upsert: {
-            args: Prisma.PlayerUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerPayload>
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           aggregate: {
-            args: Prisma.PlayerAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePlayer>
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
           }
           groupBy: {
-            args: Prisma.PlayerGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PlayerGroupByOutputType>[]
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PlayerCountArgs<ExtArgs>
-            result: $Utils.Optional<PlayerCountAggregateOutputType> | number
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
           }
         }
       }
-      PlayerInfo: {
-        payload: Prisma.$PlayerInfoPayload<ExtArgs>
-        fields: Prisma.PlayerInfoFieldRefs
+      Weapon: {
+        payload: Prisma.$WeaponPayload<ExtArgs>
+        fields: Prisma.WeaponFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PlayerInfoFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload> | null
+            args: Prisma.WeaponFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PlayerInfoFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>
+            args: Prisma.WeaponFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>
           }
           findFirst: {
-            args: Prisma.PlayerInfoFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload> | null
+            args: Prisma.WeaponFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PlayerInfoFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>
+            args: Prisma.WeaponFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>
           }
           findMany: {
-            args: Prisma.PlayerInfoFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>[]
+            args: Prisma.WeaponFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>[]
           }
           create: {
-            args: Prisma.PlayerInfoCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>
+            args: Prisma.WeaponCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>
           }
           createMany: {
-            args: Prisma.PlayerInfoCreateManyArgs<ExtArgs>
+            args: Prisma.WeaponCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PlayerInfoCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>[]
+            args: Prisma.WeaponCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>[]
           }
           delete: {
-            args: Prisma.PlayerInfoDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>
+            args: Prisma.WeaponDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>
           }
           update: {
-            args: Prisma.PlayerInfoUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>
+            args: Prisma.WeaponUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>
           }
           deleteMany: {
-            args: Prisma.PlayerInfoDeleteManyArgs<ExtArgs>
+            args: Prisma.WeaponDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PlayerInfoUpdateManyArgs<ExtArgs>
+            args: Prisma.WeaponUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PlayerInfoUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>[]
+            args: Prisma.WeaponUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>[]
           }
           upsert: {
-            args: Prisma.PlayerInfoUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PlayerInfoPayload>
+            args: Prisma.WeaponUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeaponPayload>
           }
           aggregate: {
-            args: Prisma.PlayerInfoAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePlayerInfo>
+            args: Prisma.WeaponAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWeapon>
           }
           groupBy: {
-            args: Prisma.PlayerInfoGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PlayerInfoGroupByOutputType>[]
+            args: Prisma.WeaponGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WeaponGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PlayerInfoCountArgs<ExtArgs>
-            result: $Utils.Optional<PlayerInfoCountAggregateOutputType> | number
+            args: Prisma.WeaponCountArgs<ExtArgs>
+            result: $Utils.Optional<WeaponCountAggregateOutputType> | number
+          }
+        }
+      }
+      Equipment: {
+        payload: Prisma.$EquipmentPayload<ExtArgs>
+        fields: Prisma.EquipmentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EquipmentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EquipmentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>
+          }
+          findFirst: {
+            args: Prisma.EquipmentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EquipmentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>
+          }
+          findMany: {
+            args: Prisma.EquipmentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>[]
+          }
+          create: {
+            args: Prisma.EquipmentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>
+          }
+          createMany: {
+            args: Prisma.EquipmentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.EquipmentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>[]
+          }
+          delete: {
+            args: Prisma.EquipmentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>
+          }
+          update: {
+            args: Prisma.EquipmentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>
+          }
+          deleteMany: {
+            args: Prisma.EquipmentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EquipmentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.EquipmentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>[]
+          }
+          upsert: {
+            args: Prisma.EquipmentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EquipmentPayload>
+          }
+          aggregate: {
+            args: Prisma.EquipmentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEquipment>
+          }
+          groupBy: {
+            args: Prisma.EquipmentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EquipmentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EquipmentCountArgs<ExtArgs>
+            result: $Utils.Optional<EquipmentCountAggregateOutputType> | number
           }
         }
       }
@@ -864,8 +954,9 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    player?: PlayerOmit
-    playerInfo?: PlayerInfoOmit
+    user?: UserOmit
+    weapon?: WeaponOmit
+    equipment?: EquipmentOmit
   }
 
   /* Types for Logging */
@@ -956,33 +1047,42 @@ export namespace Prisma {
 
 
   /**
-   * Count Type PlayerCountOutputType
+   * Count Type UserCountOutputType
    */
 
-  export type PlayerCountOutputType = {
-    PlayerInfo: number
+  export type UserCountOutputType = {
+    armes: number
+    equipements: number
   }
 
-  export type PlayerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    PlayerInfo?: boolean | PlayerCountOutputTypeCountPlayerInfoArgs
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    armes?: boolean | UserCountOutputTypeCountArmesArgs
+    equipements?: boolean | UserCountOutputTypeCountEquipementsArgs
   }
 
   // Custom InputTypes
   /**
-   * PlayerCountOutputType without action
+   * UserCountOutputType without action
    */
-  export type PlayerCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerCountOutputType
+     * Select specific fields to fetch from the UserCountOutputType
      */
-    select?: PlayerCountOutputTypeSelect<ExtArgs> | null
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * PlayerCountOutputType without action
+   * UserCountOutputType without action
    */
-  export type PlayerCountOutputTypeCountPlayerInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlayerInfoWhereInput
+  export type UserCountOutputTypeCountArmesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WeaponWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountEquipementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EquipmentWhereInput
   }
 
 
@@ -991,1344 +1091,1335 @@ export namespace Prisma {
    */
 
   /**
-   * Model Player
+   * Model User
    */
 
-  export type AggregatePlayer = {
-    _count: PlayerCountAggregateOutputType | null
-    _min: PlayerMinAggregateOutputType | null
-    _max: PlayerMaxAggregateOutputType | null
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
   }
 
-  export type PlayerMinAggregateOutputType = {
+  export type UserAvgAggregateOutputType = {
+    experience: number | null
+    experience_totale: number | null
+    vaillance: number | null
+    sagesse: number | null
+    corps: number | null
+    corps_ameliore: number | null
+    coeur: number | null
+    coeur_ameliore: number | null
+    esprit: number | null
+    esprit_ameliore: number | null
+    presence: number | null
+    athletisme: number | null
+    vigilance: number | null
+    exploration: number | null
+    chant: number | null
+    artisanat: number | null
+    inspiration: number | null
+    voyage: number | null
+    intuition: number | null
+    guerison: number | null
+    courtoisie: number | null
+    art_de_la_guerre: number | null
+    persuasion: number | null
+    discretion: number | null
+    fouille: number | null
+    chasse: number | null
+    enigmes: number | null
+    connaissances: number | null
+    personnalite: number | null
+    deplacement: number | null
+    perception: number | null
+    survie: number | null
+    coutume: number | null
+    metier: number | null
+    bonus_degats: number | null
+    bonus_degats_distance: number | null
+    parade: number | null
+    bouclier: number | null
+  }
+
+  export type UserSumAggregateOutputType = {
+    experience: number | null
+    experience_totale: number | null
+    vaillance: number | null
+    sagesse: number | null
+    corps: number | null
+    corps_ameliore: number | null
+    coeur: number | null
+    coeur_ameliore: number | null
+    esprit: number | null
+    esprit_ameliore: number | null
+    presence: number | null
+    athletisme: number | null
+    vigilance: number | null
+    exploration: number | null
+    chant: number | null
+    artisanat: number | null
+    inspiration: number | null
+    voyage: number | null
+    intuition: number | null
+    guerison: number | null
+    courtoisie: number | null
+    art_de_la_guerre: number | null
+    persuasion: number | null
+    discretion: number | null
+    fouille: number | null
+    chasse: number | null
+    enigmes: number | null
+    connaissances: number | null
+    personnalite: number | null
+    deplacement: number | null
+    perception: number | null
+    survie: number | null
+    coutume: number | null
+    metier: number | null
+    bonus_degats: number | null
+    bonus_degats_distance: number | null
+    parade: number | null
+    bouclier: number | null
+  }
+
+  export type UserMinAggregateOutputType = {
     id: string | null
-  }
-
-  export type PlayerMaxAggregateOutputType = {
-    id: string | null
-  }
-
-  export type PlayerCountAggregateOutputType = {
-    id: number
-    _all: number
-  }
-
-
-  export type PlayerMinAggregateInputType = {
-    id?: true
-  }
-
-  export type PlayerMaxAggregateInputType = {
-    id?: true
-  }
-
-  export type PlayerCountAggregateInputType = {
-    id?: true
-    _all?: true
-  }
-
-  export type PlayerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Player to aggregate.
-     */
-    where?: PlayerWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Players to fetch.
-     */
-    orderBy?: PlayerOrderByWithRelationInput | PlayerOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: PlayerWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Players from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Players.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Players
-    **/
-    _count?: true | PlayerCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: PlayerMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: PlayerMaxAggregateInputType
-  }
-
-  export type GetPlayerAggregateType<T extends PlayerAggregateArgs> = {
-        [P in keyof T & keyof AggregatePlayer]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregatePlayer[P]>
-      : GetScalarType<T[P], AggregatePlayer[P]>
-  }
-
-
-
-
-  export type PlayerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlayerWhereInput
-    orderBy?: PlayerOrderByWithAggregationInput | PlayerOrderByWithAggregationInput[]
-    by: PlayerScalarFieldEnum[] | PlayerScalarFieldEnum
-    having?: PlayerScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: PlayerCountAggregateInputType | true
-    _min?: PlayerMinAggregateInputType
-    _max?: PlayerMaxAggregateInputType
-  }
-
-  export type PlayerGroupByOutputType = {
-    id: string
-    _count: PlayerCountAggregateOutputType | null
-    _min: PlayerMinAggregateOutputType | null
-    _max: PlayerMaxAggregateOutputType | null
-  }
-
-  type GetPlayerGroupByPayload<T extends PlayerGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<PlayerGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof PlayerGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], PlayerGroupByOutputType[P]>
-            : GetScalarType<T[P], PlayerGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type PlayerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    PlayerInfo?: boolean | Player$PlayerInfoArgs<ExtArgs>
-    _count?: boolean | PlayerCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["player"]>
-
-  export type PlayerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-  }, ExtArgs["result"]["player"]>
-
-  export type PlayerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-  }, ExtArgs["result"]["player"]>
-
-  export type PlayerSelectScalar = {
-    id?: boolean
-  }
-
-  export type PlayerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id", ExtArgs["result"]["player"]>
-  export type PlayerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    PlayerInfo?: boolean | Player$PlayerInfoArgs<ExtArgs>
-    _count?: boolean | PlayerCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type PlayerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type PlayerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-
-  export type $PlayerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Player"
-    objects: {
-      PlayerInfo: Prisma.$PlayerInfoPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-    }, ExtArgs["result"]["player"]>
-    composites: {}
-  }
-
-  type PlayerGetPayload<S extends boolean | null | undefined | PlayerDefaultArgs> = $Result.GetResult<Prisma.$PlayerPayload, S>
-
-  type PlayerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PlayerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PlayerCountAggregateInputType | true
-    }
-
-  export interface PlayerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Player'], meta: { name: 'Player' } }
-    /**
-     * Find zero or one Player that matches the filter.
-     * @param {PlayerFindUniqueArgs} args - Arguments to find a Player
-     * @example
-     * // Get one Player
-     * const player = await prisma.player.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends PlayerFindUniqueArgs>(args: SelectSubset<T, PlayerFindUniqueArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Player that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {PlayerFindUniqueOrThrowArgs} args - Arguments to find a Player
-     * @example
-     * // Get one Player
-     * const player = await prisma.player.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends PlayerFindUniqueOrThrowArgs>(args: SelectSubset<T, PlayerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Player that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerFindFirstArgs} args - Arguments to find a Player
-     * @example
-     * // Get one Player
-     * const player = await prisma.player.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends PlayerFindFirstArgs>(args?: SelectSubset<T, PlayerFindFirstArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Player that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerFindFirstOrThrowArgs} args - Arguments to find a Player
-     * @example
-     * // Get one Player
-     * const player = await prisma.player.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends PlayerFindFirstOrThrowArgs>(args?: SelectSubset<T, PlayerFindFirstOrThrowArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Players that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Players
-     * const players = await prisma.player.findMany()
-     * 
-     * // Get first 10 Players
-     * const players = await prisma.player.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const playerWithIdOnly = await prisma.player.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends PlayerFindManyArgs>(args?: SelectSubset<T, PlayerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Player.
-     * @param {PlayerCreateArgs} args - Arguments to create a Player.
-     * @example
-     * // Create one Player
-     * const Player = await prisma.player.create({
-     *   data: {
-     *     // ... data to create a Player
-     *   }
-     * })
-     * 
-     */
-    create<T extends PlayerCreateArgs>(args: SelectSubset<T, PlayerCreateArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Players.
-     * @param {PlayerCreateManyArgs} args - Arguments to create many Players.
-     * @example
-     * // Create many Players
-     * const player = await prisma.player.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends PlayerCreateManyArgs>(args?: SelectSubset<T, PlayerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Players and returns the data saved in the database.
-     * @param {PlayerCreateManyAndReturnArgs} args - Arguments to create many Players.
-     * @example
-     * // Create many Players
-     * const player = await prisma.player.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Players and only return the `id`
-     * const playerWithIdOnly = await prisma.player.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PlayerCreateManyAndReturnArgs>(args?: SelectSubset<T, PlayerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Player.
-     * @param {PlayerDeleteArgs} args - Arguments to delete one Player.
-     * @example
-     * // Delete one Player
-     * const Player = await prisma.player.delete({
-     *   where: {
-     *     // ... filter to delete one Player
-     *   }
-     * })
-     * 
-     */
-    delete<T extends PlayerDeleteArgs>(args: SelectSubset<T, PlayerDeleteArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Player.
-     * @param {PlayerUpdateArgs} args - Arguments to update one Player.
-     * @example
-     * // Update one Player
-     * const player = await prisma.player.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends PlayerUpdateArgs>(args: SelectSubset<T, PlayerUpdateArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Players.
-     * @param {PlayerDeleteManyArgs} args - Arguments to filter Players to delete.
-     * @example
-     * // Delete a few Players
-     * const { count } = await prisma.player.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends PlayerDeleteManyArgs>(args?: SelectSubset<T, PlayerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Players.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Players
-     * const player = await prisma.player.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends PlayerUpdateManyArgs>(args: SelectSubset<T, PlayerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Players and returns the data updated in the database.
-     * @param {PlayerUpdateManyAndReturnArgs} args - Arguments to update many Players.
-     * @example
-     * // Update many Players
-     * const player = await prisma.player.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Players and only return the `id`
-     * const playerWithIdOnly = await prisma.player.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends PlayerUpdateManyAndReturnArgs>(args: SelectSubset<T, PlayerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Player.
-     * @param {PlayerUpsertArgs} args - Arguments to update or create a Player.
-     * @example
-     * // Update or create a Player
-     * const player = await prisma.player.upsert({
-     *   create: {
-     *     // ... data to create a Player
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Player we want to update
-     *   }
-     * })
-     */
-    upsert<T extends PlayerUpsertArgs>(args: SelectSubset<T, PlayerUpsertArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Players.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerCountArgs} args - Arguments to filter Players to count.
-     * @example
-     * // Count the number of Players
-     * const count = await prisma.player.count({
-     *   where: {
-     *     // ... the filter for the Players we want to count
-     *   }
-     * })
-    **/
-    count<T extends PlayerCountArgs>(
-      args?: Subset<T, PlayerCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], PlayerCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Player.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends PlayerAggregateArgs>(args: Subset<T, PlayerAggregateArgs>): Prisma.PrismaPromise<GetPlayerAggregateType<T>>
-
-    /**
-     * Group by Player.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends PlayerGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PlayerGroupByArgs['orderBy'] }
-        : { orderBy?: PlayerGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, PlayerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlayerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Player model
-   */
-  readonly fields: PlayerFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Player.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__PlayerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    PlayerInfo<T extends Player$PlayerInfoArgs<ExtArgs> = {}>(args?: Subset<T, Player$PlayerInfoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Player model
-   */
-  interface PlayerFieldRefs {
-    readonly id: FieldRef<"Player", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Player findUnique
-   */
-  export type PlayerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * Filter, which Player to fetch.
-     */
-    where: PlayerWhereUniqueInput
-  }
-
-  /**
-   * Player findUniqueOrThrow
-   */
-  export type PlayerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * Filter, which Player to fetch.
-     */
-    where: PlayerWhereUniqueInput
-  }
-
-  /**
-   * Player findFirst
-   */
-  export type PlayerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * Filter, which Player to fetch.
-     */
-    where?: PlayerWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Players to fetch.
-     */
-    orderBy?: PlayerOrderByWithRelationInput | PlayerOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Players.
-     */
-    cursor?: PlayerWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Players from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Players.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Players.
-     */
-    distinct?: PlayerScalarFieldEnum | PlayerScalarFieldEnum[]
-  }
-
-  /**
-   * Player findFirstOrThrow
-   */
-  export type PlayerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * Filter, which Player to fetch.
-     */
-    where?: PlayerWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Players to fetch.
-     */
-    orderBy?: PlayerOrderByWithRelationInput | PlayerOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Players.
-     */
-    cursor?: PlayerWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Players from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Players.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Players.
-     */
-    distinct?: PlayerScalarFieldEnum | PlayerScalarFieldEnum[]
-  }
-
-  /**
-   * Player findMany
-   */
-  export type PlayerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * Filter, which Players to fetch.
-     */
-    where?: PlayerWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Players to fetch.
-     */
-    orderBy?: PlayerOrderByWithRelationInput | PlayerOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Players.
-     */
-    cursor?: PlayerWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Players from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Players.
-     */
-    skip?: number
-    distinct?: PlayerScalarFieldEnum | PlayerScalarFieldEnum[]
-  }
-
-  /**
-   * Player create
-   */
-  export type PlayerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Player.
-     */
-    data: XOR<PlayerCreateInput, PlayerUncheckedCreateInput>
-  }
-
-  /**
-   * Player createMany
-   */
-  export type PlayerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Players.
-     */
-    data: PlayerCreateManyInput | PlayerCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Player createManyAndReturn
-   */
-  export type PlayerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * The data used to create many Players.
-     */
-    data: PlayerCreateManyInput | PlayerCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Player update
-   */
-  export type PlayerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Player.
-     */
-    data: XOR<PlayerUpdateInput, PlayerUncheckedUpdateInput>
-    /**
-     * Choose, which Player to update.
-     */
-    where: PlayerWhereUniqueInput
-  }
-
-  /**
-   * Player updateMany
-   */
-  export type PlayerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Players.
-     */
-    data: XOR<PlayerUpdateManyMutationInput, PlayerUncheckedUpdateManyInput>
-    /**
-     * Filter which Players to update
-     */
-    where?: PlayerWhereInput
-    /**
-     * Limit how many Players to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Player updateManyAndReturn
-   */
-  export type PlayerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * The data used to update Players.
-     */
-    data: XOR<PlayerUpdateManyMutationInput, PlayerUncheckedUpdateManyInput>
-    /**
-     * Filter which Players to update
-     */
-    where?: PlayerWhereInput
-    /**
-     * Limit how many Players to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Player upsert
-   */
-  export type PlayerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Player to update in case it exists.
-     */
-    where: PlayerWhereUniqueInput
-    /**
-     * In case the Player found by the `where` argument doesn't exist, create a new Player with this data.
-     */
-    create: XOR<PlayerCreateInput, PlayerUncheckedCreateInput>
-    /**
-     * In case the Player was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<PlayerUpdateInput, PlayerUncheckedUpdateInput>
-  }
-
-  /**
-   * Player delete
-   */
-  export type PlayerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-    /**
-     * Filter which Player to delete.
-     */
-    where: PlayerWhereUniqueInput
-  }
-
-  /**
-   * Player deleteMany
-   */
-  export type PlayerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Players to delete
-     */
-    where?: PlayerWhereInput
-    /**
-     * Limit how many Players to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Player.PlayerInfo
-   */
-  export type Player$PlayerInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PlayerInfo
-     */
-    select?: PlayerInfoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PlayerInfo
-     */
-    omit?: PlayerInfoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInfoInclude<ExtArgs> | null
-    where?: PlayerInfoWhereInput
-    orderBy?: PlayerInfoOrderByWithRelationInput | PlayerInfoOrderByWithRelationInput[]
-    cursor?: PlayerInfoWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PlayerInfoScalarFieldEnum | PlayerInfoScalarFieldEnum[]
-  }
-
-  /**
-   * Player without action
-   */
-  export type PlayerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Player
-     */
-    select?: PlayerSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Player
-     */
-    omit?: PlayerOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayerInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model PlayerInfo
-   */
-
-  export type AggregatePlayerInfo = {
-    _count: PlayerInfoCountAggregateOutputType | null
-    _min: PlayerInfoMinAggregateOutputType | null
-    _max: PlayerInfoMaxAggregateOutputType | null
-  }
-
-  export type PlayerInfoMinAggregateOutputType = {
-    id: string | null
-    playerId: string | null
+    nom: string | null
     culture: string | null
+    niveau_de_vie: string | null
+    avantage_culturel: string | null
+    vocation: string | null
+    part_ombre: string | null
+    specialites: string | null
+    particularite: string | null
+    experience: number | null
+    experience_totale: number | null
+    vaillance: number | null
+    sagesse: number | null
+    corps: number | null
+    corps_ameliore: number | null
+    coeur: number | null
+    coeur_ameliore: number | null
+    esprit: number | null
+    esprit_ameliore: number | null
+    presence: number | null
+    athletisme: number | null
+    vigilance: number | null
+    exploration: number | null
+    chant: number | null
+    artisanat: number | null
+    inspiration: number | null
+    voyage: number | null
+    intuition: number | null
+    guerison: number | null
+    courtoisie: number | null
+    art_de_la_guerre: number | null
+    persuasion: number | null
+    discretion: number | null
+    fouille: number | null
+    chasse: number | null
+    enigmes: number | null
+    connaissances: number | null
+    personnalite: number | null
+    deplacement: number | null
+    perception: number | null
+    survie: number | null
+    coutume: number | null
+    metier: number | null
+    bonus_degats: number | null
+    bonus_degats_distance: number | null
+    parade: number | null
+    bouclier: number | null
+    armure_1: string | null
+    casque_1: string | null
+    endurance: string | null
+    endurance_depart: string | null
+    fatigue: string | null
+    espoir: string | null
+    espoir_depart: string | null
+    ombre: string | null
+    epuisement: boolean | null
+    melancolie: boolean | null
+    blesse: boolean | null
+    communaute: string | null
+    points_progression: string | null
+    tresors: string | null
+    prestige: string | null
+    origine: string | null
+    guide: string | null
+    eclaireur: string | null
+    chasseur: string | null
+    guetteur: string | null
+    lien_communaute: string | null
+    sanctuaires: string | null
+    garant: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type PlayerInfoMaxAggregateOutputType = {
+  export type UserMaxAggregateOutputType = {
     id: string | null
-    playerId: string | null
+    nom: string | null
     culture: string | null
+    niveau_de_vie: string | null
+    avantage_culturel: string | null
+    vocation: string | null
+    part_ombre: string | null
+    specialites: string | null
+    particularite: string | null
+    experience: number | null
+    experience_totale: number | null
+    vaillance: number | null
+    sagesse: number | null
+    corps: number | null
+    corps_ameliore: number | null
+    coeur: number | null
+    coeur_ameliore: number | null
+    esprit: number | null
+    esprit_ameliore: number | null
+    presence: number | null
+    athletisme: number | null
+    vigilance: number | null
+    exploration: number | null
+    chant: number | null
+    artisanat: number | null
+    inspiration: number | null
+    voyage: number | null
+    intuition: number | null
+    guerison: number | null
+    courtoisie: number | null
+    art_de_la_guerre: number | null
+    persuasion: number | null
+    discretion: number | null
+    fouille: number | null
+    chasse: number | null
+    enigmes: number | null
+    connaissances: number | null
+    personnalite: number | null
+    deplacement: number | null
+    perception: number | null
+    survie: number | null
+    coutume: number | null
+    metier: number | null
+    bonus_degats: number | null
+    bonus_degats_distance: number | null
+    parade: number | null
+    bouclier: number | null
+    armure_1: string | null
+    casque_1: string | null
+    endurance: string | null
+    endurance_depart: string | null
+    fatigue: string | null
+    espoir: string | null
+    espoir_depart: string | null
+    ombre: string | null
+    epuisement: boolean | null
+    melancolie: boolean | null
+    blesse: boolean | null
+    communaute: string | null
+    points_progression: string | null
+    tresors: string | null
+    prestige: string | null
+    origine: string | null
+    guide: string | null
+    eclaireur: string | null
+    chasseur: string | null
+    guetteur: string | null
+    lien_communaute: string | null
+    sanctuaires: string | null
+    garant: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type PlayerInfoCountAggregateOutputType = {
+  export type UserCountAggregateOutputType = {
     id: number
-    playerId: number
+    nom: number
     culture: number
+    niveau_de_vie: number
+    avantage_culturel: number
+    vocation: number
+    part_ombre: number
+    specialites: number
+    particularite: number
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: number
+    casque_1: number
+    endurance: number
+    endurance_depart: number
+    fatigue: number
+    espoir: number
+    espoir_depart: number
+    ombre: number
+    epuisement: number
+    melancolie: number
+    blesse: number
+    communaute: number
+    points_progression: number
+    tresors: number
+    prestige: number
+    origine: number
+    guide: number
+    eclaireur: number
+    chasseur: number
+    guetteur: number
+    lien_communaute: number
+    sanctuaires: number
+    garant: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type PlayerInfoMinAggregateInputType = {
-    id?: true
-    playerId?: true
-    culture?: true
+  export type UserAvgAggregateInputType = {
+    experience?: true
+    experience_totale?: true
+    vaillance?: true
+    sagesse?: true
+    corps?: true
+    corps_ameliore?: true
+    coeur?: true
+    coeur_ameliore?: true
+    esprit?: true
+    esprit_ameliore?: true
+    presence?: true
+    athletisme?: true
+    vigilance?: true
+    exploration?: true
+    chant?: true
+    artisanat?: true
+    inspiration?: true
+    voyage?: true
+    intuition?: true
+    guerison?: true
+    courtoisie?: true
+    art_de_la_guerre?: true
+    persuasion?: true
+    discretion?: true
+    fouille?: true
+    chasse?: true
+    enigmes?: true
+    connaissances?: true
+    personnalite?: true
+    deplacement?: true
+    perception?: true
+    survie?: true
+    coutume?: true
+    metier?: true
+    bonus_degats?: true
+    bonus_degats_distance?: true
+    parade?: true
+    bouclier?: true
   }
 
-  export type PlayerInfoMaxAggregateInputType = {
-    id?: true
-    playerId?: true
-    culture?: true
+  export type UserSumAggregateInputType = {
+    experience?: true
+    experience_totale?: true
+    vaillance?: true
+    sagesse?: true
+    corps?: true
+    corps_ameliore?: true
+    coeur?: true
+    coeur_ameliore?: true
+    esprit?: true
+    esprit_ameliore?: true
+    presence?: true
+    athletisme?: true
+    vigilance?: true
+    exploration?: true
+    chant?: true
+    artisanat?: true
+    inspiration?: true
+    voyage?: true
+    intuition?: true
+    guerison?: true
+    courtoisie?: true
+    art_de_la_guerre?: true
+    persuasion?: true
+    discretion?: true
+    fouille?: true
+    chasse?: true
+    enigmes?: true
+    connaissances?: true
+    personnalite?: true
+    deplacement?: true
+    perception?: true
+    survie?: true
+    coutume?: true
+    metier?: true
+    bonus_degats?: true
+    bonus_degats_distance?: true
+    parade?: true
+    bouclier?: true
   }
 
-  export type PlayerInfoCountAggregateInputType = {
+  export type UserMinAggregateInputType = {
     id?: true
-    playerId?: true
+    nom?: true
     culture?: true
+    niveau_de_vie?: true
+    avantage_culturel?: true
+    vocation?: true
+    part_ombre?: true
+    specialites?: true
+    particularite?: true
+    experience?: true
+    experience_totale?: true
+    vaillance?: true
+    sagesse?: true
+    corps?: true
+    corps_ameliore?: true
+    coeur?: true
+    coeur_ameliore?: true
+    esprit?: true
+    esprit_ameliore?: true
+    presence?: true
+    athletisme?: true
+    vigilance?: true
+    exploration?: true
+    chant?: true
+    artisanat?: true
+    inspiration?: true
+    voyage?: true
+    intuition?: true
+    guerison?: true
+    courtoisie?: true
+    art_de_la_guerre?: true
+    persuasion?: true
+    discretion?: true
+    fouille?: true
+    chasse?: true
+    enigmes?: true
+    connaissances?: true
+    personnalite?: true
+    deplacement?: true
+    perception?: true
+    survie?: true
+    coutume?: true
+    metier?: true
+    bonus_degats?: true
+    bonus_degats_distance?: true
+    parade?: true
+    bouclier?: true
+    armure_1?: true
+    casque_1?: true
+    endurance?: true
+    endurance_depart?: true
+    fatigue?: true
+    espoir?: true
+    espoir_depart?: true
+    ombre?: true
+    epuisement?: true
+    melancolie?: true
+    blesse?: true
+    communaute?: true
+    points_progression?: true
+    tresors?: true
+    prestige?: true
+    origine?: true
+    guide?: true
+    eclaireur?: true
+    chasseur?: true
+    guetteur?: true
+    lien_communaute?: true
+    sanctuaires?: true
+    garant?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserMaxAggregateInputType = {
+    id?: true
+    nom?: true
+    culture?: true
+    niveau_de_vie?: true
+    avantage_culturel?: true
+    vocation?: true
+    part_ombre?: true
+    specialites?: true
+    particularite?: true
+    experience?: true
+    experience_totale?: true
+    vaillance?: true
+    sagesse?: true
+    corps?: true
+    corps_ameliore?: true
+    coeur?: true
+    coeur_ameliore?: true
+    esprit?: true
+    esprit_ameliore?: true
+    presence?: true
+    athletisme?: true
+    vigilance?: true
+    exploration?: true
+    chant?: true
+    artisanat?: true
+    inspiration?: true
+    voyage?: true
+    intuition?: true
+    guerison?: true
+    courtoisie?: true
+    art_de_la_guerre?: true
+    persuasion?: true
+    discretion?: true
+    fouille?: true
+    chasse?: true
+    enigmes?: true
+    connaissances?: true
+    personnalite?: true
+    deplacement?: true
+    perception?: true
+    survie?: true
+    coutume?: true
+    metier?: true
+    bonus_degats?: true
+    bonus_degats_distance?: true
+    parade?: true
+    bouclier?: true
+    armure_1?: true
+    casque_1?: true
+    endurance?: true
+    endurance_depart?: true
+    fatigue?: true
+    espoir?: true
+    espoir_depart?: true
+    ombre?: true
+    epuisement?: true
+    melancolie?: true
+    blesse?: true
+    communaute?: true
+    points_progression?: true
+    tresors?: true
+    prestige?: true
+    origine?: true
+    guide?: true
+    eclaireur?: true
+    chasseur?: true
+    guetteur?: true
+    lien_communaute?: true
+    sanctuaires?: true
+    garant?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserCountAggregateInputType = {
+    id?: true
+    nom?: true
+    culture?: true
+    niveau_de_vie?: true
+    avantage_culturel?: true
+    vocation?: true
+    part_ombre?: true
+    specialites?: true
+    particularite?: true
+    experience?: true
+    experience_totale?: true
+    vaillance?: true
+    sagesse?: true
+    corps?: true
+    corps_ameliore?: true
+    coeur?: true
+    coeur_ameliore?: true
+    esprit?: true
+    esprit_ameliore?: true
+    presence?: true
+    athletisme?: true
+    vigilance?: true
+    exploration?: true
+    chant?: true
+    artisanat?: true
+    inspiration?: true
+    voyage?: true
+    intuition?: true
+    guerison?: true
+    courtoisie?: true
+    art_de_la_guerre?: true
+    persuasion?: true
+    discretion?: true
+    fouille?: true
+    chasse?: true
+    enigmes?: true
+    connaissances?: true
+    personnalite?: true
+    deplacement?: true
+    perception?: true
+    survie?: true
+    coutume?: true
+    metier?: true
+    bonus_degats?: true
+    bonus_degats_distance?: true
+    parade?: true
+    bouclier?: true
+    armure_1?: true
+    casque_1?: true
+    endurance?: true
+    endurance_depart?: true
+    fatigue?: true
+    espoir?: true
+    espoir_depart?: true
+    ombre?: true
+    epuisement?: true
+    melancolie?: true
+    blesse?: true
+    communaute?: true
+    points_progression?: true
+    tresors?: true
+    prestige?: true
+    origine?: true
+    guide?: true
+    eclaireur?: true
+    chasseur?: true
+    guetteur?: true
+    lien_communaute?: true
+    sanctuaires?: true
+    garant?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type PlayerInfoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PlayerInfo to aggregate.
+     * Filter which User to aggregate.
      */
-    where?: PlayerInfoWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlayerInfos to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: PlayerInfoOrderByWithRelationInput | PlayerInfoOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PlayerInfoWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlayerInfos from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlayerInfos.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned PlayerInfos
+     * Count returned Users
     **/
-    _count?: true | PlayerInfoCountAggregateInputType
+    _count?: true | UserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PlayerInfoMinAggregateInputType
+    _min?: UserMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PlayerInfoMaxAggregateInputType
+    _max?: UserMaxAggregateInputType
   }
 
-  export type GetPlayerInfoAggregateType<T extends PlayerInfoAggregateArgs> = {
-        [P in keyof T & keyof AggregatePlayerInfo]: P extends '_count' | 'count'
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePlayerInfo[P]>
-      : GetScalarType<T[P], AggregatePlayerInfo[P]>
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
   }
 
 
 
 
-  export type PlayerInfoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlayerInfoWhereInput
-    orderBy?: PlayerInfoOrderByWithAggregationInput | PlayerInfoOrderByWithAggregationInput[]
-    by: PlayerInfoScalarFieldEnum[] | PlayerInfoScalarFieldEnum
-    having?: PlayerInfoScalarWhereWithAggregatesInput
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PlayerInfoCountAggregateInputType | true
-    _min?: PlayerInfoMinAggregateInputType
-    _max?: PlayerInfoMaxAggregateInputType
+    _count?: UserCountAggregateInputType | true
+    _avg?: UserAvgAggregateInputType
+    _sum?: UserSumAggregateInputType
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
   }
 
-  export type PlayerInfoGroupByOutputType = {
+  export type UserGroupByOutputType = {
     id: string
-    playerId: string
+    nom: string
     culture: string
-    _count: PlayerInfoCountAggregateOutputType | null
-    _min: PlayerInfoMinAggregateOutputType | null
-    _max: PlayerInfoMaxAggregateOutputType | null
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt: Date
+    updatedAt: Date
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
   }
 
-  type GetPlayerInfoGroupByPayload<T extends PlayerInfoGroupByArgs> = Prisma.PrismaPromise<
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PlayerInfoGroupByOutputType, T['by']> &
+      PickEnumerable<UserGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PlayerInfoGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PlayerInfoGroupByOutputType[P]>
-            : GetScalarType<T[P], PlayerInfoGroupByOutputType[P]>
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PlayerInfoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    playerId?: boolean
+    nom?: boolean
     culture?: boolean
-    player?: boolean | PlayerDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["playerInfo"]>
+    niveau_de_vie?: boolean
+    avantage_culturel?: boolean
+    vocation?: boolean
+    part_ombre?: boolean
+    specialites?: boolean
+    particularite?: boolean
+    experience?: boolean
+    experience_totale?: boolean
+    vaillance?: boolean
+    sagesse?: boolean
+    corps?: boolean
+    corps_ameliore?: boolean
+    coeur?: boolean
+    coeur_ameliore?: boolean
+    esprit?: boolean
+    esprit_ameliore?: boolean
+    presence?: boolean
+    athletisme?: boolean
+    vigilance?: boolean
+    exploration?: boolean
+    chant?: boolean
+    artisanat?: boolean
+    inspiration?: boolean
+    voyage?: boolean
+    intuition?: boolean
+    guerison?: boolean
+    courtoisie?: boolean
+    art_de_la_guerre?: boolean
+    persuasion?: boolean
+    discretion?: boolean
+    fouille?: boolean
+    chasse?: boolean
+    enigmes?: boolean
+    connaissances?: boolean
+    personnalite?: boolean
+    deplacement?: boolean
+    perception?: boolean
+    survie?: boolean
+    coutume?: boolean
+    metier?: boolean
+    bonus_degats?: boolean
+    bonus_degats_distance?: boolean
+    parade?: boolean
+    bouclier?: boolean
+    armure_1?: boolean
+    casque_1?: boolean
+    endurance?: boolean
+    endurance_depart?: boolean
+    fatigue?: boolean
+    espoir?: boolean
+    espoir_depart?: boolean
+    ombre?: boolean
+    epuisement?: boolean
+    melancolie?: boolean
+    blesse?: boolean
+    communaute?: boolean
+    points_progression?: boolean
+    tresors?: boolean
+    prestige?: boolean
+    origine?: boolean
+    guide?: boolean
+    eclaireur?: boolean
+    chasseur?: boolean
+    guetteur?: boolean
+    lien_communaute?: boolean
+    sanctuaires?: boolean
+    garant?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    armes?: boolean | User$armesArgs<ExtArgs>
+    equipements?: boolean | User$equipementsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
 
-  export type PlayerInfoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    playerId?: boolean
+    nom?: boolean
     culture?: boolean
-    player?: boolean | PlayerDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["playerInfo"]>
+    niveau_de_vie?: boolean
+    avantage_culturel?: boolean
+    vocation?: boolean
+    part_ombre?: boolean
+    specialites?: boolean
+    particularite?: boolean
+    experience?: boolean
+    experience_totale?: boolean
+    vaillance?: boolean
+    sagesse?: boolean
+    corps?: boolean
+    corps_ameliore?: boolean
+    coeur?: boolean
+    coeur_ameliore?: boolean
+    esprit?: boolean
+    esprit_ameliore?: boolean
+    presence?: boolean
+    athletisme?: boolean
+    vigilance?: boolean
+    exploration?: boolean
+    chant?: boolean
+    artisanat?: boolean
+    inspiration?: boolean
+    voyage?: boolean
+    intuition?: boolean
+    guerison?: boolean
+    courtoisie?: boolean
+    art_de_la_guerre?: boolean
+    persuasion?: boolean
+    discretion?: boolean
+    fouille?: boolean
+    chasse?: boolean
+    enigmes?: boolean
+    connaissances?: boolean
+    personnalite?: boolean
+    deplacement?: boolean
+    perception?: boolean
+    survie?: boolean
+    coutume?: boolean
+    metier?: boolean
+    bonus_degats?: boolean
+    bonus_degats_distance?: boolean
+    parade?: boolean
+    bouclier?: boolean
+    armure_1?: boolean
+    casque_1?: boolean
+    endurance?: boolean
+    endurance_depart?: boolean
+    fatigue?: boolean
+    espoir?: boolean
+    espoir_depart?: boolean
+    ombre?: boolean
+    epuisement?: boolean
+    melancolie?: boolean
+    blesse?: boolean
+    communaute?: boolean
+    points_progression?: boolean
+    tresors?: boolean
+    prestige?: boolean
+    origine?: boolean
+    guide?: boolean
+    eclaireur?: boolean
+    chasseur?: boolean
+    guetteur?: boolean
+    lien_communaute?: boolean
+    sanctuaires?: boolean
+    garant?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["user"]>
 
-  export type PlayerInfoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    playerId?: boolean
+    nom?: boolean
     culture?: boolean
-    player?: boolean | PlayerDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["playerInfo"]>
+    niveau_de_vie?: boolean
+    avantage_culturel?: boolean
+    vocation?: boolean
+    part_ombre?: boolean
+    specialites?: boolean
+    particularite?: boolean
+    experience?: boolean
+    experience_totale?: boolean
+    vaillance?: boolean
+    sagesse?: boolean
+    corps?: boolean
+    corps_ameliore?: boolean
+    coeur?: boolean
+    coeur_ameliore?: boolean
+    esprit?: boolean
+    esprit_ameliore?: boolean
+    presence?: boolean
+    athletisme?: boolean
+    vigilance?: boolean
+    exploration?: boolean
+    chant?: boolean
+    artisanat?: boolean
+    inspiration?: boolean
+    voyage?: boolean
+    intuition?: boolean
+    guerison?: boolean
+    courtoisie?: boolean
+    art_de_la_guerre?: boolean
+    persuasion?: boolean
+    discretion?: boolean
+    fouille?: boolean
+    chasse?: boolean
+    enigmes?: boolean
+    connaissances?: boolean
+    personnalite?: boolean
+    deplacement?: boolean
+    perception?: boolean
+    survie?: boolean
+    coutume?: boolean
+    metier?: boolean
+    bonus_degats?: boolean
+    bonus_degats_distance?: boolean
+    parade?: boolean
+    bouclier?: boolean
+    armure_1?: boolean
+    casque_1?: boolean
+    endurance?: boolean
+    endurance_depart?: boolean
+    fatigue?: boolean
+    espoir?: boolean
+    espoir_depart?: boolean
+    ombre?: boolean
+    epuisement?: boolean
+    melancolie?: boolean
+    blesse?: boolean
+    communaute?: boolean
+    points_progression?: boolean
+    tresors?: boolean
+    prestige?: boolean
+    origine?: boolean
+    guide?: boolean
+    eclaireur?: boolean
+    chasseur?: boolean
+    guetteur?: boolean
+    lien_communaute?: boolean
+    sanctuaires?: boolean
+    garant?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["user"]>
 
-  export type PlayerInfoSelectScalar = {
+  export type UserSelectScalar = {
     id?: boolean
-    playerId?: boolean
+    nom?: boolean
     culture?: boolean
+    niveau_de_vie?: boolean
+    avantage_culturel?: boolean
+    vocation?: boolean
+    part_ombre?: boolean
+    specialites?: boolean
+    particularite?: boolean
+    experience?: boolean
+    experience_totale?: boolean
+    vaillance?: boolean
+    sagesse?: boolean
+    corps?: boolean
+    corps_ameliore?: boolean
+    coeur?: boolean
+    coeur_ameliore?: boolean
+    esprit?: boolean
+    esprit_ameliore?: boolean
+    presence?: boolean
+    athletisme?: boolean
+    vigilance?: boolean
+    exploration?: boolean
+    chant?: boolean
+    artisanat?: boolean
+    inspiration?: boolean
+    voyage?: boolean
+    intuition?: boolean
+    guerison?: boolean
+    courtoisie?: boolean
+    art_de_la_guerre?: boolean
+    persuasion?: boolean
+    discretion?: boolean
+    fouille?: boolean
+    chasse?: boolean
+    enigmes?: boolean
+    connaissances?: boolean
+    personnalite?: boolean
+    deplacement?: boolean
+    perception?: boolean
+    survie?: boolean
+    coutume?: boolean
+    metier?: boolean
+    bonus_degats?: boolean
+    bonus_degats_distance?: boolean
+    parade?: boolean
+    bouclier?: boolean
+    armure_1?: boolean
+    casque_1?: boolean
+    endurance?: boolean
+    endurance_depart?: boolean
+    fatigue?: boolean
+    espoir?: boolean
+    espoir_depart?: boolean
+    ombre?: boolean
+    epuisement?: boolean
+    melancolie?: boolean
+    blesse?: boolean
+    communaute?: boolean
+    points_progression?: boolean
+    tresors?: boolean
+    prestige?: boolean
+    origine?: boolean
+    guide?: boolean
+    eclaireur?: boolean
+    chasseur?: boolean
+    guetteur?: boolean
+    lien_communaute?: boolean
+    sanctuaires?: boolean
+    garant?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type PlayerInfoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "playerId" | "culture", ExtArgs["result"]["playerInfo"]>
-  export type PlayerInfoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    player?: boolean | PlayerDefaultArgs<ExtArgs>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nom" | "culture" | "niveau_de_vie" | "avantage_culturel" | "vocation" | "part_ombre" | "specialites" | "particularite" | "experience" | "experience_totale" | "vaillance" | "sagesse" | "corps" | "corps_ameliore" | "coeur" | "coeur_ameliore" | "esprit" | "esprit_ameliore" | "presence" | "athletisme" | "vigilance" | "exploration" | "chant" | "artisanat" | "inspiration" | "voyage" | "intuition" | "guerison" | "courtoisie" | "art_de_la_guerre" | "persuasion" | "discretion" | "fouille" | "chasse" | "enigmes" | "connaissances" | "personnalite" | "deplacement" | "perception" | "survie" | "coutume" | "metier" | "bonus_degats" | "bonus_degats_distance" | "parade" | "bouclier" | "armure_1" | "casque_1" | "endurance" | "endurance_depart" | "fatigue" | "espoir" | "espoir_depart" | "ombre" | "epuisement" | "melancolie" | "blesse" | "communaute" | "points_progression" | "tresors" | "prestige" | "origine" | "guide" | "eclaireur" | "chasseur" | "guetteur" | "lien_communaute" | "sanctuaires" | "garant" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    armes?: boolean | User$armesArgs<ExtArgs>
+    equipements?: boolean | User$equipementsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type PlayerInfoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    player?: boolean | PlayerDefaultArgs<ExtArgs>
-  }
-  export type PlayerInfoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    player?: boolean | PlayerDefaultArgs<ExtArgs>
-  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $PlayerInfoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "PlayerInfo"
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
     objects: {
-      player: Prisma.$PlayerPayload<ExtArgs>
+      armes: Prisma.$WeaponPayload<ExtArgs>[]
+      equipements: Prisma.$EquipmentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      playerId: string
+      nom: string
       culture: string
-    }, ExtArgs["result"]["playerInfo"]>
+      niveau_de_vie: string
+      avantage_culturel: string
+      vocation: string
+      part_ombre: string
+      specialites: string
+      particularite: string
+      experience: number
+      experience_totale: number
+      vaillance: number
+      sagesse: number
+      corps: number
+      corps_ameliore: number
+      coeur: number
+      coeur_ameliore: number
+      esprit: number
+      esprit_ameliore: number
+      presence: number
+      athletisme: number
+      vigilance: number
+      exploration: number
+      chant: number
+      artisanat: number
+      inspiration: number
+      voyage: number
+      intuition: number
+      guerison: number
+      courtoisie: number
+      art_de_la_guerre: number
+      persuasion: number
+      discretion: number
+      fouille: number
+      chasse: number
+      enigmes: number
+      connaissances: number
+      personnalite: number
+      deplacement: number
+      perception: number
+      survie: number
+      coutume: number
+      metier: number
+      bonus_degats: number
+      bonus_degats_distance: number
+      parade: number
+      bouclier: number
+      armure_1: string
+      casque_1: string
+      endurance: string
+      endurance_depart: string
+      fatigue: string
+      espoir: string
+      espoir_depart: string
+      ombre: string
+      epuisement: boolean
+      melancolie: boolean
+      blesse: boolean
+      communaute: string
+      points_progression: string
+      tresors: string
+      prestige: string
+      origine: string
+      guide: string
+      eclaireur: string
+      chasseur: string
+      guetteur: string
+      lien_communaute: string
+      sanctuaires: string
+      garant: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["user"]>
     composites: {}
   }
 
-  type PlayerInfoGetPayload<S extends boolean | null | undefined | PlayerInfoDefaultArgs> = $Result.GetResult<Prisma.$PlayerInfoPayload, S>
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
 
-  type PlayerInfoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PlayerInfoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PlayerInfoCountAggregateInputType | true
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserCountAggregateInputType | true
     }
 
-  export interface PlayerInfoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PlayerInfo'], meta: { name: 'PlayerInfo' } }
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
     /**
-     * Find zero or one PlayerInfo that matches the filter.
-     * @param {PlayerInfoFindUniqueArgs} args - Arguments to find a PlayerInfo
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
      * @example
-     * // Get one PlayerInfo
-     * const playerInfo = await prisma.playerInfo.findUnique({
+     * // Get one User
+     * const user = await prisma.user.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PlayerInfoFindUniqueArgs>(args: SelectSubset<T, PlayerInfoFindUniqueArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one PlayerInfo that matches the filter or throw an error with `error.code='P2025'`
+     * Find one User that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PlayerInfoFindUniqueOrThrowArgs} args - Arguments to find a PlayerInfo
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
      * @example
-     * // Get one PlayerInfo
-     * const playerInfo = await prisma.playerInfo.findUniqueOrThrow({
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PlayerInfoFindUniqueOrThrowArgs>(args: SelectSubset<T, PlayerInfoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PlayerInfo that matches the filter.
+     * Find the first User that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerInfoFindFirstArgs} args - Arguments to find a PlayerInfo
+     * @param {UserFindFirstArgs} args - Arguments to find a User
      * @example
-     * // Get one PlayerInfo
-     * const playerInfo = await prisma.playerInfo.findFirst({
+     * // Get one User
+     * const user = await prisma.user.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PlayerInfoFindFirstArgs>(args?: SelectSubset<T, PlayerInfoFindFirstArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PlayerInfo that matches the filter or
+     * Find the first User that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerInfoFindFirstOrThrowArgs} args - Arguments to find a PlayerInfo
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
      * @example
-     * // Get one PlayerInfo
-     * const playerInfo = await prisma.playerInfo.findFirstOrThrow({
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PlayerInfoFindFirstOrThrowArgs>(args?: SelectSubset<T, PlayerInfoFindFirstOrThrowArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more PlayerInfos that matches the filter.
+     * Find zero or more Users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerInfoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all PlayerInfos
-     * const playerInfos = await prisma.playerInfo.findMany()
+     * // Get all Users
+     * const users = await prisma.user.findMany()
      * 
-     * // Get first 10 PlayerInfos
-     * const playerInfos = await prisma.playerInfo.findMany({ take: 10 })
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const playerInfoWithIdOnly = await prisma.playerInfo.findMany({ select: { id: true } })
+     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PlayerInfoFindManyArgs>(args?: SelectSubset<T, PlayerInfoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a PlayerInfo.
-     * @param {PlayerInfoCreateArgs} args - Arguments to create a PlayerInfo.
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
      * @example
-     * // Create one PlayerInfo
-     * const PlayerInfo = await prisma.playerInfo.create({
+     * // Create one User
+     * const User = await prisma.user.create({
      *   data: {
-     *     // ... data to create a PlayerInfo
+     *     // ... data to create a User
      *   }
      * })
      * 
      */
-    create<T extends PlayerInfoCreateArgs>(args: SelectSubset<T, PlayerInfoCreateArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many PlayerInfos.
-     * @param {PlayerInfoCreateManyArgs} args - Arguments to create many PlayerInfos.
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
      * @example
-     * // Create many PlayerInfos
-     * const playerInfo = await prisma.playerInfo.createMany({
+     * // Create many Users
+     * const user = await prisma.user.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PlayerInfoCreateManyArgs>(args?: SelectSubset<T, PlayerInfoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many PlayerInfos and returns the data saved in the database.
-     * @param {PlayerInfoCreateManyAndReturnArgs} args - Arguments to create many PlayerInfos.
+     * Create many Users and returns the data saved in the database.
+     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
      * @example
-     * // Create many PlayerInfos
-     * const playerInfo = await prisma.playerInfo.createManyAndReturn({
+     * // Create many Users
+     * const user = await prisma.user.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many PlayerInfos and only return the `id`
-     * const playerInfoWithIdOnly = await prisma.playerInfo.createManyAndReturn({
+     * // Create many Users and only return the `id`
+     * const userWithIdOnly = await prisma.user.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2338,28 +2429,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PlayerInfoCreateManyAndReturnArgs>(args?: SelectSubset<T, PlayerInfoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a PlayerInfo.
-     * @param {PlayerInfoDeleteArgs} args - Arguments to delete one PlayerInfo.
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
      * @example
-     * // Delete one PlayerInfo
-     * const PlayerInfo = await prisma.playerInfo.delete({
+     * // Delete one User
+     * const User = await prisma.user.delete({
      *   where: {
-     *     // ... filter to delete one PlayerInfo
+     *     // ... filter to delete one User
      *   }
      * })
      * 
      */
-    delete<T extends PlayerInfoDeleteArgs>(args: SelectSubset<T, PlayerInfoDeleteArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one PlayerInfo.
-     * @param {PlayerInfoUpdateArgs} args - Arguments to update one PlayerInfo.
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
      * @example
-     * // Update one PlayerInfo
-     * const playerInfo = await prisma.playerInfo.update({
+     * // Update one User
+     * const user = await prisma.user.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2369,30 +2460,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PlayerInfoUpdateArgs>(args: SelectSubset<T, PlayerInfoUpdateArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more PlayerInfos.
-     * @param {PlayerInfoDeleteManyArgs} args - Arguments to filter PlayerInfos to delete.
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
      * @example
-     * // Delete a few PlayerInfos
-     * const { count } = await prisma.playerInfo.deleteMany({
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PlayerInfoDeleteManyArgs>(args?: SelectSubset<T, PlayerInfoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PlayerInfos.
+     * Update zero or more Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerInfoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many PlayerInfos
-     * const playerInfo = await prisma.playerInfo.updateMany({
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2402,14 +2493,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PlayerInfoUpdateManyArgs>(args: SelectSubset<T, PlayerInfoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PlayerInfos and returns the data updated in the database.
-     * @param {PlayerInfoUpdateManyAndReturnArgs} args - Arguments to update many PlayerInfos.
+     * Update zero or more Users and returns the data updated in the database.
+     * @param {UserUpdateManyAndReturnArgs} args - Arguments to update many Users.
      * @example
-     * // Update many PlayerInfos
-     * const playerInfo = await prisma.playerInfo.updateManyAndReturn({
+     * // Update many Users
+     * const user = await prisma.user.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2418,8 +2509,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more PlayerInfos and only return the `id`
-     * const playerInfoWithIdOnly = await prisma.playerInfo.updateManyAndReturn({
+     * // Update zero or more Users and only return the `id`
+     * const userWithIdOnly = await prisma.user.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2432,56 +2523,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PlayerInfoUpdateManyAndReturnArgs>(args: SelectSubset<T, PlayerInfoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends UserUpdateManyAndReturnArgs>(args: SelectSubset<T, UserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one PlayerInfo.
-     * @param {PlayerInfoUpsertArgs} args - Arguments to update or create a PlayerInfo.
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
      * @example
-     * // Update or create a PlayerInfo
-     * const playerInfo = await prisma.playerInfo.upsert({
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
      *   create: {
-     *     // ... data to create a PlayerInfo
+     *     // ... data to create a User
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the PlayerInfo we want to update
+     *     // ... the filter for the User we want to update
      *   }
      * })
      */
-    upsert<T extends PlayerInfoUpsertArgs>(args: SelectSubset<T, PlayerInfoUpsertArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of PlayerInfos.
+     * Count the number of Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerInfoCountArgs} args - Arguments to filter PlayerInfos to count.
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
      * @example
-     * // Count the number of PlayerInfos
-     * const count = await prisma.playerInfo.count({
+     * // Count the number of Users
+     * const count = await prisma.user.count({
      *   where: {
-     *     // ... the filter for the PlayerInfos we want to count
+     *     // ... the filter for the Users we want to count
      *   }
      * })
     **/
-    count<T extends PlayerInfoCountArgs>(
-      args?: Subset<T, PlayerInfoCountArgs>,
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PlayerInfoCountAggregateOutputType>
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a PlayerInfo.
+     * Allows you to perform aggregations operations on a User.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerInfoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2501,13 +2592,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PlayerInfoAggregateArgs>(args: Subset<T, PlayerInfoAggregateArgs>): Prisma.PrismaPromise<GetPlayerInfoAggregateType<T>>
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
 
     /**
-     * Group by PlayerInfo.
+     * Group by User.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PlayerInfoGroupByArgs} args - Group by arguments.
+     * @param {UserGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2522,14 +2613,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PlayerInfoGroupByArgs,
+      T extends UserGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PlayerInfoGroupByArgs['orderBy'] }
-        : { orderBy?: PlayerInfoGroupByArgs['orderBy'] },
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2578,22 +2669,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PlayerInfoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlayerInfoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the PlayerInfo model
+   * Fields of the User model
    */
-  readonly fields: PlayerInfoFieldRefs;
+  readonly fields: UserFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for PlayerInfo.
+   * The delegate class that acts as a "Promise-like" for User.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PlayerInfoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    player<T extends PlayerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PlayerDefaultArgs<ExtArgs>>): Prisma__PlayerClient<$Result.GetResult<Prisma.$PlayerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    armes<T extends User$armesArgs<ExtArgs> = {}>(args?: Subset<T, User$armesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    equipements<T extends User$equipementsArgs<ExtArgs> = {}>(args?: Subset<T, User$equipementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2620,423 +2712,2772 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the PlayerInfo model
+   * Fields of the User model
    */
-  interface PlayerInfoFieldRefs {
-    readonly id: FieldRef<"PlayerInfo", 'String'>
-    readonly playerId: FieldRef<"PlayerInfo", 'String'>
-    readonly culture: FieldRef<"PlayerInfo", 'String'>
+  interface UserFieldRefs {
+    readonly id: FieldRef<"User", 'String'>
+    readonly nom: FieldRef<"User", 'String'>
+    readonly culture: FieldRef<"User", 'String'>
+    readonly niveau_de_vie: FieldRef<"User", 'String'>
+    readonly avantage_culturel: FieldRef<"User", 'String'>
+    readonly vocation: FieldRef<"User", 'String'>
+    readonly part_ombre: FieldRef<"User", 'String'>
+    readonly specialites: FieldRef<"User", 'String'>
+    readonly particularite: FieldRef<"User", 'String'>
+    readonly experience: FieldRef<"User", 'Int'>
+    readonly experience_totale: FieldRef<"User", 'Int'>
+    readonly vaillance: FieldRef<"User", 'Int'>
+    readonly sagesse: FieldRef<"User", 'Int'>
+    readonly corps: FieldRef<"User", 'Int'>
+    readonly corps_ameliore: FieldRef<"User", 'Int'>
+    readonly coeur: FieldRef<"User", 'Int'>
+    readonly coeur_ameliore: FieldRef<"User", 'Int'>
+    readonly esprit: FieldRef<"User", 'Int'>
+    readonly esprit_ameliore: FieldRef<"User", 'Int'>
+    readonly presence: FieldRef<"User", 'Int'>
+    readonly athletisme: FieldRef<"User", 'Int'>
+    readonly vigilance: FieldRef<"User", 'Int'>
+    readonly exploration: FieldRef<"User", 'Int'>
+    readonly chant: FieldRef<"User", 'Int'>
+    readonly artisanat: FieldRef<"User", 'Int'>
+    readonly inspiration: FieldRef<"User", 'Int'>
+    readonly voyage: FieldRef<"User", 'Int'>
+    readonly intuition: FieldRef<"User", 'Int'>
+    readonly guerison: FieldRef<"User", 'Int'>
+    readonly courtoisie: FieldRef<"User", 'Int'>
+    readonly art_de_la_guerre: FieldRef<"User", 'Int'>
+    readonly persuasion: FieldRef<"User", 'Int'>
+    readonly discretion: FieldRef<"User", 'Int'>
+    readonly fouille: FieldRef<"User", 'Int'>
+    readonly chasse: FieldRef<"User", 'Int'>
+    readonly enigmes: FieldRef<"User", 'Int'>
+    readonly connaissances: FieldRef<"User", 'Int'>
+    readonly personnalite: FieldRef<"User", 'Int'>
+    readonly deplacement: FieldRef<"User", 'Int'>
+    readonly perception: FieldRef<"User", 'Int'>
+    readonly survie: FieldRef<"User", 'Int'>
+    readonly coutume: FieldRef<"User", 'Int'>
+    readonly metier: FieldRef<"User", 'Int'>
+    readonly bonus_degats: FieldRef<"User", 'Int'>
+    readonly bonus_degats_distance: FieldRef<"User", 'Int'>
+    readonly parade: FieldRef<"User", 'Int'>
+    readonly bouclier: FieldRef<"User", 'Int'>
+    readonly armure_1: FieldRef<"User", 'String'>
+    readonly casque_1: FieldRef<"User", 'String'>
+    readonly endurance: FieldRef<"User", 'String'>
+    readonly endurance_depart: FieldRef<"User", 'String'>
+    readonly fatigue: FieldRef<"User", 'String'>
+    readonly espoir: FieldRef<"User", 'String'>
+    readonly espoir_depart: FieldRef<"User", 'String'>
+    readonly ombre: FieldRef<"User", 'String'>
+    readonly epuisement: FieldRef<"User", 'Boolean'>
+    readonly melancolie: FieldRef<"User", 'Boolean'>
+    readonly blesse: FieldRef<"User", 'Boolean'>
+    readonly communaute: FieldRef<"User", 'String'>
+    readonly points_progression: FieldRef<"User", 'String'>
+    readonly tresors: FieldRef<"User", 'String'>
+    readonly prestige: FieldRef<"User", 'String'>
+    readonly origine: FieldRef<"User", 'String'>
+    readonly guide: FieldRef<"User", 'String'>
+    readonly eclaireur: FieldRef<"User", 'String'>
+    readonly chasseur: FieldRef<"User", 'String'>
+    readonly guetteur: FieldRef<"User", 'String'>
+    readonly lien_communaute: FieldRef<"User", 'String'>
+    readonly sanctuaires: FieldRef<"User", 'String'>
+    readonly garant: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * PlayerInfo findUnique
+   * User findUnique
    */
-  export type PlayerInfoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the User
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the User
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which PlayerInfo to fetch.
+     * Filter, which User to fetch.
      */
-    where: PlayerInfoWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * PlayerInfo findUniqueOrThrow
+   * User findUniqueOrThrow
    */
-  export type PlayerInfoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the User
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the User
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which PlayerInfo to fetch.
+     * Filter, which User to fetch.
      */
-    where: PlayerInfoWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * PlayerInfo findFirst
+   * User findFirst
    */
-  export type PlayerInfoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the User
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the User
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which PlayerInfo to fetch.
+     * Filter, which User to fetch.
      */
-    where?: PlayerInfoWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlayerInfos to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: PlayerInfoOrderByWithRelationInput | PlayerInfoOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PlayerInfos.
+     * Sets the position for searching for Users.
      */
-    cursor?: PlayerInfoWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlayerInfos from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlayerInfos.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PlayerInfos.
+     * Filter by unique combinations of Users.
      */
-    distinct?: PlayerInfoScalarFieldEnum | PlayerInfoScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * PlayerInfo findFirstOrThrow
+   * User findFirstOrThrow
    */
-  export type PlayerInfoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the User
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the User
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which PlayerInfo to fetch.
+     * Filter, which User to fetch.
      */
-    where?: PlayerInfoWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlayerInfos to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: PlayerInfoOrderByWithRelationInput | PlayerInfoOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PlayerInfos.
+     * Sets the position for searching for Users.
      */
-    cursor?: PlayerInfoWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlayerInfos from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlayerInfos.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PlayerInfos.
+     * Filter by unique combinations of Users.
      */
-    distinct?: PlayerInfoScalarFieldEnum | PlayerInfoScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * PlayerInfo findMany
+   * User findMany
    */
-  export type PlayerInfoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the User
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the User
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which PlayerInfos to fetch.
+     * Filter, which Users to fetch.
      */
-    where?: PlayerInfoWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PlayerInfos to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: PlayerInfoOrderByWithRelationInput | PlayerInfoOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing PlayerInfos.
+     * Sets the position for listing Users.
      */
-    cursor?: PlayerInfoWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PlayerInfos from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PlayerInfos.
+     * Skip the first `n` Users.
      */
     skip?: number
-    distinct?: PlayerInfoScalarFieldEnum | PlayerInfoScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * PlayerInfo create
+   * User create
    */
-  export type PlayerInfoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the User
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the User
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * The data needed to create a PlayerInfo.
+     * The data needed to create a User.
      */
-    data: XOR<PlayerInfoCreateInput, PlayerInfoUncheckedCreateInput>
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
   }
 
   /**
-   * PlayerInfo createMany
+   * User createMany
    */
-  export type PlayerInfoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many PlayerInfos.
+     * The data used to create many Users.
      */
-    data: PlayerInfoCreateManyInput | PlayerInfoCreateManyInput[]
+    data: UserCreateManyInput | UserCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * PlayerInfo createManyAndReturn
+   * User createManyAndReturn
    */
-  export type PlayerInfoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the User
      */
-    select?: PlayerInfoSelectCreateManyAndReturn<ExtArgs> | null
+    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the User
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * The data used to create many PlayerInfos.
+     * The data used to create many Users.
      */
-    data: PlayerInfoCreateManyInput | PlayerInfoCreateManyInput[]
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User update
+   */
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a User.
+     */
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    /**
+     * Choose, which User to update.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User updateMany
+   */
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * User updateManyAndReturn
+   */
+  export type UserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * User upsert
+   */
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the User to update in case it exists.
+     */
+    where: UserWhereUniqueInput
+    /**
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     */
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    /**
+     * In case the User was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+  }
+
+  /**
+   * User delete
+   */
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter which User to delete.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User deleteMany
+   */
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Users to delete
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * User.armes
+   */
+  export type User$armesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    where?: WeaponWhereInput
+    orderBy?: WeaponOrderByWithRelationInput | WeaponOrderByWithRelationInput[]
+    cursor?: WeaponWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WeaponScalarFieldEnum | WeaponScalarFieldEnum[]
+  }
+
+  /**
+   * User.equipements
+   */
+  export type User$equipementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    where?: EquipmentWhereInput
+    orderBy?: EquipmentOrderByWithRelationInput | EquipmentOrderByWithRelationInput[]
+    cursor?: EquipmentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EquipmentScalarFieldEnum | EquipmentScalarFieldEnum[]
+  }
+
+  /**
+   * User without action
+   */
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Weapon
+   */
+
+  export type AggregateWeapon = {
+    _count: WeaponCountAggregateOutputType | null
+    _avg: WeaponAvgAggregateOutputType | null
+    _sum: WeaponSumAggregateOutputType | null
+    _min: WeaponMinAggregateOutputType | null
+    _max: WeaponMaxAggregateOutputType | null
+  }
+
+  export type WeaponAvgAggregateOutputType = {
+    index: number | null
+    niveau: number | null
+  }
+
+  export type WeaponSumAggregateOutputType = {
+    index: number | null
+    niveau: number | null
+  }
+
+  export type WeaponMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    index: number | null
+    niveau: number | null
+    degats: string | null
+    taille: string | null
+    blessure: string | null
+    enc: string | null
+  }
+
+  export type WeaponMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    index: number | null
+    niveau: number | null
+    degats: string | null
+    taille: string | null
+    blessure: string | null
+    enc: string | null
+  }
+
+  export type WeaponCountAggregateOutputType = {
+    id: number
+    userId: number
+    index: number
+    niveau: number
+    degats: number
+    taille: number
+    blessure: number
+    enc: number
+    _all: number
+  }
+
+
+  export type WeaponAvgAggregateInputType = {
+    index?: true
+    niveau?: true
+  }
+
+  export type WeaponSumAggregateInputType = {
+    index?: true
+    niveau?: true
+  }
+
+  export type WeaponMinAggregateInputType = {
+    id?: true
+    userId?: true
+    index?: true
+    niveau?: true
+    degats?: true
+    taille?: true
+    blessure?: true
+    enc?: true
+  }
+
+  export type WeaponMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    index?: true
+    niveau?: true
+    degats?: true
+    taille?: true
+    blessure?: true
+    enc?: true
+  }
+
+  export type WeaponCountAggregateInputType = {
+    id?: true
+    userId?: true
+    index?: true
+    niveau?: true
+    degats?: true
+    taille?: true
+    blessure?: true
+    enc?: true
+    _all?: true
+  }
+
+  export type WeaponAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Weapon to aggregate.
+     */
+    where?: WeaponWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Weapons to fetch.
+     */
+    orderBy?: WeaponOrderByWithRelationInput | WeaponOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WeaponWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Weapons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Weapons.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Weapons
+    **/
+    _count?: true | WeaponCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WeaponAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WeaponSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WeaponMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WeaponMaxAggregateInputType
+  }
+
+  export type GetWeaponAggregateType<T extends WeaponAggregateArgs> = {
+        [P in keyof T & keyof AggregateWeapon]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWeapon[P]>
+      : GetScalarType<T[P], AggregateWeapon[P]>
+  }
+
+
+
+
+  export type WeaponGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WeaponWhereInput
+    orderBy?: WeaponOrderByWithAggregationInput | WeaponOrderByWithAggregationInput[]
+    by: WeaponScalarFieldEnum[] | WeaponScalarFieldEnum
+    having?: WeaponScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WeaponCountAggregateInputType | true
+    _avg?: WeaponAvgAggregateInputType
+    _sum?: WeaponSumAggregateInputType
+    _min?: WeaponMinAggregateInputType
+    _max?: WeaponMaxAggregateInputType
+  }
+
+  export type WeaponGroupByOutputType = {
+    id: string
+    userId: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+    _count: WeaponCountAggregateOutputType | null
+    _avg: WeaponAvgAggregateOutputType | null
+    _sum: WeaponSumAggregateOutputType | null
+    _min: WeaponMinAggregateOutputType | null
+    _max: WeaponMaxAggregateOutputType | null
+  }
+
+  type GetWeaponGroupByPayload<T extends WeaponGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WeaponGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WeaponGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WeaponGroupByOutputType[P]>
+            : GetScalarType<T[P], WeaponGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WeaponSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    niveau?: boolean
+    degats?: boolean
+    taille?: boolean
+    blessure?: boolean
+    enc?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weapon"]>
+
+  export type WeaponSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    niveau?: boolean
+    degats?: boolean
+    taille?: boolean
+    blessure?: boolean
+    enc?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weapon"]>
+
+  export type WeaponSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    niveau?: boolean
+    degats?: boolean
+    taille?: boolean
+    blessure?: boolean
+    enc?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weapon"]>
+
+  export type WeaponSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    niveau?: boolean
+    degats?: boolean
+    taille?: boolean
+    blessure?: boolean
+    enc?: boolean
+  }
+
+  export type WeaponOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "index" | "niveau" | "degats" | "taille" | "blessure" | "enc", ExtArgs["result"]["weapon"]>
+  export type WeaponInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type WeaponIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type WeaponIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $WeaponPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Weapon"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      index: number
+      niveau: number
+      degats: string
+      taille: string
+      blessure: string
+      enc: string
+    }, ExtArgs["result"]["weapon"]>
+    composites: {}
+  }
+
+  type WeaponGetPayload<S extends boolean | null | undefined | WeaponDefaultArgs> = $Result.GetResult<Prisma.$WeaponPayload, S>
+
+  type WeaponCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WeaponFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WeaponCountAggregateInputType | true
+    }
+
+  export interface WeaponDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Weapon'], meta: { name: 'Weapon' } }
+    /**
+     * Find zero or one Weapon that matches the filter.
+     * @param {WeaponFindUniqueArgs} args - Arguments to find a Weapon
+     * @example
+     * // Get one Weapon
+     * const weapon = await prisma.weapon.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WeaponFindUniqueArgs>(args: SelectSubset<T, WeaponFindUniqueArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Weapon that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WeaponFindUniqueOrThrowArgs} args - Arguments to find a Weapon
+     * @example
+     * // Get one Weapon
+     * const weapon = await prisma.weapon.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WeaponFindUniqueOrThrowArgs>(args: SelectSubset<T, WeaponFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Weapon that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeaponFindFirstArgs} args - Arguments to find a Weapon
+     * @example
+     * // Get one Weapon
+     * const weapon = await prisma.weapon.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WeaponFindFirstArgs>(args?: SelectSubset<T, WeaponFindFirstArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Weapon that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeaponFindFirstOrThrowArgs} args - Arguments to find a Weapon
+     * @example
+     * // Get one Weapon
+     * const weapon = await prisma.weapon.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WeaponFindFirstOrThrowArgs>(args?: SelectSubset<T, WeaponFindFirstOrThrowArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Weapons that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeaponFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Weapons
+     * const weapons = await prisma.weapon.findMany()
+     * 
+     * // Get first 10 Weapons
+     * const weapons = await prisma.weapon.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const weaponWithIdOnly = await prisma.weapon.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WeaponFindManyArgs>(args?: SelectSubset<T, WeaponFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Weapon.
+     * @param {WeaponCreateArgs} args - Arguments to create a Weapon.
+     * @example
+     * // Create one Weapon
+     * const Weapon = await prisma.weapon.create({
+     *   data: {
+     *     // ... data to create a Weapon
+     *   }
+     * })
+     * 
+     */
+    create<T extends WeaponCreateArgs>(args: SelectSubset<T, WeaponCreateArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Weapons.
+     * @param {WeaponCreateManyArgs} args - Arguments to create many Weapons.
+     * @example
+     * // Create many Weapons
+     * const weapon = await prisma.weapon.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WeaponCreateManyArgs>(args?: SelectSubset<T, WeaponCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Weapons and returns the data saved in the database.
+     * @param {WeaponCreateManyAndReturnArgs} args - Arguments to create many Weapons.
+     * @example
+     * // Create many Weapons
+     * const weapon = await prisma.weapon.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Weapons and only return the `id`
+     * const weaponWithIdOnly = await prisma.weapon.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WeaponCreateManyAndReturnArgs>(args?: SelectSubset<T, WeaponCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Weapon.
+     * @param {WeaponDeleteArgs} args - Arguments to delete one Weapon.
+     * @example
+     * // Delete one Weapon
+     * const Weapon = await prisma.weapon.delete({
+     *   where: {
+     *     // ... filter to delete one Weapon
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WeaponDeleteArgs>(args: SelectSubset<T, WeaponDeleteArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Weapon.
+     * @param {WeaponUpdateArgs} args - Arguments to update one Weapon.
+     * @example
+     * // Update one Weapon
+     * const weapon = await prisma.weapon.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WeaponUpdateArgs>(args: SelectSubset<T, WeaponUpdateArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Weapons.
+     * @param {WeaponDeleteManyArgs} args - Arguments to filter Weapons to delete.
+     * @example
+     * // Delete a few Weapons
+     * const { count } = await prisma.weapon.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WeaponDeleteManyArgs>(args?: SelectSubset<T, WeaponDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Weapons.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeaponUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Weapons
+     * const weapon = await prisma.weapon.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WeaponUpdateManyArgs>(args: SelectSubset<T, WeaponUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Weapons and returns the data updated in the database.
+     * @param {WeaponUpdateManyAndReturnArgs} args - Arguments to update many Weapons.
+     * @example
+     * // Update many Weapons
+     * const weapon = await prisma.weapon.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Weapons and only return the `id`
+     * const weaponWithIdOnly = await prisma.weapon.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WeaponUpdateManyAndReturnArgs>(args: SelectSubset<T, WeaponUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Weapon.
+     * @param {WeaponUpsertArgs} args - Arguments to update or create a Weapon.
+     * @example
+     * // Update or create a Weapon
+     * const weapon = await prisma.weapon.upsert({
+     *   create: {
+     *     // ... data to create a Weapon
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Weapon we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WeaponUpsertArgs>(args: SelectSubset<T, WeaponUpsertArgs<ExtArgs>>): Prisma__WeaponClient<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Weapons.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeaponCountArgs} args - Arguments to filter Weapons to count.
+     * @example
+     * // Count the number of Weapons
+     * const count = await prisma.weapon.count({
+     *   where: {
+     *     // ... the filter for the Weapons we want to count
+     *   }
+     * })
+    **/
+    count<T extends WeaponCountArgs>(
+      args?: Subset<T, WeaponCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WeaponCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Weapon.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeaponAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WeaponAggregateArgs>(args: Subset<T, WeaponAggregateArgs>): Prisma.PrismaPromise<GetWeaponAggregateType<T>>
+
+    /**
+     * Group by Weapon.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeaponGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WeaponGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WeaponGroupByArgs['orderBy'] }
+        : { orderBy?: WeaponGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WeaponGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWeaponGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Weapon model
+   */
+  readonly fields: WeaponFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Weapon.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WeaponClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Weapon model
+   */
+  interface WeaponFieldRefs {
+    readonly id: FieldRef<"Weapon", 'String'>
+    readonly userId: FieldRef<"Weapon", 'String'>
+    readonly index: FieldRef<"Weapon", 'Int'>
+    readonly niveau: FieldRef<"Weapon", 'Int'>
+    readonly degats: FieldRef<"Weapon", 'String'>
+    readonly taille: FieldRef<"Weapon", 'String'>
+    readonly blessure: FieldRef<"Weapon", 'String'>
+    readonly enc: FieldRef<"Weapon", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Weapon findUnique
+   */
+  export type WeaponFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    /**
+     * Filter, which Weapon to fetch.
+     */
+    where: WeaponWhereUniqueInput
+  }
+
+  /**
+   * Weapon findUniqueOrThrow
+   */
+  export type WeaponFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    /**
+     * Filter, which Weapon to fetch.
+     */
+    where: WeaponWhereUniqueInput
+  }
+
+  /**
+   * Weapon findFirst
+   */
+  export type WeaponFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    /**
+     * Filter, which Weapon to fetch.
+     */
+    where?: WeaponWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Weapons to fetch.
+     */
+    orderBy?: WeaponOrderByWithRelationInput | WeaponOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Weapons.
+     */
+    cursor?: WeaponWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Weapons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Weapons.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Weapons.
+     */
+    distinct?: WeaponScalarFieldEnum | WeaponScalarFieldEnum[]
+  }
+
+  /**
+   * Weapon findFirstOrThrow
+   */
+  export type WeaponFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    /**
+     * Filter, which Weapon to fetch.
+     */
+    where?: WeaponWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Weapons to fetch.
+     */
+    orderBy?: WeaponOrderByWithRelationInput | WeaponOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Weapons.
+     */
+    cursor?: WeaponWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Weapons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Weapons.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Weapons.
+     */
+    distinct?: WeaponScalarFieldEnum | WeaponScalarFieldEnum[]
+  }
+
+  /**
+   * Weapon findMany
+   */
+  export type WeaponFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    /**
+     * Filter, which Weapons to fetch.
+     */
+    where?: WeaponWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Weapons to fetch.
+     */
+    orderBy?: WeaponOrderByWithRelationInput | WeaponOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Weapons.
+     */
+    cursor?: WeaponWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Weapons from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Weapons.
+     */
+    skip?: number
+    distinct?: WeaponScalarFieldEnum | WeaponScalarFieldEnum[]
+  }
+
+  /**
+   * Weapon create
+   */
+  export type WeaponCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Weapon.
+     */
+    data: XOR<WeaponCreateInput, WeaponUncheckedCreateInput>
+  }
+
+  /**
+   * Weapon createMany
+   */
+  export type WeaponCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Weapons.
+     */
+    data: WeaponCreateManyInput | WeaponCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Weapon createManyAndReturn
+   */
+  export type WeaponCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * The data used to create many Weapons.
+     */
+    data: WeaponCreateManyInput | WeaponCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: WeaponIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * PlayerInfo update
+   * Weapon update
    */
-  export type PlayerInfoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WeaponUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the Weapon
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: WeaponSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the Weapon
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: WeaponOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: WeaponInclude<ExtArgs> | null
     /**
-     * The data needed to update a PlayerInfo.
+     * The data needed to update a Weapon.
      */
-    data: XOR<PlayerInfoUpdateInput, PlayerInfoUncheckedUpdateInput>
+    data: XOR<WeaponUpdateInput, WeaponUncheckedUpdateInput>
     /**
-     * Choose, which PlayerInfo to update.
+     * Choose, which Weapon to update.
      */
-    where: PlayerInfoWhereUniqueInput
+    where: WeaponWhereUniqueInput
   }
 
   /**
-   * PlayerInfo updateMany
+   * Weapon updateMany
    */
-  export type PlayerInfoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WeaponUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update PlayerInfos.
+     * The data used to update Weapons.
      */
-    data: XOR<PlayerInfoUpdateManyMutationInput, PlayerInfoUncheckedUpdateManyInput>
+    data: XOR<WeaponUpdateManyMutationInput, WeaponUncheckedUpdateManyInput>
     /**
-     * Filter which PlayerInfos to update
+     * Filter which Weapons to update
      */
-    where?: PlayerInfoWhereInput
+    where?: WeaponWhereInput
     /**
-     * Limit how many PlayerInfos to update.
+     * Limit how many Weapons to update.
      */
     limit?: number
   }
 
   /**
-   * PlayerInfo updateManyAndReturn
+   * Weapon updateManyAndReturn
    */
-  export type PlayerInfoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WeaponUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the Weapon
      */
-    select?: PlayerInfoSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: WeaponSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the Weapon
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: WeaponOmit<ExtArgs> | null
     /**
-     * The data used to update PlayerInfos.
+     * The data used to update Weapons.
      */
-    data: XOR<PlayerInfoUpdateManyMutationInput, PlayerInfoUncheckedUpdateManyInput>
+    data: XOR<WeaponUpdateManyMutationInput, WeaponUncheckedUpdateManyInput>
     /**
-     * Filter which PlayerInfos to update
+     * Filter which Weapons to update
      */
-    where?: PlayerInfoWhereInput
+    where?: WeaponWhereInput
     /**
-     * Limit how many PlayerInfos to update.
+     * Limit how many Weapons to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: WeaponIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * PlayerInfo upsert
+   * Weapon upsert
    */
-  export type PlayerInfoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WeaponUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the Weapon
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: WeaponSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the Weapon
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: WeaponOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: WeaponInclude<ExtArgs> | null
     /**
-     * The filter to search for the PlayerInfo to update in case it exists.
+     * The filter to search for the Weapon to update in case it exists.
      */
-    where: PlayerInfoWhereUniqueInput
+    where: WeaponWhereUniqueInput
     /**
-     * In case the PlayerInfo found by the `where` argument doesn't exist, create a new PlayerInfo with this data.
+     * In case the Weapon found by the `where` argument doesn't exist, create a new Weapon with this data.
      */
-    create: XOR<PlayerInfoCreateInput, PlayerInfoUncheckedCreateInput>
+    create: XOR<WeaponCreateInput, WeaponUncheckedCreateInput>
     /**
-     * In case the PlayerInfo was found with the provided `where` argument, update it with this data.
+     * In case the Weapon was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PlayerInfoUpdateInput, PlayerInfoUncheckedUpdateInput>
+    update: XOR<WeaponUpdateInput, WeaponUncheckedUpdateInput>
   }
 
   /**
-   * PlayerInfo delete
+   * Weapon delete
    */
-  export type PlayerInfoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WeaponDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the Weapon
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: WeaponSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the Weapon
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: WeaponOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: WeaponInclude<ExtArgs> | null
     /**
-     * Filter which PlayerInfo to delete.
+     * Filter which Weapon to delete.
      */
-    where: PlayerInfoWhereUniqueInput
+    where: WeaponWhereUniqueInput
   }
 
   /**
-   * PlayerInfo deleteMany
+   * Weapon deleteMany
    */
-  export type PlayerInfoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WeaponDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PlayerInfos to delete
+     * Filter which Weapons to delete
      */
-    where?: PlayerInfoWhereInput
+    where?: WeaponWhereInput
     /**
-     * Limit how many PlayerInfos to delete.
+     * Limit how many Weapons to delete.
      */
     limit?: number
   }
 
   /**
-   * PlayerInfo without action
+   * Weapon without action
    */
-  export type PlayerInfoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type WeaponDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PlayerInfo
+     * Select specific fields to fetch from the Weapon
      */
-    select?: PlayerInfoSelect<ExtArgs> | null
+    select?: WeaponSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PlayerInfo
+     * Omit specific fields from the Weapon
      */
-    omit?: PlayerInfoOmit<ExtArgs> | null
+    omit?: WeaponOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PlayerInfoInclude<ExtArgs> | null
+    include?: WeaponInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Equipment
+   */
+
+  export type AggregateEquipment = {
+    _count: EquipmentCountAggregateOutputType | null
+    _avg: EquipmentAvgAggregateOutputType | null
+    _sum: EquipmentSumAggregateOutputType | null
+    _min: EquipmentMinAggregateOutputType | null
+    _max: EquipmentMaxAggregateOutputType | null
+  }
+
+  export type EquipmentAvgAggregateOutputType = {
+    index: number | null
+  }
+
+  export type EquipmentSumAggregateOutputType = {
+    index: number | null
+  }
+
+  export type EquipmentMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    index: number | null
+    type: string | null
+    nom: string | null
+    enc: string | null
+  }
+
+  export type EquipmentMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    index: number | null
+    type: string | null
+    nom: string | null
+    enc: string | null
+  }
+
+  export type EquipmentCountAggregateOutputType = {
+    id: number
+    userId: number
+    index: number
+    type: number
+    nom: number
+    enc: number
+    _all: number
+  }
+
+
+  export type EquipmentAvgAggregateInputType = {
+    index?: true
+  }
+
+  export type EquipmentSumAggregateInputType = {
+    index?: true
+  }
+
+  export type EquipmentMinAggregateInputType = {
+    id?: true
+    userId?: true
+    index?: true
+    type?: true
+    nom?: true
+    enc?: true
+  }
+
+  export type EquipmentMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    index?: true
+    type?: true
+    nom?: true
+    enc?: true
+  }
+
+  export type EquipmentCountAggregateInputType = {
+    id?: true
+    userId?: true
+    index?: true
+    type?: true
+    nom?: true
+    enc?: true
+    _all?: true
+  }
+
+  export type EquipmentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Equipment to aggregate.
+     */
+    where?: EquipmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Equipment to fetch.
+     */
+    orderBy?: EquipmentOrderByWithRelationInput | EquipmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EquipmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Equipment from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Equipment.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Equipment
+    **/
+    _count?: true | EquipmentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EquipmentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EquipmentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EquipmentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EquipmentMaxAggregateInputType
+  }
+
+  export type GetEquipmentAggregateType<T extends EquipmentAggregateArgs> = {
+        [P in keyof T & keyof AggregateEquipment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEquipment[P]>
+      : GetScalarType<T[P], AggregateEquipment[P]>
+  }
+
+
+
+
+  export type EquipmentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EquipmentWhereInput
+    orderBy?: EquipmentOrderByWithAggregationInput | EquipmentOrderByWithAggregationInput[]
+    by: EquipmentScalarFieldEnum[] | EquipmentScalarFieldEnum
+    having?: EquipmentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EquipmentCountAggregateInputType | true
+    _avg?: EquipmentAvgAggregateInputType
+    _sum?: EquipmentSumAggregateInputType
+    _min?: EquipmentMinAggregateInputType
+    _max?: EquipmentMaxAggregateInputType
+  }
+
+  export type EquipmentGroupByOutputType = {
+    id: string
+    userId: string
+    index: number
+    type: string
+    nom: string
+    enc: string
+    _count: EquipmentCountAggregateOutputType | null
+    _avg: EquipmentAvgAggregateOutputType | null
+    _sum: EquipmentSumAggregateOutputType | null
+    _min: EquipmentMinAggregateOutputType | null
+    _max: EquipmentMaxAggregateOutputType | null
+  }
+
+  type GetEquipmentGroupByPayload<T extends EquipmentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EquipmentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EquipmentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EquipmentGroupByOutputType[P]>
+            : GetScalarType<T[P], EquipmentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EquipmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    type?: boolean
+    nom?: boolean
+    enc?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["equipment"]>
+
+  export type EquipmentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    type?: boolean
+    nom?: boolean
+    enc?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["equipment"]>
+
+  export type EquipmentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    type?: boolean
+    nom?: boolean
+    enc?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["equipment"]>
+
+  export type EquipmentSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    index?: boolean
+    type?: boolean
+    nom?: boolean
+    enc?: boolean
+  }
+
+  export type EquipmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "index" | "type" | "nom" | "enc", ExtArgs["result"]["equipment"]>
+  export type EquipmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type EquipmentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type EquipmentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $EquipmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Equipment"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      index: number
+      type: string
+      nom: string
+      enc: string
+    }, ExtArgs["result"]["equipment"]>
+    composites: {}
+  }
+
+  type EquipmentGetPayload<S extends boolean | null | undefined | EquipmentDefaultArgs> = $Result.GetResult<Prisma.$EquipmentPayload, S>
+
+  type EquipmentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EquipmentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EquipmentCountAggregateInputType | true
+    }
+
+  export interface EquipmentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Equipment'], meta: { name: 'Equipment' } }
+    /**
+     * Find zero or one Equipment that matches the filter.
+     * @param {EquipmentFindUniqueArgs} args - Arguments to find a Equipment
+     * @example
+     * // Get one Equipment
+     * const equipment = await prisma.equipment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EquipmentFindUniqueArgs>(args: SelectSubset<T, EquipmentFindUniqueArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Equipment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EquipmentFindUniqueOrThrowArgs} args - Arguments to find a Equipment
+     * @example
+     * // Get one Equipment
+     * const equipment = await prisma.equipment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EquipmentFindUniqueOrThrowArgs>(args: SelectSubset<T, EquipmentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Equipment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquipmentFindFirstArgs} args - Arguments to find a Equipment
+     * @example
+     * // Get one Equipment
+     * const equipment = await prisma.equipment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EquipmentFindFirstArgs>(args?: SelectSubset<T, EquipmentFindFirstArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Equipment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquipmentFindFirstOrThrowArgs} args - Arguments to find a Equipment
+     * @example
+     * // Get one Equipment
+     * const equipment = await prisma.equipment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EquipmentFindFirstOrThrowArgs>(args?: SelectSubset<T, EquipmentFindFirstOrThrowArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Equipment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquipmentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Equipment
+     * const equipment = await prisma.equipment.findMany()
+     * 
+     * // Get first 10 Equipment
+     * const equipment = await prisma.equipment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const equipmentWithIdOnly = await prisma.equipment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EquipmentFindManyArgs>(args?: SelectSubset<T, EquipmentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Equipment.
+     * @param {EquipmentCreateArgs} args - Arguments to create a Equipment.
+     * @example
+     * // Create one Equipment
+     * const Equipment = await prisma.equipment.create({
+     *   data: {
+     *     // ... data to create a Equipment
+     *   }
+     * })
+     * 
+     */
+    create<T extends EquipmentCreateArgs>(args: SelectSubset<T, EquipmentCreateArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Equipment.
+     * @param {EquipmentCreateManyArgs} args - Arguments to create many Equipment.
+     * @example
+     * // Create many Equipment
+     * const equipment = await prisma.equipment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EquipmentCreateManyArgs>(args?: SelectSubset<T, EquipmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Equipment and returns the data saved in the database.
+     * @param {EquipmentCreateManyAndReturnArgs} args - Arguments to create many Equipment.
+     * @example
+     * // Create many Equipment
+     * const equipment = await prisma.equipment.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Equipment and only return the `id`
+     * const equipmentWithIdOnly = await prisma.equipment.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends EquipmentCreateManyAndReturnArgs>(args?: SelectSubset<T, EquipmentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Equipment.
+     * @param {EquipmentDeleteArgs} args - Arguments to delete one Equipment.
+     * @example
+     * // Delete one Equipment
+     * const Equipment = await prisma.equipment.delete({
+     *   where: {
+     *     // ... filter to delete one Equipment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EquipmentDeleteArgs>(args: SelectSubset<T, EquipmentDeleteArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Equipment.
+     * @param {EquipmentUpdateArgs} args - Arguments to update one Equipment.
+     * @example
+     * // Update one Equipment
+     * const equipment = await prisma.equipment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EquipmentUpdateArgs>(args: SelectSubset<T, EquipmentUpdateArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Equipment.
+     * @param {EquipmentDeleteManyArgs} args - Arguments to filter Equipment to delete.
+     * @example
+     * // Delete a few Equipment
+     * const { count } = await prisma.equipment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EquipmentDeleteManyArgs>(args?: SelectSubset<T, EquipmentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Equipment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquipmentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Equipment
+     * const equipment = await prisma.equipment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EquipmentUpdateManyArgs>(args: SelectSubset<T, EquipmentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Equipment and returns the data updated in the database.
+     * @param {EquipmentUpdateManyAndReturnArgs} args - Arguments to update many Equipment.
+     * @example
+     * // Update many Equipment
+     * const equipment = await prisma.equipment.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Equipment and only return the `id`
+     * const equipmentWithIdOnly = await prisma.equipment.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends EquipmentUpdateManyAndReturnArgs>(args: SelectSubset<T, EquipmentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Equipment.
+     * @param {EquipmentUpsertArgs} args - Arguments to update or create a Equipment.
+     * @example
+     * // Update or create a Equipment
+     * const equipment = await prisma.equipment.upsert({
+     *   create: {
+     *     // ... data to create a Equipment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Equipment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EquipmentUpsertArgs>(args: SelectSubset<T, EquipmentUpsertArgs<ExtArgs>>): Prisma__EquipmentClient<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Equipment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquipmentCountArgs} args - Arguments to filter Equipment to count.
+     * @example
+     * // Count the number of Equipment
+     * const count = await prisma.equipment.count({
+     *   where: {
+     *     // ... the filter for the Equipment we want to count
+     *   }
+     * })
+    **/
+    count<T extends EquipmentCountArgs>(
+      args?: Subset<T, EquipmentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EquipmentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Equipment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquipmentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EquipmentAggregateArgs>(args: Subset<T, EquipmentAggregateArgs>): Prisma.PrismaPromise<GetEquipmentAggregateType<T>>
+
+    /**
+     * Group by Equipment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EquipmentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EquipmentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EquipmentGroupByArgs['orderBy'] }
+        : { orderBy?: EquipmentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EquipmentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEquipmentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Equipment model
+   */
+  readonly fields: EquipmentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Equipment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EquipmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Equipment model
+   */
+  interface EquipmentFieldRefs {
+    readonly id: FieldRef<"Equipment", 'String'>
+    readonly userId: FieldRef<"Equipment", 'String'>
+    readonly index: FieldRef<"Equipment", 'Int'>
+    readonly type: FieldRef<"Equipment", 'String'>
+    readonly nom: FieldRef<"Equipment", 'String'>
+    readonly enc: FieldRef<"Equipment", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Equipment findUnique
+   */
+  export type EquipmentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Equipment to fetch.
+     */
+    where: EquipmentWhereUniqueInput
+  }
+
+  /**
+   * Equipment findUniqueOrThrow
+   */
+  export type EquipmentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Equipment to fetch.
+     */
+    where: EquipmentWhereUniqueInput
+  }
+
+  /**
+   * Equipment findFirst
+   */
+  export type EquipmentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Equipment to fetch.
+     */
+    where?: EquipmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Equipment to fetch.
+     */
+    orderBy?: EquipmentOrderByWithRelationInput | EquipmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Equipment.
+     */
+    cursor?: EquipmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Equipment from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Equipment.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Equipment.
+     */
+    distinct?: EquipmentScalarFieldEnum | EquipmentScalarFieldEnum[]
+  }
+
+  /**
+   * Equipment findFirstOrThrow
+   */
+  export type EquipmentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Equipment to fetch.
+     */
+    where?: EquipmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Equipment to fetch.
+     */
+    orderBy?: EquipmentOrderByWithRelationInput | EquipmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Equipment.
+     */
+    cursor?: EquipmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Equipment from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Equipment.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Equipment.
+     */
+    distinct?: EquipmentScalarFieldEnum | EquipmentScalarFieldEnum[]
+  }
+
+  /**
+   * Equipment findMany
+   */
+  export type EquipmentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Equipment to fetch.
+     */
+    where?: EquipmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Equipment to fetch.
+     */
+    orderBy?: EquipmentOrderByWithRelationInput | EquipmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Equipment.
+     */
+    cursor?: EquipmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Equipment from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Equipment.
+     */
+    skip?: number
+    distinct?: EquipmentScalarFieldEnum | EquipmentScalarFieldEnum[]
+  }
+
+  /**
+   * Equipment create
+   */
+  export type EquipmentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Equipment.
+     */
+    data: XOR<EquipmentCreateInput, EquipmentUncheckedCreateInput>
+  }
+
+  /**
+   * Equipment createMany
+   */
+  export type EquipmentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Equipment.
+     */
+    data: EquipmentCreateManyInput | EquipmentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Equipment createManyAndReturn
+   */
+  export type EquipmentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * The data used to create many Equipment.
+     */
+    data: EquipmentCreateManyInput | EquipmentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Equipment update
+   */
+  export type EquipmentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Equipment.
+     */
+    data: XOR<EquipmentUpdateInput, EquipmentUncheckedUpdateInput>
+    /**
+     * Choose, which Equipment to update.
+     */
+    where: EquipmentWhereUniqueInput
+  }
+
+  /**
+   * Equipment updateMany
+   */
+  export type EquipmentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Equipment.
+     */
+    data: XOR<EquipmentUpdateManyMutationInput, EquipmentUncheckedUpdateManyInput>
+    /**
+     * Filter which Equipment to update
+     */
+    where?: EquipmentWhereInput
+    /**
+     * Limit how many Equipment to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Equipment updateManyAndReturn
+   */
+  export type EquipmentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * The data used to update Equipment.
+     */
+    data: XOR<EquipmentUpdateManyMutationInput, EquipmentUncheckedUpdateManyInput>
+    /**
+     * Filter which Equipment to update
+     */
+    where?: EquipmentWhereInput
+    /**
+     * Limit how many Equipment to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Equipment upsert
+   */
+  export type EquipmentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Equipment to update in case it exists.
+     */
+    where: EquipmentWhereUniqueInput
+    /**
+     * In case the Equipment found by the `where` argument doesn't exist, create a new Equipment with this data.
+     */
+    create: XOR<EquipmentCreateInput, EquipmentUncheckedCreateInput>
+    /**
+     * In case the Equipment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EquipmentUpdateInput, EquipmentUncheckedUpdateInput>
+  }
+
+  /**
+   * Equipment delete
+   */
+  export type EquipmentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
+    /**
+     * Filter which Equipment to delete.
+     */
+    where: EquipmentWhereUniqueInput
+  }
+
+  /**
+   * Equipment deleteMany
+   */
+  export type EquipmentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Equipment to delete
+     */
+    where?: EquipmentWhereInput
+    /**
+     * Limit how many Equipment to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Equipment without action
+   */
+  export type EquipmentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Equipment
+     */
+    select?: EquipmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Equipment
+     */
+    omit?: EquipmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EquipmentInclude<ExtArgs> | null
   }
 
 
@@ -3054,20 +5495,108 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const PlayerScalarFieldEnum: {
-    id: 'id'
-  };
-
-  export type PlayerScalarFieldEnum = (typeof PlayerScalarFieldEnum)[keyof typeof PlayerScalarFieldEnum]
-
-
-  export const PlayerInfoScalarFieldEnum: {
+  export const UserScalarFieldEnum: {
     id: 'id',
-    playerId: 'playerId',
-    culture: 'culture'
+    nom: 'nom',
+    culture: 'culture',
+    niveau_de_vie: 'niveau_de_vie',
+    avantage_culturel: 'avantage_culturel',
+    vocation: 'vocation',
+    part_ombre: 'part_ombre',
+    specialites: 'specialites',
+    particularite: 'particularite',
+    experience: 'experience',
+    experience_totale: 'experience_totale',
+    vaillance: 'vaillance',
+    sagesse: 'sagesse',
+    corps: 'corps',
+    corps_ameliore: 'corps_ameliore',
+    coeur: 'coeur',
+    coeur_ameliore: 'coeur_ameliore',
+    esprit: 'esprit',
+    esprit_ameliore: 'esprit_ameliore',
+    presence: 'presence',
+    athletisme: 'athletisme',
+    vigilance: 'vigilance',
+    exploration: 'exploration',
+    chant: 'chant',
+    artisanat: 'artisanat',
+    inspiration: 'inspiration',
+    voyage: 'voyage',
+    intuition: 'intuition',
+    guerison: 'guerison',
+    courtoisie: 'courtoisie',
+    art_de_la_guerre: 'art_de_la_guerre',
+    persuasion: 'persuasion',
+    discretion: 'discretion',
+    fouille: 'fouille',
+    chasse: 'chasse',
+    enigmes: 'enigmes',
+    connaissances: 'connaissances',
+    personnalite: 'personnalite',
+    deplacement: 'deplacement',
+    perception: 'perception',
+    survie: 'survie',
+    coutume: 'coutume',
+    metier: 'metier',
+    bonus_degats: 'bonus_degats',
+    bonus_degats_distance: 'bonus_degats_distance',
+    parade: 'parade',
+    bouclier: 'bouclier',
+    armure_1: 'armure_1',
+    casque_1: 'casque_1',
+    endurance: 'endurance',
+    endurance_depart: 'endurance_depart',
+    fatigue: 'fatigue',
+    espoir: 'espoir',
+    espoir_depart: 'espoir_depart',
+    ombre: 'ombre',
+    epuisement: 'epuisement',
+    melancolie: 'melancolie',
+    blesse: 'blesse',
+    communaute: 'communaute',
+    points_progression: 'points_progression',
+    tresors: 'tresors',
+    prestige: 'prestige',
+    origine: 'origine',
+    guide: 'guide',
+    eclaireur: 'eclaireur',
+    chasseur: 'chasseur',
+    guetteur: 'guetteur',
+    lien_communaute: 'lien_communaute',
+    sanctuaires: 'sanctuaires',
+    garant: 'garant',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type PlayerInfoScalarFieldEnum = (typeof PlayerInfoScalarFieldEnum)[keyof typeof PlayerInfoScalarFieldEnum]
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const WeaponScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    index: 'index',
+    niveau: 'niveau',
+    degats: 'degats',
+    taille: 'taille',
+    blessure: 'blessure',
+    enc: 'enc'
+  };
+
+  export type WeaponScalarFieldEnum = (typeof WeaponScalarFieldEnum)[keyof typeof WeaponScalarFieldEnum]
+
+
+  export const EquipmentScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    index: 'index',
+    type: 'type',
+    nom: 'nom',
+    enc: 'enc'
+  };
+
+  export type EquipmentScalarFieldEnum = (typeof EquipmentScalarFieldEnum)[keyof typeof EquipmentScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3117,162 +5646,1246 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
   /**
    * Deep Input Types
    */
 
 
-  export type PlayerWhereInput = {
-    AND?: PlayerWhereInput | PlayerWhereInput[]
-    OR?: PlayerWhereInput[]
-    NOT?: PlayerWhereInput | PlayerWhereInput[]
-    id?: StringFilter<"Player"> | string
-    PlayerInfo?: PlayerInfoListRelationFilter
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    id?: StringFilter<"User"> | string
+    nom?: StringFilter<"User"> | string
+    culture?: StringFilter<"User"> | string
+    niveau_de_vie?: StringFilter<"User"> | string
+    avantage_culturel?: StringFilter<"User"> | string
+    vocation?: StringFilter<"User"> | string
+    part_ombre?: StringFilter<"User"> | string
+    specialites?: StringFilter<"User"> | string
+    particularite?: StringFilter<"User"> | string
+    experience?: IntFilter<"User"> | number
+    experience_totale?: IntFilter<"User"> | number
+    vaillance?: IntFilter<"User"> | number
+    sagesse?: IntFilter<"User"> | number
+    corps?: IntFilter<"User"> | number
+    corps_ameliore?: IntFilter<"User"> | number
+    coeur?: IntFilter<"User"> | number
+    coeur_ameliore?: IntFilter<"User"> | number
+    esprit?: IntFilter<"User"> | number
+    esprit_ameliore?: IntFilter<"User"> | number
+    presence?: IntFilter<"User"> | number
+    athletisme?: IntFilter<"User"> | number
+    vigilance?: IntFilter<"User"> | number
+    exploration?: IntFilter<"User"> | number
+    chant?: IntFilter<"User"> | number
+    artisanat?: IntFilter<"User"> | number
+    inspiration?: IntFilter<"User"> | number
+    voyage?: IntFilter<"User"> | number
+    intuition?: IntFilter<"User"> | number
+    guerison?: IntFilter<"User"> | number
+    courtoisie?: IntFilter<"User"> | number
+    art_de_la_guerre?: IntFilter<"User"> | number
+    persuasion?: IntFilter<"User"> | number
+    discretion?: IntFilter<"User"> | number
+    fouille?: IntFilter<"User"> | number
+    chasse?: IntFilter<"User"> | number
+    enigmes?: IntFilter<"User"> | number
+    connaissances?: IntFilter<"User"> | number
+    personnalite?: IntFilter<"User"> | number
+    deplacement?: IntFilter<"User"> | number
+    perception?: IntFilter<"User"> | number
+    survie?: IntFilter<"User"> | number
+    coutume?: IntFilter<"User"> | number
+    metier?: IntFilter<"User"> | number
+    bonus_degats?: IntFilter<"User"> | number
+    bonus_degats_distance?: IntFilter<"User"> | number
+    parade?: IntFilter<"User"> | number
+    bouclier?: IntFilter<"User"> | number
+    armure_1?: StringFilter<"User"> | string
+    casque_1?: StringFilter<"User"> | string
+    endurance?: StringFilter<"User"> | string
+    endurance_depart?: StringFilter<"User"> | string
+    fatigue?: StringFilter<"User"> | string
+    espoir?: StringFilter<"User"> | string
+    espoir_depart?: StringFilter<"User"> | string
+    ombre?: StringFilter<"User"> | string
+    epuisement?: BoolFilter<"User"> | boolean
+    melancolie?: BoolFilter<"User"> | boolean
+    blesse?: BoolFilter<"User"> | boolean
+    communaute?: StringFilter<"User"> | string
+    points_progression?: StringFilter<"User"> | string
+    tresors?: StringFilter<"User"> | string
+    prestige?: StringFilter<"User"> | string
+    origine?: StringFilter<"User"> | string
+    guide?: StringFilter<"User"> | string
+    eclaireur?: StringFilter<"User"> | string
+    chasseur?: StringFilter<"User"> | string
+    guetteur?: StringFilter<"User"> | string
+    lien_communaute?: StringFilter<"User"> | string
+    sanctuaires?: StringFilter<"User"> | string
+    garant?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    armes?: WeaponListRelationFilter
+    equipements?: EquipmentListRelationFilter
   }
 
-  export type PlayerOrderByWithRelationInput = {
+  export type UserOrderByWithRelationInput = {
     id?: SortOrder
-    PlayerInfo?: PlayerInfoOrderByRelationAggregateInput
-  }
-
-  export type PlayerWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: PlayerWhereInput | PlayerWhereInput[]
-    OR?: PlayerWhereInput[]
-    NOT?: PlayerWhereInput | PlayerWhereInput[]
-    PlayerInfo?: PlayerInfoListRelationFilter
-  }, "id">
-
-  export type PlayerOrderByWithAggregationInput = {
-    id?: SortOrder
-    _count?: PlayerCountOrderByAggregateInput
-    _max?: PlayerMaxOrderByAggregateInput
-    _min?: PlayerMinOrderByAggregateInput
-  }
-
-  export type PlayerScalarWhereWithAggregatesInput = {
-    AND?: PlayerScalarWhereWithAggregatesInput | PlayerScalarWhereWithAggregatesInput[]
-    OR?: PlayerScalarWhereWithAggregatesInput[]
-    NOT?: PlayerScalarWhereWithAggregatesInput | PlayerScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Player"> | string
-  }
-
-  export type PlayerInfoWhereInput = {
-    AND?: PlayerInfoWhereInput | PlayerInfoWhereInput[]
-    OR?: PlayerInfoWhereInput[]
-    NOT?: PlayerInfoWhereInput | PlayerInfoWhereInput[]
-    id?: StringFilter<"PlayerInfo"> | string
-    playerId?: StringFilter<"PlayerInfo"> | string
-    culture?: StringFilter<"PlayerInfo"> | string
-    player?: XOR<PlayerScalarRelationFilter, PlayerWhereInput>
-  }
-
-  export type PlayerInfoOrderByWithRelationInput = {
-    id?: SortOrder
-    playerId?: SortOrder
+    nom?: SortOrder
     culture?: SortOrder
-    player?: PlayerOrderByWithRelationInput
+    niveau_de_vie?: SortOrder
+    avantage_culturel?: SortOrder
+    vocation?: SortOrder
+    part_ombre?: SortOrder
+    specialites?: SortOrder
+    particularite?: SortOrder
+    experience?: SortOrder
+    experience_totale?: SortOrder
+    vaillance?: SortOrder
+    sagesse?: SortOrder
+    corps?: SortOrder
+    corps_ameliore?: SortOrder
+    coeur?: SortOrder
+    coeur_ameliore?: SortOrder
+    esprit?: SortOrder
+    esprit_ameliore?: SortOrder
+    presence?: SortOrder
+    athletisme?: SortOrder
+    vigilance?: SortOrder
+    exploration?: SortOrder
+    chant?: SortOrder
+    artisanat?: SortOrder
+    inspiration?: SortOrder
+    voyage?: SortOrder
+    intuition?: SortOrder
+    guerison?: SortOrder
+    courtoisie?: SortOrder
+    art_de_la_guerre?: SortOrder
+    persuasion?: SortOrder
+    discretion?: SortOrder
+    fouille?: SortOrder
+    chasse?: SortOrder
+    enigmes?: SortOrder
+    connaissances?: SortOrder
+    personnalite?: SortOrder
+    deplacement?: SortOrder
+    perception?: SortOrder
+    survie?: SortOrder
+    coutume?: SortOrder
+    metier?: SortOrder
+    bonus_degats?: SortOrder
+    bonus_degats_distance?: SortOrder
+    parade?: SortOrder
+    bouclier?: SortOrder
+    armure_1?: SortOrder
+    casque_1?: SortOrder
+    endurance?: SortOrder
+    endurance_depart?: SortOrder
+    fatigue?: SortOrder
+    espoir?: SortOrder
+    espoir_depart?: SortOrder
+    ombre?: SortOrder
+    epuisement?: SortOrder
+    melancolie?: SortOrder
+    blesse?: SortOrder
+    communaute?: SortOrder
+    points_progression?: SortOrder
+    tresors?: SortOrder
+    prestige?: SortOrder
+    origine?: SortOrder
+    guide?: SortOrder
+    eclaireur?: SortOrder
+    chasseur?: SortOrder
+    guetteur?: SortOrder
+    lien_communaute?: SortOrder
+    sanctuaires?: SortOrder
+    garant?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    armes?: WeaponOrderByRelationAggregateInput
+    equipements?: EquipmentOrderByRelationAggregateInput
   }
 
-  export type PlayerInfoWhereUniqueInput = Prisma.AtLeast<{
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    playerId?: string
-    AND?: PlayerInfoWhereInput | PlayerInfoWhereInput[]
-    OR?: PlayerInfoWhereInput[]
-    NOT?: PlayerInfoWhereInput | PlayerInfoWhereInput[]
-    culture?: StringFilter<"PlayerInfo"> | string
-    player?: XOR<PlayerScalarRelationFilter, PlayerWhereInput>
-  }, "id" | "playerId">
+    nom?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    culture?: StringFilter<"User"> | string
+    niveau_de_vie?: StringFilter<"User"> | string
+    avantage_culturel?: StringFilter<"User"> | string
+    vocation?: StringFilter<"User"> | string
+    part_ombre?: StringFilter<"User"> | string
+    specialites?: StringFilter<"User"> | string
+    particularite?: StringFilter<"User"> | string
+    experience?: IntFilter<"User"> | number
+    experience_totale?: IntFilter<"User"> | number
+    vaillance?: IntFilter<"User"> | number
+    sagesse?: IntFilter<"User"> | number
+    corps?: IntFilter<"User"> | number
+    corps_ameliore?: IntFilter<"User"> | number
+    coeur?: IntFilter<"User"> | number
+    coeur_ameliore?: IntFilter<"User"> | number
+    esprit?: IntFilter<"User"> | number
+    esprit_ameliore?: IntFilter<"User"> | number
+    presence?: IntFilter<"User"> | number
+    athletisme?: IntFilter<"User"> | number
+    vigilance?: IntFilter<"User"> | number
+    exploration?: IntFilter<"User"> | number
+    chant?: IntFilter<"User"> | number
+    artisanat?: IntFilter<"User"> | number
+    inspiration?: IntFilter<"User"> | number
+    voyage?: IntFilter<"User"> | number
+    intuition?: IntFilter<"User"> | number
+    guerison?: IntFilter<"User"> | number
+    courtoisie?: IntFilter<"User"> | number
+    art_de_la_guerre?: IntFilter<"User"> | number
+    persuasion?: IntFilter<"User"> | number
+    discretion?: IntFilter<"User"> | number
+    fouille?: IntFilter<"User"> | number
+    chasse?: IntFilter<"User"> | number
+    enigmes?: IntFilter<"User"> | number
+    connaissances?: IntFilter<"User"> | number
+    personnalite?: IntFilter<"User"> | number
+    deplacement?: IntFilter<"User"> | number
+    perception?: IntFilter<"User"> | number
+    survie?: IntFilter<"User"> | number
+    coutume?: IntFilter<"User"> | number
+    metier?: IntFilter<"User"> | number
+    bonus_degats?: IntFilter<"User"> | number
+    bonus_degats_distance?: IntFilter<"User"> | number
+    parade?: IntFilter<"User"> | number
+    bouclier?: IntFilter<"User"> | number
+    armure_1?: StringFilter<"User"> | string
+    casque_1?: StringFilter<"User"> | string
+    endurance?: StringFilter<"User"> | string
+    endurance_depart?: StringFilter<"User"> | string
+    fatigue?: StringFilter<"User"> | string
+    espoir?: StringFilter<"User"> | string
+    espoir_depart?: StringFilter<"User"> | string
+    ombre?: StringFilter<"User"> | string
+    epuisement?: BoolFilter<"User"> | boolean
+    melancolie?: BoolFilter<"User"> | boolean
+    blesse?: BoolFilter<"User"> | boolean
+    communaute?: StringFilter<"User"> | string
+    points_progression?: StringFilter<"User"> | string
+    tresors?: StringFilter<"User"> | string
+    prestige?: StringFilter<"User"> | string
+    origine?: StringFilter<"User"> | string
+    guide?: StringFilter<"User"> | string
+    eclaireur?: StringFilter<"User"> | string
+    chasseur?: StringFilter<"User"> | string
+    guetteur?: StringFilter<"User"> | string
+    lien_communaute?: StringFilter<"User"> | string
+    sanctuaires?: StringFilter<"User"> | string
+    garant?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    armes?: WeaponListRelationFilter
+    equipements?: EquipmentListRelationFilter
+  }, "id" | "nom">
 
-  export type PlayerInfoOrderByWithAggregationInput = {
+  export type UserOrderByWithAggregationInput = {
     id?: SortOrder
-    playerId?: SortOrder
+    nom?: SortOrder
     culture?: SortOrder
-    _count?: PlayerInfoCountOrderByAggregateInput
-    _max?: PlayerInfoMaxOrderByAggregateInput
-    _min?: PlayerInfoMinOrderByAggregateInput
+    niveau_de_vie?: SortOrder
+    avantage_culturel?: SortOrder
+    vocation?: SortOrder
+    part_ombre?: SortOrder
+    specialites?: SortOrder
+    particularite?: SortOrder
+    experience?: SortOrder
+    experience_totale?: SortOrder
+    vaillance?: SortOrder
+    sagesse?: SortOrder
+    corps?: SortOrder
+    corps_ameliore?: SortOrder
+    coeur?: SortOrder
+    coeur_ameliore?: SortOrder
+    esprit?: SortOrder
+    esprit_ameliore?: SortOrder
+    presence?: SortOrder
+    athletisme?: SortOrder
+    vigilance?: SortOrder
+    exploration?: SortOrder
+    chant?: SortOrder
+    artisanat?: SortOrder
+    inspiration?: SortOrder
+    voyage?: SortOrder
+    intuition?: SortOrder
+    guerison?: SortOrder
+    courtoisie?: SortOrder
+    art_de_la_guerre?: SortOrder
+    persuasion?: SortOrder
+    discretion?: SortOrder
+    fouille?: SortOrder
+    chasse?: SortOrder
+    enigmes?: SortOrder
+    connaissances?: SortOrder
+    personnalite?: SortOrder
+    deplacement?: SortOrder
+    perception?: SortOrder
+    survie?: SortOrder
+    coutume?: SortOrder
+    metier?: SortOrder
+    bonus_degats?: SortOrder
+    bonus_degats_distance?: SortOrder
+    parade?: SortOrder
+    bouclier?: SortOrder
+    armure_1?: SortOrder
+    casque_1?: SortOrder
+    endurance?: SortOrder
+    endurance_depart?: SortOrder
+    fatigue?: SortOrder
+    espoir?: SortOrder
+    espoir_depart?: SortOrder
+    ombre?: SortOrder
+    epuisement?: SortOrder
+    melancolie?: SortOrder
+    blesse?: SortOrder
+    communaute?: SortOrder
+    points_progression?: SortOrder
+    tresors?: SortOrder
+    prestige?: SortOrder
+    origine?: SortOrder
+    guide?: SortOrder
+    eclaireur?: SortOrder
+    chasseur?: SortOrder
+    guetteur?: SortOrder
+    lien_communaute?: SortOrder
+    sanctuaires?: SortOrder
+    garant?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _avg?: UserAvgOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
+    _sum?: UserSumOrderByAggregateInput
   }
 
-  export type PlayerInfoScalarWhereWithAggregatesInput = {
-    AND?: PlayerInfoScalarWhereWithAggregatesInput | PlayerInfoScalarWhereWithAggregatesInput[]
-    OR?: PlayerInfoScalarWhereWithAggregatesInput[]
-    NOT?: PlayerInfoScalarWhereWithAggregatesInput | PlayerInfoScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"PlayerInfo"> | string
-    playerId?: StringWithAggregatesFilter<"PlayerInfo"> | string
-    culture?: StringWithAggregatesFilter<"PlayerInfo"> | string
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"User"> | string
+    nom?: StringWithAggregatesFilter<"User"> | string
+    culture?: StringWithAggregatesFilter<"User"> | string
+    niveau_de_vie?: StringWithAggregatesFilter<"User"> | string
+    avantage_culturel?: StringWithAggregatesFilter<"User"> | string
+    vocation?: StringWithAggregatesFilter<"User"> | string
+    part_ombre?: StringWithAggregatesFilter<"User"> | string
+    specialites?: StringWithAggregatesFilter<"User"> | string
+    particularite?: StringWithAggregatesFilter<"User"> | string
+    experience?: IntWithAggregatesFilter<"User"> | number
+    experience_totale?: IntWithAggregatesFilter<"User"> | number
+    vaillance?: IntWithAggregatesFilter<"User"> | number
+    sagesse?: IntWithAggregatesFilter<"User"> | number
+    corps?: IntWithAggregatesFilter<"User"> | number
+    corps_ameliore?: IntWithAggregatesFilter<"User"> | number
+    coeur?: IntWithAggregatesFilter<"User"> | number
+    coeur_ameliore?: IntWithAggregatesFilter<"User"> | number
+    esprit?: IntWithAggregatesFilter<"User"> | number
+    esprit_ameliore?: IntWithAggregatesFilter<"User"> | number
+    presence?: IntWithAggregatesFilter<"User"> | number
+    athletisme?: IntWithAggregatesFilter<"User"> | number
+    vigilance?: IntWithAggregatesFilter<"User"> | number
+    exploration?: IntWithAggregatesFilter<"User"> | number
+    chant?: IntWithAggregatesFilter<"User"> | number
+    artisanat?: IntWithAggregatesFilter<"User"> | number
+    inspiration?: IntWithAggregatesFilter<"User"> | number
+    voyage?: IntWithAggregatesFilter<"User"> | number
+    intuition?: IntWithAggregatesFilter<"User"> | number
+    guerison?: IntWithAggregatesFilter<"User"> | number
+    courtoisie?: IntWithAggregatesFilter<"User"> | number
+    art_de_la_guerre?: IntWithAggregatesFilter<"User"> | number
+    persuasion?: IntWithAggregatesFilter<"User"> | number
+    discretion?: IntWithAggregatesFilter<"User"> | number
+    fouille?: IntWithAggregatesFilter<"User"> | number
+    chasse?: IntWithAggregatesFilter<"User"> | number
+    enigmes?: IntWithAggregatesFilter<"User"> | number
+    connaissances?: IntWithAggregatesFilter<"User"> | number
+    personnalite?: IntWithAggregatesFilter<"User"> | number
+    deplacement?: IntWithAggregatesFilter<"User"> | number
+    perception?: IntWithAggregatesFilter<"User"> | number
+    survie?: IntWithAggregatesFilter<"User"> | number
+    coutume?: IntWithAggregatesFilter<"User"> | number
+    metier?: IntWithAggregatesFilter<"User"> | number
+    bonus_degats?: IntWithAggregatesFilter<"User"> | number
+    bonus_degats_distance?: IntWithAggregatesFilter<"User"> | number
+    parade?: IntWithAggregatesFilter<"User"> | number
+    bouclier?: IntWithAggregatesFilter<"User"> | number
+    armure_1?: StringWithAggregatesFilter<"User"> | string
+    casque_1?: StringWithAggregatesFilter<"User"> | string
+    endurance?: StringWithAggregatesFilter<"User"> | string
+    endurance_depart?: StringWithAggregatesFilter<"User"> | string
+    fatigue?: StringWithAggregatesFilter<"User"> | string
+    espoir?: StringWithAggregatesFilter<"User"> | string
+    espoir_depart?: StringWithAggregatesFilter<"User"> | string
+    ombre?: StringWithAggregatesFilter<"User"> | string
+    epuisement?: BoolWithAggregatesFilter<"User"> | boolean
+    melancolie?: BoolWithAggregatesFilter<"User"> | boolean
+    blesse?: BoolWithAggregatesFilter<"User"> | boolean
+    communaute?: StringWithAggregatesFilter<"User"> | string
+    points_progression?: StringWithAggregatesFilter<"User"> | string
+    tresors?: StringWithAggregatesFilter<"User"> | string
+    prestige?: StringWithAggregatesFilter<"User"> | string
+    origine?: StringWithAggregatesFilter<"User"> | string
+    guide?: StringWithAggregatesFilter<"User"> | string
+    eclaireur?: StringWithAggregatesFilter<"User"> | string
+    chasseur?: StringWithAggregatesFilter<"User"> | string
+    guetteur?: StringWithAggregatesFilter<"User"> | string
+    lien_communaute?: StringWithAggregatesFilter<"User"> | string
+    sanctuaires?: StringWithAggregatesFilter<"User"> | string
+    garant?: StringWithAggregatesFilter<"User"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
-  export type PlayerCreateInput = {
-    id: string
-    PlayerInfo?: PlayerInfoCreateNestedManyWithoutPlayerInput
+  export type WeaponWhereInput = {
+    AND?: WeaponWhereInput | WeaponWhereInput[]
+    OR?: WeaponWhereInput[]
+    NOT?: WeaponWhereInput | WeaponWhereInput[]
+    id?: StringFilter<"Weapon"> | string
+    userId?: StringFilter<"Weapon"> | string
+    index?: IntFilter<"Weapon"> | number
+    niveau?: IntFilter<"Weapon"> | number
+    degats?: StringFilter<"Weapon"> | string
+    taille?: StringFilter<"Weapon"> | string
+    blessure?: StringFilter<"Weapon"> | string
+    enc?: StringFilter<"Weapon"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type PlayerUncheckedCreateInput = {
-    id: string
-    PlayerInfo?: PlayerInfoUncheckedCreateNestedManyWithoutPlayerInput
+  export type WeaponOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    niveau?: SortOrder
+    degats?: SortOrder
+    taille?: SortOrder
+    blessure?: SortOrder
+    enc?: SortOrder
+    user?: UserOrderByWithRelationInput
   }
 
-  export type PlayerUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    PlayerInfo?: PlayerInfoUpdateManyWithoutPlayerNestedInput
+  export type WeaponWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_index?: WeaponUserIdIndexCompoundUniqueInput
+    AND?: WeaponWhereInput | WeaponWhereInput[]
+    OR?: WeaponWhereInput[]
+    NOT?: WeaponWhereInput | WeaponWhereInput[]
+    userId?: StringFilter<"Weapon"> | string
+    index?: IntFilter<"Weapon"> | number
+    niveau?: IntFilter<"Weapon"> | number
+    degats?: StringFilter<"Weapon"> | string
+    taille?: StringFilter<"Weapon"> | string
+    blessure?: StringFilter<"Weapon"> | string
+    enc?: StringFilter<"Weapon"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "userId_index">
+
+  export type WeaponOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    niveau?: SortOrder
+    degats?: SortOrder
+    taille?: SortOrder
+    blessure?: SortOrder
+    enc?: SortOrder
+    _count?: WeaponCountOrderByAggregateInput
+    _avg?: WeaponAvgOrderByAggregateInput
+    _max?: WeaponMaxOrderByAggregateInput
+    _min?: WeaponMinOrderByAggregateInput
+    _sum?: WeaponSumOrderByAggregateInput
   }
 
-  export type PlayerUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    PlayerInfo?: PlayerInfoUncheckedUpdateManyWithoutPlayerNestedInput
+  export type WeaponScalarWhereWithAggregatesInput = {
+    AND?: WeaponScalarWhereWithAggregatesInput | WeaponScalarWhereWithAggregatesInput[]
+    OR?: WeaponScalarWhereWithAggregatesInput[]
+    NOT?: WeaponScalarWhereWithAggregatesInput | WeaponScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Weapon"> | string
+    userId?: StringWithAggregatesFilter<"Weapon"> | string
+    index?: IntWithAggregatesFilter<"Weapon"> | number
+    niveau?: IntWithAggregatesFilter<"Weapon"> | number
+    degats?: StringWithAggregatesFilter<"Weapon"> | string
+    taille?: StringWithAggregatesFilter<"Weapon"> | string
+    blessure?: StringWithAggregatesFilter<"Weapon"> | string
+    enc?: StringWithAggregatesFilter<"Weapon"> | string
   }
 
-  export type PlayerCreateManyInput = {
-    id: string
+  export type EquipmentWhereInput = {
+    AND?: EquipmentWhereInput | EquipmentWhereInput[]
+    OR?: EquipmentWhereInput[]
+    NOT?: EquipmentWhereInput | EquipmentWhereInput[]
+    id?: StringFilter<"Equipment"> | string
+    userId?: StringFilter<"Equipment"> | string
+    index?: IntFilter<"Equipment"> | number
+    type?: StringFilter<"Equipment"> | string
+    nom?: StringFilter<"Equipment"> | string
+    enc?: StringFilter<"Equipment"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type PlayerUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type EquipmentOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    type?: SortOrder
+    nom?: SortOrder
+    enc?: SortOrder
+    user?: UserOrderByWithRelationInput
   }
 
-  export type PlayerUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type EquipmentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_index?: EquipmentUserIdIndexCompoundUniqueInput
+    AND?: EquipmentWhereInput | EquipmentWhereInput[]
+    OR?: EquipmentWhereInput[]
+    NOT?: EquipmentWhereInput | EquipmentWhereInput[]
+    userId?: StringFilter<"Equipment"> | string
+    index?: IntFilter<"Equipment"> | number
+    type?: StringFilter<"Equipment"> | string
+    nom?: StringFilter<"Equipment"> | string
+    enc?: StringFilter<"Equipment"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "userId_index">
+
+  export type EquipmentOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    type?: SortOrder
+    nom?: SortOrder
+    enc?: SortOrder
+    _count?: EquipmentCountOrderByAggregateInput
+    _avg?: EquipmentAvgOrderByAggregateInput
+    _max?: EquipmentMaxOrderByAggregateInput
+    _min?: EquipmentMinOrderByAggregateInput
+    _sum?: EquipmentSumOrderByAggregateInput
   }
 
-  export type PlayerInfoCreateInput = {
-    id: string
+  export type EquipmentScalarWhereWithAggregatesInput = {
+    AND?: EquipmentScalarWhereWithAggregatesInput | EquipmentScalarWhereWithAggregatesInput[]
+    OR?: EquipmentScalarWhereWithAggregatesInput[]
+    NOT?: EquipmentScalarWhereWithAggregatesInput | EquipmentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Equipment"> | string
+    userId?: StringWithAggregatesFilter<"Equipment"> | string
+    index?: IntWithAggregatesFilter<"Equipment"> | number
+    type?: StringWithAggregatesFilter<"Equipment"> | string
+    nom?: StringWithAggregatesFilter<"Equipment"> | string
+    enc?: StringWithAggregatesFilter<"Equipment"> | string
+  }
+
+  export type UserCreateInput = {
+    id?: string
+    nom: string
     culture: string
-    player: PlayerCreateNestedOneWithoutPlayerInfoInput
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    armes?: WeaponCreateNestedManyWithoutUserInput
+    equipements?: EquipmentCreateNestedManyWithoutUserInput
   }
 
-  export type PlayerInfoUncheckedCreateInput = {
-    id: string
-    playerId: string
+  export type UserUncheckedCreateInput = {
+    id?: string
+    nom: string
     culture: string
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    armes?: WeaponUncheckedCreateNestedManyWithoutUserInput
+    equipements?: EquipmentUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type PlayerInfoUpdateInput = {
+  export type UserUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
     culture?: StringFieldUpdateOperationsInput | string
-    player?: PlayerUpdateOneRequiredWithoutPlayerInfoNestedInput
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    armes?: WeaponUpdateManyWithoutUserNestedInput
+    equipements?: EquipmentUpdateManyWithoutUserNestedInput
   }
 
-  export type PlayerInfoUncheckedUpdateInput = {
+  export type UserUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    playerId?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
     culture?: StringFieldUpdateOperationsInput | string
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    armes?: WeaponUncheckedUpdateManyWithoutUserNestedInput
+    equipements?: EquipmentUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type PlayerInfoCreateManyInput = {
-    id: string
-    playerId: string
+  export type UserCreateManyInput = {
+    id?: string
+    nom: string
     culture: string
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type PlayerInfoUpdateManyMutationInput = {
+  export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
     culture?: StringFieldUpdateOperationsInput | string
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PlayerInfoUncheckedUpdateManyInput = {
+  export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    playerId?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
     culture?: StringFieldUpdateOperationsInput | string
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeaponCreateInput = {
+    id?: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+    user: UserCreateNestedOneWithoutArmesInput
+  }
+
+  export type WeaponUncheckedCreateInput = {
+    id?: string
+    userId: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+  }
+
+  export type WeaponUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutArmesNestedInput
+  }
+
+  export type WeaponUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WeaponCreateManyInput = {
+    id?: string
+    userId: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+  }
+
+  export type WeaponUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WeaponUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EquipmentCreateInput = {
+    id?: string
+    index: number
+    type: string
+    nom: string
+    enc: string
+    user: UserCreateNestedOneWithoutEquipementsInput
+  }
+
+  export type EquipmentUncheckedCreateInput = {
+    id?: string
+    userId: string
+    index: number
+    type: string
+    nom: string
+    enc: string
+  }
+
+  export type EquipmentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutEquipementsNestedInput
+  }
+
+  export type EquipmentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EquipmentCreateManyInput = {
+    id?: string
+    userId: string
+    index: number
+    type: string
+    nom: string
+    enc: string
+  }
+
+  export type EquipmentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EquipmentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3290,26 +6903,358 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type PlayerInfoListRelationFilter = {
-    every?: PlayerInfoWhereInput
-    some?: PlayerInfoWhereInput
-    none?: PlayerInfoWhereInput
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type PlayerInfoOrderByRelationAggregateInput = {
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type WeaponListRelationFilter = {
+    every?: WeaponWhereInput
+    some?: WeaponWhereInput
+    none?: WeaponWhereInput
+  }
+
+  export type EquipmentListRelationFilter = {
+    every?: EquipmentWhereInput
+    some?: EquipmentWhereInput
+    none?: EquipmentWhereInput
+  }
+
+  export type WeaponOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type PlayerCountOrderByAggregateInput = {
-    id?: SortOrder
+  export type EquipmentOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type PlayerMaxOrderByAggregateInput = {
+  export type UserCountOrderByAggregateInput = {
     id?: SortOrder
+    nom?: SortOrder
+    culture?: SortOrder
+    niveau_de_vie?: SortOrder
+    avantage_culturel?: SortOrder
+    vocation?: SortOrder
+    part_ombre?: SortOrder
+    specialites?: SortOrder
+    particularite?: SortOrder
+    experience?: SortOrder
+    experience_totale?: SortOrder
+    vaillance?: SortOrder
+    sagesse?: SortOrder
+    corps?: SortOrder
+    corps_ameliore?: SortOrder
+    coeur?: SortOrder
+    coeur_ameliore?: SortOrder
+    esprit?: SortOrder
+    esprit_ameliore?: SortOrder
+    presence?: SortOrder
+    athletisme?: SortOrder
+    vigilance?: SortOrder
+    exploration?: SortOrder
+    chant?: SortOrder
+    artisanat?: SortOrder
+    inspiration?: SortOrder
+    voyage?: SortOrder
+    intuition?: SortOrder
+    guerison?: SortOrder
+    courtoisie?: SortOrder
+    art_de_la_guerre?: SortOrder
+    persuasion?: SortOrder
+    discretion?: SortOrder
+    fouille?: SortOrder
+    chasse?: SortOrder
+    enigmes?: SortOrder
+    connaissances?: SortOrder
+    personnalite?: SortOrder
+    deplacement?: SortOrder
+    perception?: SortOrder
+    survie?: SortOrder
+    coutume?: SortOrder
+    metier?: SortOrder
+    bonus_degats?: SortOrder
+    bonus_degats_distance?: SortOrder
+    parade?: SortOrder
+    bouclier?: SortOrder
+    armure_1?: SortOrder
+    casque_1?: SortOrder
+    endurance?: SortOrder
+    endurance_depart?: SortOrder
+    fatigue?: SortOrder
+    espoir?: SortOrder
+    espoir_depart?: SortOrder
+    ombre?: SortOrder
+    epuisement?: SortOrder
+    melancolie?: SortOrder
+    blesse?: SortOrder
+    communaute?: SortOrder
+    points_progression?: SortOrder
+    tresors?: SortOrder
+    prestige?: SortOrder
+    origine?: SortOrder
+    guide?: SortOrder
+    eclaireur?: SortOrder
+    chasseur?: SortOrder
+    guetteur?: SortOrder
+    lien_communaute?: SortOrder
+    sanctuaires?: SortOrder
+    garant?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type PlayerMinOrderByAggregateInput = {
+  export type UserAvgOrderByAggregateInput = {
+    experience?: SortOrder
+    experience_totale?: SortOrder
+    vaillance?: SortOrder
+    sagesse?: SortOrder
+    corps?: SortOrder
+    corps_ameliore?: SortOrder
+    coeur?: SortOrder
+    coeur_ameliore?: SortOrder
+    esprit?: SortOrder
+    esprit_ameliore?: SortOrder
+    presence?: SortOrder
+    athletisme?: SortOrder
+    vigilance?: SortOrder
+    exploration?: SortOrder
+    chant?: SortOrder
+    artisanat?: SortOrder
+    inspiration?: SortOrder
+    voyage?: SortOrder
+    intuition?: SortOrder
+    guerison?: SortOrder
+    courtoisie?: SortOrder
+    art_de_la_guerre?: SortOrder
+    persuasion?: SortOrder
+    discretion?: SortOrder
+    fouille?: SortOrder
+    chasse?: SortOrder
+    enigmes?: SortOrder
+    connaissances?: SortOrder
+    personnalite?: SortOrder
+    deplacement?: SortOrder
+    perception?: SortOrder
+    survie?: SortOrder
+    coutume?: SortOrder
+    metier?: SortOrder
+    bonus_degats?: SortOrder
+    bonus_degats_distance?: SortOrder
+    parade?: SortOrder
+    bouclier?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
+    nom?: SortOrder
+    culture?: SortOrder
+    niveau_de_vie?: SortOrder
+    avantage_culturel?: SortOrder
+    vocation?: SortOrder
+    part_ombre?: SortOrder
+    specialites?: SortOrder
+    particularite?: SortOrder
+    experience?: SortOrder
+    experience_totale?: SortOrder
+    vaillance?: SortOrder
+    sagesse?: SortOrder
+    corps?: SortOrder
+    corps_ameliore?: SortOrder
+    coeur?: SortOrder
+    coeur_ameliore?: SortOrder
+    esprit?: SortOrder
+    esprit_ameliore?: SortOrder
+    presence?: SortOrder
+    athletisme?: SortOrder
+    vigilance?: SortOrder
+    exploration?: SortOrder
+    chant?: SortOrder
+    artisanat?: SortOrder
+    inspiration?: SortOrder
+    voyage?: SortOrder
+    intuition?: SortOrder
+    guerison?: SortOrder
+    courtoisie?: SortOrder
+    art_de_la_guerre?: SortOrder
+    persuasion?: SortOrder
+    discretion?: SortOrder
+    fouille?: SortOrder
+    chasse?: SortOrder
+    enigmes?: SortOrder
+    connaissances?: SortOrder
+    personnalite?: SortOrder
+    deplacement?: SortOrder
+    perception?: SortOrder
+    survie?: SortOrder
+    coutume?: SortOrder
+    metier?: SortOrder
+    bonus_degats?: SortOrder
+    bonus_degats_distance?: SortOrder
+    parade?: SortOrder
+    bouclier?: SortOrder
+    armure_1?: SortOrder
+    casque_1?: SortOrder
+    endurance?: SortOrder
+    endurance_depart?: SortOrder
+    fatigue?: SortOrder
+    espoir?: SortOrder
+    espoir_depart?: SortOrder
+    ombre?: SortOrder
+    epuisement?: SortOrder
+    melancolie?: SortOrder
+    blesse?: SortOrder
+    communaute?: SortOrder
+    points_progression?: SortOrder
+    tresors?: SortOrder
+    prestige?: SortOrder
+    origine?: SortOrder
+    guide?: SortOrder
+    eclaireur?: SortOrder
+    chasseur?: SortOrder
+    guetteur?: SortOrder
+    lien_communaute?: SortOrder
+    sanctuaires?: SortOrder
+    garant?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    id?: SortOrder
+    nom?: SortOrder
+    culture?: SortOrder
+    niveau_de_vie?: SortOrder
+    avantage_culturel?: SortOrder
+    vocation?: SortOrder
+    part_ombre?: SortOrder
+    specialites?: SortOrder
+    particularite?: SortOrder
+    experience?: SortOrder
+    experience_totale?: SortOrder
+    vaillance?: SortOrder
+    sagesse?: SortOrder
+    corps?: SortOrder
+    corps_ameliore?: SortOrder
+    coeur?: SortOrder
+    coeur_ameliore?: SortOrder
+    esprit?: SortOrder
+    esprit_ameliore?: SortOrder
+    presence?: SortOrder
+    athletisme?: SortOrder
+    vigilance?: SortOrder
+    exploration?: SortOrder
+    chant?: SortOrder
+    artisanat?: SortOrder
+    inspiration?: SortOrder
+    voyage?: SortOrder
+    intuition?: SortOrder
+    guerison?: SortOrder
+    courtoisie?: SortOrder
+    art_de_la_guerre?: SortOrder
+    persuasion?: SortOrder
+    discretion?: SortOrder
+    fouille?: SortOrder
+    chasse?: SortOrder
+    enigmes?: SortOrder
+    connaissances?: SortOrder
+    personnalite?: SortOrder
+    deplacement?: SortOrder
+    perception?: SortOrder
+    survie?: SortOrder
+    coutume?: SortOrder
+    metier?: SortOrder
+    bonus_degats?: SortOrder
+    bonus_degats_distance?: SortOrder
+    parade?: SortOrder
+    bouclier?: SortOrder
+    armure_1?: SortOrder
+    casque_1?: SortOrder
+    endurance?: SortOrder
+    endurance_depart?: SortOrder
+    fatigue?: SortOrder
+    espoir?: SortOrder
+    espoir_depart?: SortOrder
+    ombre?: SortOrder
+    epuisement?: SortOrder
+    melancolie?: SortOrder
+    blesse?: SortOrder
+    communaute?: SortOrder
+    points_progression?: SortOrder
+    tresors?: SortOrder
+    prestige?: SortOrder
+    origine?: SortOrder
+    guide?: SortOrder
+    eclaireur?: SortOrder
+    chasseur?: SortOrder
+    guetteur?: SortOrder
+    lien_communaute?: SortOrder
+    sanctuaires?: SortOrder
+    garant?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserSumOrderByAggregateInput = {
+    experience?: SortOrder
+    experience_totale?: SortOrder
+    vaillance?: SortOrder
+    sagesse?: SortOrder
+    corps?: SortOrder
+    corps_ameliore?: SortOrder
+    coeur?: SortOrder
+    coeur_ameliore?: SortOrder
+    esprit?: SortOrder
+    esprit_ameliore?: SortOrder
+    presence?: SortOrder
+    athletisme?: SortOrder
+    vigilance?: SortOrder
+    exploration?: SortOrder
+    chant?: SortOrder
+    artisanat?: SortOrder
+    inspiration?: SortOrder
+    voyage?: SortOrder
+    intuition?: SortOrder
+    guerison?: SortOrder
+    courtoisie?: SortOrder
+    art_de_la_guerre?: SortOrder
+    persuasion?: SortOrder
+    discretion?: SortOrder
+    fouille?: SortOrder
+    chasse?: SortOrder
+    enigmes?: SortOrder
+    connaissances?: SortOrder
+    personnalite?: SortOrder
+    deplacement?: SortOrder
+    perception?: SortOrder
+    survie?: SortOrder
+    coutume?: SortOrder
+    metier?: SortOrder
+    bonus_degats?: SortOrder
+    bonus_degats_distance?: SortOrder
+    parade?: SortOrder
+    bouclier?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -3330,87 +7275,267 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type PlayerScalarRelationFilter = {
-    is?: PlayerWhereInput
-    isNot?: PlayerWhereInput
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type PlayerInfoCountOrderByAggregateInput = {
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type WeaponUserIdIndexCompoundUniqueInput = {
+    userId: string
+    index: number
+  }
+
+  export type WeaponCountOrderByAggregateInput = {
     id?: SortOrder
-    playerId?: SortOrder
-    culture?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    niveau?: SortOrder
+    degats?: SortOrder
+    taille?: SortOrder
+    blessure?: SortOrder
+    enc?: SortOrder
   }
 
-  export type PlayerInfoMaxOrderByAggregateInput = {
+  export type WeaponAvgOrderByAggregateInput = {
+    index?: SortOrder
+    niveau?: SortOrder
+  }
+
+  export type WeaponMaxOrderByAggregateInput = {
     id?: SortOrder
-    playerId?: SortOrder
-    culture?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    niveau?: SortOrder
+    degats?: SortOrder
+    taille?: SortOrder
+    blessure?: SortOrder
+    enc?: SortOrder
   }
 
-  export type PlayerInfoMinOrderByAggregateInput = {
+  export type WeaponMinOrderByAggregateInput = {
     id?: SortOrder
-    playerId?: SortOrder
-    culture?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    niveau?: SortOrder
+    degats?: SortOrder
+    taille?: SortOrder
+    blessure?: SortOrder
+    enc?: SortOrder
   }
 
-  export type PlayerInfoCreateNestedManyWithoutPlayerInput = {
-    create?: XOR<PlayerInfoCreateWithoutPlayerInput, PlayerInfoUncheckedCreateWithoutPlayerInput> | PlayerInfoCreateWithoutPlayerInput[] | PlayerInfoUncheckedCreateWithoutPlayerInput[]
-    connectOrCreate?: PlayerInfoCreateOrConnectWithoutPlayerInput | PlayerInfoCreateOrConnectWithoutPlayerInput[]
-    createMany?: PlayerInfoCreateManyPlayerInputEnvelope
-    connect?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
+  export type WeaponSumOrderByAggregateInput = {
+    index?: SortOrder
+    niveau?: SortOrder
   }
 
-  export type PlayerInfoUncheckedCreateNestedManyWithoutPlayerInput = {
-    create?: XOR<PlayerInfoCreateWithoutPlayerInput, PlayerInfoUncheckedCreateWithoutPlayerInput> | PlayerInfoCreateWithoutPlayerInput[] | PlayerInfoUncheckedCreateWithoutPlayerInput[]
-    connectOrCreate?: PlayerInfoCreateOrConnectWithoutPlayerInput | PlayerInfoCreateOrConnectWithoutPlayerInput[]
-    createMany?: PlayerInfoCreateManyPlayerInputEnvelope
-    connect?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
+  export type EquipmentUserIdIndexCompoundUniqueInput = {
+    userId: string
+    index: number
+  }
+
+  export type EquipmentCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    type?: SortOrder
+    nom?: SortOrder
+    enc?: SortOrder
+  }
+
+  export type EquipmentAvgOrderByAggregateInput = {
+    index?: SortOrder
+  }
+
+  export type EquipmentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    type?: SortOrder
+    nom?: SortOrder
+    enc?: SortOrder
+  }
+
+  export type EquipmentMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    index?: SortOrder
+    type?: SortOrder
+    nom?: SortOrder
+    enc?: SortOrder
+  }
+
+  export type EquipmentSumOrderByAggregateInput = {
+    index?: SortOrder
+  }
+
+  export type WeaponCreateNestedManyWithoutUserInput = {
+    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
+    createMany?: WeaponCreateManyUserInputEnvelope
+    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+  }
+
+  export type EquipmentCreateNestedManyWithoutUserInput = {
+    create?: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput> | EquipmentCreateWithoutUserInput[] | EquipmentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EquipmentCreateOrConnectWithoutUserInput | EquipmentCreateOrConnectWithoutUserInput[]
+    createMany?: EquipmentCreateManyUserInputEnvelope
+    connect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+  }
+
+  export type WeaponUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
+    createMany?: WeaponCreateManyUserInputEnvelope
+    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+  }
+
+  export type EquipmentUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput> | EquipmentCreateWithoutUserInput[] | EquipmentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EquipmentCreateOrConnectWithoutUserInput | EquipmentCreateOrConnectWithoutUserInput[]
+    createMany?: EquipmentCreateManyUserInputEnvelope
+    connect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type PlayerInfoUpdateManyWithoutPlayerNestedInput = {
-    create?: XOR<PlayerInfoCreateWithoutPlayerInput, PlayerInfoUncheckedCreateWithoutPlayerInput> | PlayerInfoCreateWithoutPlayerInput[] | PlayerInfoUncheckedCreateWithoutPlayerInput[]
-    connectOrCreate?: PlayerInfoCreateOrConnectWithoutPlayerInput | PlayerInfoCreateOrConnectWithoutPlayerInput[]
-    upsert?: PlayerInfoUpsertWithWhereUniqueWithoutPlayerInput | PlayerInfoUpsertWithWhereUniqueWithoutPlayerInput[]
-    createMany?: PlayerInfoCreateManyPlayerInputEnvelope
-    set?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    disconnect?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    delete?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    connect?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    update?: PlayerInfoUpdateWithWhereUniqueWithoutPlayerInput | PlayerInfoUpdateWithWhereUniqueWithoutPlayerInput[]
-    updateMany?: PlayerInfoUpdateManyWithWhereWithoutPlayerInput | PlayerInfoUpdateManyWithWhereWithoutPlayerInput[]
-    deleteMany?: PlayerInfoScalarWhereInput | PlayerInfoScalarWhereInput[]
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type PlayerInfoUncheckedUpdateManyWithoutPlayerNestedInput = {
-    create?: XOR<PlayerInfoCreateWithoutPlayerInput, PlayerInfoUncheckedCreateWithoutPlayerInput> | PlayerInfoCreateWithoutPlayerInput[] | PlayerInfoUncheckedCreateWithoutPlayerInput[]
-    connectOrCreate?: PlayerInfoCreateOrConnectWithoutPlayerInput | PlayerInfoCreateOrConnectWithoutPlayerInput[]
-    upsert?: PlayerInfoUpsertWithWhereUniqueWithoutPlayerInput | PlayerInfoUpsertWithWhereUniqueWithoutPlayerInput[]
-    createMany?: PlayerInfoCreateManyPlayerInputEnvelope
-    set?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    disconnect?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    delete?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    connect?: PlayerInfoWhereUniqueInput | PlayerInfoWhereUniqueInput[]
-    update?: PlayerInfoUpdateWithWhereUniqueWithoutPlayerInput | PlayerInfoUpdateWithWhereUniqueWithoutPlayerInput[]
-    updateMany?: PlayerInfoUpdateManyWithWhereWithoutPlayerInput | PlayerInfoUpdateManyWithWhereWithoutPlayerInput[]
-    deleteMany?: PlayerInfoScalarWhereInput | PlayerInfoScalarWhereInput[]
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
-  export type PlayerCreateNestedOneWithoutPlayerInfoInput = {
-    create?: XOR<PlayerCreateWithoutPlayerInfoInput, PlayerUncheckedCreateWithoutPlayerInfoInput>
-    connectOrCreate?: PlayerCreateOrConnectWithoutPlayerInfoInput
-    connect?: PlayerWhereUniqueInput
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
-  export type PlayerUpdateOneRequiredWithoutPlayerInfoNestedInput = {
-    create?: XOR<PlayerCreateWithoutPlayerInfoInput, PlayerUncheckedCreateWithoutPlayerInfoInput>
-    connectOrCreate?: PlayerCreateOrConnectWithoutPlayerInfoInput
-    upsert?: PlayerUpsertWithoutPlayerInfoInput
-    connect?: PlayerWhereUniqueInput
-    update?: XOR<XOR<PlayerUpdateToOneWithWhereWithoutPlayerInfoInput, PlayerUpdateWithoutPlayerInfoInput>, PlayerUncheckedUpdateWithoutPlayerInfoInput>
+  export type WeaponUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
+    upsert?: WeaponUpsertWithWhereUniqueWithoutUserInput | WeaponUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WeaponCreateManyUserInputEnvelope
+    set?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    disconnect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    delete?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    update?: WeaponUpdateWithWhereUniqueWithoutUserInput | WeaponUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WeaponUpdateManyWithWhereWithoutUserInput | WeaponUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WeaponScalarWhereInput | WeaponScalarWhereInput[]
+  }
+
+  export type EquipmentUpdateManyWithoutUserNestedInput = {
+    create?: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput> | EquipmentCreateWithoutUserInput[] | EquipmentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EquipmentCreateOrConnectWithoutUserInput | EquipmentCreateOrConnectWithoutUserInput[]
+    upsert?: EquipmentUpsertWithWhereUniqueWithoutUserInput | EquipmentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: EquipmentCreateManyUserInputEnvelope
+    set?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    disconnect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    delete?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    connect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    update?: EquipmentUpdateWithWhereUniqueWithoutUserInput | EquipmentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: EquipmentUpdateManyWithWhereWithoutUserInput | EquipmentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
+  }
+
+  export type WeaponUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
+    upsert?: WeaponUpsertWithWhereUniqueWithoutUserInput | WeaponUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WeaponCreateManyUserInputEnvelope
+    set?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    disconnect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    delete?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    update?: WeaponUpdateWithWhereUniqueWithoutUserInput | WeaponUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WeaponUpdateManyWithWhereWithoutUserInput | WeaponUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WeaponScalarWhereInput | WeaponScalarWhereInput[]
+  }
+
+  export type EquipmentUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput> | EquipmentCreateWithoutUserInput[] | EquipmentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EquipmentCreateOrConnectWithoutUserInput | EquipmentCreateOrConnectWithoutUserInput[]
+    upsert?: EquipmentUpsertWithWhereUniqueWithoutUserInput | EquipmentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: EquipmentCreateManyUserInputEnvelope
+    set?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    disconnect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    delete?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    connect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+    update?: EquipmentUpdateWithWhereUniqueWithoutUserInput | EquipmentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: EquipmentUpdateManyWithWhereWithoutUserInput | EquipmentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutArmesInput = {
+    create?: XOR<UserCreateWithoutArmesInput, UserUncheckedCreateWithoutArmesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutArmesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutArmesNestedInput = {
+    create?: XOR<UserCreateWithoutArmesInput, UserUncheckedCreateWithoutArmesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutArmesInput
+    upsert?: UserUpsertWithoutArmesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutArmesInput, UserUpdateWithoutArmesInput>, UserUncheckedUpdateWithoutArmesInput>
+  }
+
+  export type UserCreateNestedOneWithoutEquipementsInput = {
+    create?: XOR<UserCreateWithoutEquipementsInput, UserUncheckedCreateWithoutEquipementsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutEquipementsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutEquipementsNestedInput = {
+    create?: XOR<UserCreateWithoutEquipementsInput, UserUncheckedCreateWithoutEquipementsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutEquipementsInput
+    upsert?: UserUpsertWithoutEquipementsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutEquipementsInput, UserUpdateWithoutEquipementsInput>, UserUncheckedUpdateWithoutEquipementsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3425,6 +7550,33 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -3444,7 +7596,7 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3452,104 +7604,871 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type PlayerInfoCreateWithoutPlayerInput = {
-    id: string
-    culture: string
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type PlayerInfoUncheckedCreateWithoutPlayerInput = {
-    id: string
-    culture: string
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type PlayerInfoCreateOrConnectWithoutPlayerInput = {
-    where: PlayerInfoWhereUniqueInput
-    create: XOR<PlayerInfoCreateWithoutPlayerInput, PlayerInfoUncheckedCreateWithoutPlayerInput>
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type PlayerInfoCreateManyPlayerInputEnvelope = {
-    data: PlayerInfoCreateManyPlayerInput | PlayerInfoCreateManyPlayerInput[]
+  export type WeaponCreateWithoutUserInput = {
+    id?: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+  }
+
+  export type WeaponUncheckedCreateWithoutUserInput = {
+    id?: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+  }
+
+  export type WeaponCreateOrConnectWithoutUserInput = {
+    where: WeaponWhereUniqueInput
+    create: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput>
+  }
+
+  export type WeaponCreateManyUserInputEnvelope = {
+    data: WeaponCreateManyUserInput | WeaponCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type PlayerInfoUpsertWithWhereUniqueWithoutPlayerInput = {
-    where: PlayerInfoWhereUniqueInput
-    update: XOR<PlayerInfoUpdateWithoutPlayerInput, PlayerInfoUncheckedUpdateWithoutPlayerInput>
-    create: XOR<PlayerInfoCreateWithoutPlayerInput, PlayerInfoUncheckedCreateWithoutPlayerInput>
+  export type EquipmentCreateWithoutUserInput = {
+    id?: string
+    index: number
+    type: string
+    nom: string
+    enc: string
   }
 
-  export type PlayerInfoUpdateWithWhereUniqueWithoutPlayerInput = {
-    where: PlayerInfoWhereUniqueInput
-    data: XOR<PlayerInfoUpdateWithoutPlayerInput, PlayerInfoUncheckedUpdateWithoutPlayerInput>
+  export type EquipmentUncheckedCreateWithoutUserInput = {
+    id?: string
+    index: number
+    type: string
+    nom: string
+    enc: string
   }
 
-  export type PlayerInfoUpdateManyWithWhereWithoutPlayerInput = {
-    where: PlayerInfoScalarWhereInput
-    data: XOR<PlayerInfoUpdateManyMutationInput, PlayerInfoUncheckedUpdateManyWithoutPlayerInput>
+  export type EquipmentCreateOrConnectWithoutUserInput = {
+    where: EquipmentWhereUniqueInput
+    create: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput>
   }
 
-  export type PlayerInfoScalarWhereInput = {
-    AND?: PlayerInfoScalarWhereInput | PlayerInfoScalarWhereInput[]
-    OR?: PlayerInfoScalarWhereInput[]
-    NOT?: PlayerInfoScalarWhereInput | PlayerInfoScalarWhereInput[]
-    id?: StringFilter<"PlayerInfo"> | string
-    playerId?: StringFilter<"PlayerInfo"> | string
-    culture?: StringFilter<"PlayerInfo"> | string
+  export type EquipmentCreateManyUserInputEnvelope = {
+    data: EquipmentCreateManyUserInput | EquipmentCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
-  export type PlayerCreateWithoutPlayerInfoInput = {
-    id: string
+  export type WeaponUpsertWithWhereUniqueWithoutUserInput = {
+    where: WeaponWhereUniqueInput
+    update: XOR<WeaponUpdateWithoutUserInput, WeaponUncheckedUpdateWithoutUserInput>
+    create: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput>
   }
 
-  export type PlayerUncheckedCreateWithoutPlayerInfoInput = {
-    id: string
+  export type WeaponUpdateWithWhereUniqueWithoutUserInput = {
+    where: WeaponWhereUniqueInput
+    data: XOR<WeaponUpdateWithoutUserInput, WeaponUncheckedUpdateWithoutUserInput>
   }
 
-  export type PlayerCreateOrConnectWithoutPlayerInfoInput = {
-    where: PlayerWhereUniqueInput
-    create: XOR<PlayerCreateWithoutPlayerInfoInput, PlayerUncheckedCreateWithoutPlayerInfoInput>
+  export type WeaponUpdateManyWithWhereWithoutUserInput = {
+    where: WeaponScalarWhereInput
+    data: XOR<WeaponUpdateManyMutationInput, WeaponUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type PlayerUpsertWithoutPlayerInfoInput = {
-    update: XOR<PlayerUpdateWithoutPlayerInfoInput, PlayerUncheckedUpdateWithoutPlayerInfoInput>
-    create: XOR<PlayerCreateWithoutPlayerInfoInput, PlayerUncheckedCreateWithoutPlayerInfoInput>
-    where?: PlayerWhereInput
+  export type WeaponScalarWhereInput = {
+    AND?: WeaponScalarWhereInput | WeaponScalarWhereInput[]
+    OR?: WeaponScalarWhereInput[]
+    NOT?: WeaponScalarWhereInput | WeaponScalarWhereInput[]
+    id?: StringFilter<"Weapon"> | string
+    userId?: StringFilter<"Weapon"> | string
+    index?: IntFilter<"Weapon"> | number
+    niveau?: IntFilter<"Weapon"> | number
+    degats?: StringFilter<"Weapon"> | string
+    taille?: StringFilter<"Weapon"> | string
+    blessure?: StringFilter<"Weapon"> | string
+    enc?: StringFilter<"Weapon"> | string
   }
 
-  export type PlayerUpdateToOneWithWhereWithoutPlayerInfoInput = {
-    where?: PlayerWhereInput
-    data: XOR<PlayerUpdateWithoutPlayerInfoInput, PlayerUncheckedUpdateWithoutPlayerInfoInput>
+  export type EquipmentUpsertWithWhereUniqueWithoutUserInput = {
+    where: EquipmentWhereUniqueInput
+    update: XOR<EquipmentUpdateWithoutUserInput, EquipmentUncheckedUpdateWithoutUserInput>
+    create: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput>
   }
 
-  export type PlayerUpdateWithoutPlayerInfoInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type EquipmentUpdateWithWhereUniqueWithoutUserInput = {
+    where: EquipmentWhereUniqueInput
+    data: XOR<EquipmentUpdateWithoutUserInput, EquipmentUncheckedUpdateWithoutUserInput>
   }
 
-  export type PlayerUncheckedUpdateWithoutPlayerInfoInput = {
-    id?: StringFieldUpdateOperationsInput | string
+  export type EquipmentUpdateManyWithWhereWithoutUserInput = {
+    where: EquipmentScalarWhereInput
+    data: XOR<EquipmentUpdateManyMutationInput, EquipmentUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type PlayerInfoCreateManyPlayerInput = {
-    id: string
+  export type EquipmentScalarWhereInput = {
+    AND?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
+    OR?: EquipmentScalarWhereInput[]
+    NOT?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
+    id?: StringFilter<"Equipment"> | string
+    userId?: StringFilter<"Equipment"> | string
+    index?: IntFilter<"Equipment"> | number
+    type?: StringFilter<"Equipment"> | string
+    nom?: StringFilter<"Equipment"> | string
+    enc?: StringFilter<"Equipment"> | string
+  }
+
+  export type UserCreateWithoutArmesInput = {
+    id?: string
+    nom: string
     culture: string
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    equipements?: EquipmentCreateNestedManyWithoutUserInput
   }
 
-  export type PlayerInfoUpdateWithoutPlayerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    culture?: StringFieldUpdateOperationsInput | string
+  export type UserUncheckedCreateWithoutArmesInput = {
+    id?: string
+    nom: string
+    culture: string
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    equipements?: EquipmentUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type PlayerInfoUncheckedUpdateWithoutPlayerInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    culture?: StringFieldUpdateOperationsInput | string
+  export type UserCreateOrConnectWithoutArmesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutArmesInput, UserUncheckedCreateWithoutArmesInput>
   }
 
-  export type PlayerInfoUncheckedUpdateManyWithoutPlayerInput = {
+  export type UserUpsertWithoutArmesInput = {
+    update: XOR<UserUpdateWithoutArmesInput, UserUncheckedUpdateWithoutArmesInput>
+    create: XOR<UserCreateWithoutArmesInput, UserUncheckedCreateWithoutArmesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutArmesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutArmesInput, UserUncheckedUpdateWithoutArmesInput>
+  }
+
+  export type UserUpdateWithoutArmesInput = {
     id?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
     culture?: StringFieldUpdateOperationsInput | string
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    equipements?: EquipmentUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutArmesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    culture?: StringFieldUpdateOperationsInput | string
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    equipements?: EquipmentUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutEquipementsInput = {
+    id?: string
+    nom: string
+    culture: string
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    armes?: WeaponCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutEquipementsInput = {
+    id?: string
+    nom: string
+    culture: string
+    niveau_de_vie: string
+    avantage_culturel: string
+    vocation: string
+    part_ombre: string
+    specialites: string
+    particularite: string
+    experience: number
+    experience_totale: number
+    vaillance: number
+    sagesse: number
+    corps: number
+    corps_ameliore: number
+    coeur: number
+    coeur_ameliore: number
+    esprit: number
+    esprit_ameliore: number
+    presence: number
+    athletisme: number
+    vigilance: number
+    exploration: number
+    chant: number
+    artisanat: number
+    inspiration: number
+    voyage: number
+    intuition: number
+    guerison: number
+    courtoisie: number
+    art_de_la_guerre: number
+    persuasion: number
+    discretion: number
+    fouille: number
+    chasse: number
+    enigmes: number
+    connaissances: number
+    personnalite: number
+    deplacement: number
+    perception: number
+    survie: number
+    coutume: number
+    metier: number
+    bonus_degats: number
+    bonus_degats_distance: number
+    parade: number
+    bouclier: number
+    armure_1: string
+    casque_1: string
+    endurance: string
+    endurance_depart: string
+    fatigue: string
+    espoir: string
+    espoir_depart: string
+    ombre: string
+    epuisement: boolean
+    melancolie: boolean
+    blesse: boolean
+    communaute: string
+    points_progression: string
+    tresors: string
+    prestige: string
+    origine: string
+    guide: string
+    eclaireur: string
+    chasseur: string
+    guetteur: string
+    lien_communaute: string
+    sanctuaires: string
+    garant: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    armes?: WeaponUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutEquipementsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutEquipementsInput, UserUncheckedCreateWithoutEquipementsInput>
+  }
+
+  export type UserUpsertWithoutEquipementsInput = {
+    update: XOR<UserUpdateWithoutEquipementsInput, UserUncheckedUpdateWithoutEquipementsInput>
+    create: XOR<UserCreateWithoutEquipementsInput, UserUncheckedCreateWithoutEquipementsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutEquipementsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutEquipementsInput, UserUncheckedUpdateWithoutEquipementsInput>
+  }
+
+  export type UserUpdateWithoutEquipementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    culture?: StringFieldUpdateOperationsInput | string
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    armes?: WeaponUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutEquipementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    culture?: StringFieldUpdateOperationsInput | string
+    niveau_de_vie?: StringFieldUpdateOperationsInput | string
+    avantage_culturel?: StringFieldUpdateOperationsInput | string
+    vocation?: StringFieldUpdateOperationsInput | string
+    part_ombre?: StringFieldUpdateOperationsInput | string
+    specialites?: StringFieldUpdateOperationsInput | string
+    particularite?: StringFieldUpdateOperationsInput | string
+    experience?: IntFieldUpdateOperationsInput | number
+    experience_totale?: IntFieldUpdateOperationsInput | number
+    vaillance?: IntFieldUpdateOperationsInput | number
+    sagesse?: IntFieldUpdateOperationsInput | number
+    corps?: IntFieldUpdateOperationsInput | number
+    corps_ameliore?: IntFieldUpdateOperationsInput | number
+    coeur?: IntFieldUpdateOperationsInput | number
+    coeur_ameliore?: IntFieldUpdateOperationsInput | number
+    esprit?: IntFieldUpdateOperationsInput | number
+    esprit_ameliore?: IntFieldUpdateOperationsInput | number
+    presence?: IntFieldUpdateOperationsInput | number
+    athletisme?: IntFieldUpdateOperationsInput | number
+    vigilance?: IntFieldUpdateOperationsInput | number
+    exploration?: IntFieldUpdateOperationsInput | number
+    chant?: IntFieldUpdateOperationsInput | number
+    artisanat?: IntFieldUpdateOperationsInput | number
+    inspiration?: IntFieldUpdateOperationsInput | number
+    voyage?: IntFieldUpdateOperationsInput | number
+    intuition?: IntFieldUpdateOperationsInput | number
+    guerison?: IntFieldUpdateOperationsInput | number
+    courtoisie?: IntFieldUpdateOperationsInput | number
+    art_de_la_guerre?: IntFieldUpdateOperationsInput | number
+    persuasion?: IntFieldUpdateOperationsInput | number
+    discretion?: IntFieldUpdateOperationsInput | number
+    fouille?: IntFieldUpdateOperationsInput | number
+    chasse?: IntFieldUpdateOperationsInput | number
+    enigmes?: IntFieldUpdateOperationsInput | number
+    connaissances?: IntFieldUpdateOperationsInput | number
+    personnalite?: IntFieldUpdateOperationsInput | number
+    deplacement?: IntFieldUpdateOperationsInput | number
+    perception?: IntFieldUpdateOperationsInput | number
+    survie?: IntFieldUpdateOperationsInput | number
+    coutume?: IntFieldUpdateOperationsInput | number
+    metier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: IntFieldUpdateOperationsInput | number
+    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
+    parade?: IntFieldUpdateOperationsInput | number
+    bouclier?: IntFieldUpdateOperationsInput | number
+    armure_1?: StringFieldUpdateOperationsInput | string
+    casque_1?: StringFieldUpdateOperationsInput | string
+    endurance?: StringFieldUpdateOperationsInput | string
+    endurance_depart?: StringFieldUpdateOperationsInput | string
+    fatigue?: StringFieldUpdateOperationsInput | string
+    espoir?: StringFieldUpdateOperationsInput | string
+    espoir_depart?: StringFieldUpdateOperationsInput | string
+    ombre?: StringFieldUpdateOperationsInput | string
+    epuisement?: BoolFieldUpdateOperationsInput | boolean
+    melancolie?: BoolFieldUpdateOperationsInput | boolean
+    blesse?: BoolFieldUpdateOperationsInput | boolean
+    communaute?: StringFieldUpdateOperationsInput | string
+    points_progression?: StringFieldUpdateOperationsInput | string
+    tresors?: StringFieldUpdateOperationsInput | string
+    prestige?: StringFieldUpdateOperationsInput | string
+    origine?: StringFieldUpdateOperationsInput | string
+    guide?: StringFieldUpdateOperationsInput | string
+    eclaireur?: StringFieldUpdateOperationsInput | string
+    chasseur?: StringFieldUpdateOperationsInput | string
+    guetteur?: StringFieldUpdateOperationsInput | string
+    lien_communaute?: StringFieldUpdateOperationsInput | string
+    sanctuaires?: StringFieldUpdateOperationsInput | string
+    garant?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    armes?: WeaponUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type WeaponCreateManyUserInput = {
+    id?: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+  }
+
+  export type EquipmentCreateManyUserInput = {
+    id?: string
+    index: number
+    type: string
+    nom: string
+    enc: string
+  }
+
+  export type WeaponUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WeaponUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WeaponUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EquipmentUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EquipmentUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EquipmentUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
   }
 
 

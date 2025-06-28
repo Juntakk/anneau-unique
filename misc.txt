@@ -1,4 +1,5 @@
 nom:string
+
 culture:string
 niveau_de_vie:string
 avantage_culturel:string

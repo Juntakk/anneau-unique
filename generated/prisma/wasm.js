@@ -120,14 +120,99 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PlayerScalarFieldEnum = {
-  id: 'id'
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  nom: 'nom',
+  culture: 'culture',
+  niveau_de_vie: 'niveau_de_vie',
+  avantage_culturel: 'avantage_culturel',
+  vocation: 'vocation',
+  part_ombre: 'part_ombre',
+  specialites: 'specialites',
+  particularite: 'particularite',
+  experience: 'experience',
+  experience_totale: 'experience_totale',
+  vaillance: 'vaillance',
+  sagesse: 'sagesse',
+  corps: 'corps',
+  corps_ameliore: 'corps_ameliore',
+  coeur: 'coeur',
+  coeur_ameliore: 'coeur_ameliore',
+  esprit: 'esprit',
+  esprit_ameliore: 'esprit_ameliore',
+  presence: 'presence',
+  athletisme: 'athletisme',
+  vigilance: 'vigilance',
+  exploration: 'exploration',
+  chant: 'chant',
+  artisanat: 'artisanat',
+  inspiration: 'inspiration',
+  voyage: 'voyage',
+  intuition: 'intuition',
+  guerison: 'guerison',
+  courtoisie: 'courtoisie',
+  art_de_la_guerre: 'art_de_la_guerre',
+  persuasion: 'persuasion',
+  discretion: 'discretion',
+  fouille: 'fouille',
+  chasse: 'chasse',
+  enigmes: 'enigmes',
+  connaissances: 'connaissances',
+  personnalite: 'personnalite',
+  deplacement: 'deplacement',
+  perception: 'perception',
+  survie: 'survie',
+  coutume: 'coutume',
+  metier: 'metier',
+  bonus_degats: 'bonus_degats',
+  bonus_degats_distance: 'bonus_degats_distance',
+  parade: 'parade',
+  bouclier: 'bouclier',
+  armure_1: 'armure_1',
+  casque_1: 'casque_1',
+  endurance: 'endurance',
+  endurance_depart: 'endurance_depart',
+  fatigue: 'fatigue',
+  espoir: 'espoir',
+  espoir_depart: 'espoir_depart',
+  ombre: 'ombre',
+  epuisement: 'epuisement',
+  melancolie: 'melancolie',
+  blesse: 'blesse',
+  communaute: 'communaute',
+  points_progression: 'points_progression',
+  tresors: 'tresors',
+  prestige: 'prestige',
+  origine: 'origine',
+  guide: 'guide',
+  eclaireur: 'eclaireur',
+  chasseur: 'chasseur',
+  guetteur: 'guetteur',
+  lien_communaute: 'lien_communaute',
+  sanctuaires: 'sanctuaires',
+  garant: 'garant',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.PlayerInfoScalarFieldEnum = {
+exports.Prisma.WeaponScalarFieldEnum = {
   id: 'id',
-  playerId: 'playerId',
-  culture: 'culture'
+  userId: 'userId',
+  index: 'index',
+  niveau: 'niveau',
+  degats: 'degats',
+  taille: 'taille',
+  blessure: 'blessure',
+  enc: 'enc'
+};
+
+exports.Prisma.EquipmentScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  index: 'index',
+  type: 'type',
+  nom: 'nom',
+  enc: 'enc'
 };
 
 exports.Prisma.SortOrder = {
@@ -142,8 +227,9 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  Player: 'Player',
-  PlayerInfo: 'PlayerInfo'
+  User: 'User',
+  Weapon: 'Weapon',
+  Equipment: 'Equipment'
 };
 
 /**
