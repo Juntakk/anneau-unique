@@ -1,6 +1,7 @@
 'use server';
 
 import prisma from '@/lib/prisma';
+import { User } from '@/types/user';
 
 export async function getUserByName(name: string) {
   const user = await prisma.user.findUnique({
@@ -8,6 +9,17 @@ export async function getUserByName(name: string) {
   });
 
   return user;
+}
+
+export async function updateUserField(
+  userId: string,
+  field: keyof User,
+  value: string | number
+) {
+  return await prisma.user.update({
+    where: { id: userId },
+    data: { [field]: value },
+  });
 }
 
 export async function getCompanyRolesByName(nom: string): Promise<{

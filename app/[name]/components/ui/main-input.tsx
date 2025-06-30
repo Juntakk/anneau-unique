@@ -1,49 +1,72 @@
+'use client';
+
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useUser } from '@/providers/UserContext';
+import { useEffect, useState } from 'react';
+import { updateUserField } from '@/lib/actions/user.actions';
+
+import type { User } from '@/types/user';
+import { useName } from '@/providers/NameContext';
 
 const MainInput = ({
-  name,
-  label,
+  field,
   width,
+  label,
+  name,
 }: {
-  name?: string;
-  label?: string;
+  name?: boolean;
+  field: keyof User;
   width?: boolean | string;
+  label: string;
 }) => {
+  const user = useUser();
+  const fetchedName = useName();
+  const uppercaseName = fetchedName[0].toUpperCase() + fetchedName.slice(1);
   const [isSelected, setIsSelected] = useState(false);
-  const [nameField, setNameField] = useState(
-    name ? name.charAt(0).toUpperCase() + name.slice(1) : ''
-  );
+  const [value, setValue] = useState('');
+
+  useEffect(() => {
+    if (user !== undefined) {
+      setValue(String(user[field] ?? ''));
+    }
+  }, [user, field]);
+
+  const handleBlur = async () => {
+    if (value !== String(user[field])) {
+      try {
+        await updateUserField(user.id, field, value);
+      } catch (err) {
+        console.error(`Failed to update ${field}:`, err);
+      }
+    }
+    setIsSelected(false);
+  };
 
   return (
     <div className="flex flex-wrap items-start gap-x-4 gap-y-1 w-full">
       <label
-        htmlFor="name"
+        htmlFor={label}
         className="text-2xl font-bold text-foreground whitespace-nowrap underline"
       >
         {label}
       </label>
       <input
+        id={field}
         type="text"
-        value={nameField || ''}
+        value={name ? uppercaseName : value}
         style={!width ? { width: '100%' } : { width: '200px' }}
         className={cn(
-          'text-2xl outline-none font-bold text-foreground/80 placeholder:text-foreground/50 bg-transparent border-b border-foreground/20 focus:border-foreground/80 transition-colors duration-200',
+          'text-2xl outline-none font-bold text-amber-900 placeholder:text-foreground/50 bg-transparent border-b border-foreground/20 focus:border-foreground/80 transition-colors duration-200',
           isSelected ? 'bg-white/10' : 'bg-transparent'
         )}
-        onChange={(e) => {
-          setNameField(e.target.value);
-        }}
-        onSelect={() => {
-          setIsSelected(true);
-        }}
-        onBlur={() => {
-          setIsSelected(false);
-        }}
+        onChange={(e) => setValue(e.target.value)}
+        onSelect={() => setIsSelected(true)}
+        onBlur={handleBlur}
         onKeyDownCapture={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
-            setIsSelected(false);
+            handleBlur();
+            e.currentTarget.blur();
           }
         }}
       />

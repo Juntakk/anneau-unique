@@ -1,4 +1,3 @@
-import { useName } from '@/providers/NameContext';
 import AttributesSection from './attribute-section';
 import CombatStatsSection from './combat-stats-section';
 import CompetencesSection from './competences-section';
@@ -16,13 +15,12 @@ interface CharacterSheetFrontProps {
 export default function CharacterSheetFront({
   onPageChange,
 }: CharacterSheetFrontProps) {
-  const name = useName();
   return (
     <>
       {/* Identity and Main Stats */}
       <div className="flex gap-12">
         <div className="flex-1 space-y-10 p-10 rounded-lg">
-          <IdentitySection name={name} />
+          <IdentitySection />
           <TraitsSection />
         </div>
         <MainCirclesSection />
