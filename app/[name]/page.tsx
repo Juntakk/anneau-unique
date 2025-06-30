@@ -4,11 +4,11 @@ import { getUserByName } from '@/lib/actions/user.actions';
 import MainPage from './main-page';
 
 type Props = {
-  params: { name: string };
+  params: Promise<{ name: string }>;
 };
 
 const Home = async ({ params }: Props) => {
-  const { name } = params;
+  const { name } = await params;
   const rawUser = await getUserByName(name);
   const user = rawUser
     ? {
