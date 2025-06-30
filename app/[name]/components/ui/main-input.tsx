@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { cn, handleEnterBlur } from '@/lib/utils';
 import { useUser } from '@/providers/UserContext';
 import { useEffect, useState } from 'react';
 import { updateUserField } from '@/lib/actions/user.actions';
@@ -22,14 +22,17 @@ const MainInput = ({
   const user = useUser();
   const fetchedName = useName();
   const uppercaseName = fetchedName[0].toUpperCase() + fetchedName.slice(1);
+
   const [isSelected, setIsSelected] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(name ? uppercaseName : '');
 
   useEffect(() => {
-    if (user !== undefined) {
+    if (name) {
+      setValue(uppercaseName);
+    } else if (user !== undefined) {
       setValue(String(user[field] ?? ''));
     }
-  }, [user, field]);
+  }, [user, field, name, uppercaseName]);
 
   const handleBlur = async () => {
     if (value !== String(user[field])) {
@@ -45,7 +48,7 @@ const MainInput = ({
   return (
     <div className="flex flex-wrap items-start gap-x-4 gap-y-1 w-full">
       <label
-        htmlFor={label}
+        htmlFor={field}
         className="text-2xl font-bold text-foreground whitespace-nowrap underline"
       >
         {label}
@@ -53,7 +56,7 @@ const MainInput = ({
       <input
         id={field}
         type="text"
-        value={name ? uppercaseName : value}
+        value={value}
         style={!width ? { width: '100%' } : { width: '200px' }}
         className={cn(
           'text-2xl outline-none font-bold text-amber-900 placeholder:text-foreground/50 bg-transparent border-b border-foreground/20 focus:border-foreground/80 transition-colors duration-200',
@@ -62,13 +65,7 @@ const MainInput = ({
         onChange={(e) => setValue(e.target.value)}
         onSelect={() => setIsSelected(true)}
         onBlur={handleBlur}
-        onKeyDownCapture={(e) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            handleBlur();
-            e.currentTarget.blur();
-          }
-        }}
+        onKeyDownCapture={handleEnterBlur(handleBlur)}
       />
     </div>
   );

@@ -8,7 +8,7 @@ const GroupeCompetence = ({ label }: { label: string }) => {
         <input
           key={i}
           type="checkbox"
-          className="w-5 h-5 border-2 border-foreground rounded-sm transition duration-150 appearance-none checked:bg-green-700 hover:cursor-pointer"
+          className="w-5 h-5 border-2 border-foreground rounded-sm transition duration-150 appearance-none checked:bg-amber-900 hover:cursor-pointer"
         />
       ))}
     </div>
