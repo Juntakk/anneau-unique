@@ -1,4 +1,4 @@
-import { useName } from '@/providers/useName';
+import { useName } from '@/providers/NameContext';
 import AttributesSection from './attribute-section';
 import CombatStatsSection from './combat-stats-section';
 import CompetencesSection from './competences-section';

@@ -1,6 +1,6 @@
-import { COMPETENCE_LABELS, GROUPE_COMPETENCES } from "@/lib/constants";
-import Competence from "../ui/competence-commune";
-import GroupeCompetence from "../ui/groupes-competences";
+import { COMPETENCE_LABELS, GROUPE_COMPETENCES } from '@/lib/constants';
+import Competence from '../ui/competence-commune';
+import GroupeCompetence from '../ui/groupes-competences';
 
 export default function CompetencesSection() {
   return (

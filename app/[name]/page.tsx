@@ -1,16 +1,28 @@
+import { NameProvider } from '@/providers/NameContext';
+import { UserProvider } from '@/providers/UserContext';
+import { getUserByName } from '@/lib/actions/user.actions';
 import MainPage from './main-page';
-import { NameProvider } from '@/providers/useName';
 
 type Props = {
-  params: Promise<{ name: string }>;
+  params: { name: string };
 };
 
 const Home = async ({ params }: Props) => {
-  const { name } = await params;
+  const { name } = params;
+  const rawUser = await getUserByName(name);
+  const user = rawUser
+    ? {
+        armes: [],
+        equipements: [],
+        ...rawUser,
+      }
+    : undefined;
 
   return (
     <NameProvider name={name}>
-      <MainPage />;
+      <UserProvider user={user}>
+        <MainPage />
+      </UserProvider>
     </NameProvider>
   );
 };

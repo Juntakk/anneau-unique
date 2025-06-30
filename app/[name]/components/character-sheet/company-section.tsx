@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getCompanyRolesByName } from '@/lib/actions/user.actions';
 import { COMPANY_ROLES } from '@/lib/constants';
 import FormField from '../ui/form-field';
-import { useName } from '@/providers/useName';
+import { useName } from '@/providers/NameContext';
 
 export default function CompanySection() {
   const [values, setValues] = useState<Record<string, string>>({});

@@ -2,6 +2,14 @@
 
 import prisma from '@/lib/prisma';
 
+export async function getUserByName(name: string) {
+  const user = await prisma.user.findUnique({
+    where: { nom: name },
+  });
+
+  return user;
+}
+
 export async function getCompanyRolesByName(nom: string): Promise<{
   guide: string;
   eclaireur: string;

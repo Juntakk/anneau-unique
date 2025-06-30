@@ -1,5 +1,5 @@
-"use client";
-import MainInput from "../ui/main-input";
+'use client';
+import MainInput from '../ui/main-input';
 
 interface IdentitySectionProps {
   name: string;
@@ -11,7 +11,7 @@ export default function IdentitySection({ name }: IdentitySectionProps) {
       <MainInput name={name} width label="Nom" />
 
       <div className="flex gap-6">
-        {/* <MainInput label="Culture" /> */}
+        <MainInput label="Culture" />
         <MainInput label="Niveau de Vie" />
       </div>
 
