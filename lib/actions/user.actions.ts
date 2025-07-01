@@ -1,7 +1,7 @@
-'use server';
+"use server";
 
-import prisma from '@/lib/prisma';
-import { User } from '@/types/user';
+import prisma from "@/lib/prisma";
+import { User } from "@/types/user";
 
 export async function getUserByName(name: string) {
   const user = await prisma.user.findUnique({

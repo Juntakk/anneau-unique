@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { createContext, useContext } from 'react';
-import type { User } from '@/types/user'; // or Prisma type
+import { createContext, useContext } from "react";
+import type { User } from "@/types/user";
 
 interface UserContextType {
   user: User | undefined;
@@ -24,10 +24,10 @@ export const UserProvider = ({
 export const useUser = (): User => {
   const context = useContext(UserContext);
   if (!context) {
-    throw new Error('useUser must be used within a UserProvider');
+    throw new Error("useUser must be used within a UserProvider");
   }
   if (!context.user) {
-    throw new Error('User is undefined in UserProvider');
+    throw new Error("User is undefined in UserProvider");
   }
   return context.user;
 };
