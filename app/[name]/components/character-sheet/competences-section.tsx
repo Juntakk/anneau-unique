@@ -33,9 +33,17 @@ export default function CompetencesSection() {
 
         {/* Groupes de compétences */}
         <div className='w-3/12 flex flex-col items-end justify-end gap-y-4'>
-          {GROUPE_COMPETENCES.map((label) => (
-            <GroupeCompetence key={label} label={label} />
-          ))}
+          {GROUPE_COMPETENCES.map((item) => {
+            const field = Object.values(item)[0];
+            const label = Object.keys(item)[0];
+            return (
+              <GroupeCompetence
+                key={field}
+                label={label}
+                field={field as keyof User}
+              />
+            );
+          })}
         </div>
       </div>
     </>

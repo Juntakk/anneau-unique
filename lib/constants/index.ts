@@ -20,12 +20,12 @@ export const COMPETENCE_LABELS = [
 ] as const;
 
 export const GROUPE_COMPETENCES = [
-  "personnalité",
-  "déplacement",
-  "percéption",
-  "survie",
-  "coutume",
-  "métier",
+  { personnalité: "personnalite" },
+  { déplacement: "deplacement" },
+  { percéption: "perception" },
+  { survie: "survie" },
+  { coutume: "coutume" },
+  { métier: "metier" },
 ] as const;
 
 export const COMPANY_ROLES = [
