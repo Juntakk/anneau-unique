@@ -20,7 +20,7 @@ const Competence = ({
     } else {
       setValue(index + 1);
     }
-    const newValue = index + 1 === value ? 0 : index + 1;
+    const newValue = index + 1 === value ? index : index + 1;
     setValue(newValue);
     await updateUserField(user.id, field, newValue);
   };
