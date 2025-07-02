@@ -12,9 +12,8 @@ const Home = async ({ params }: Props) => {
   const rawUser = await getUserByName(name);
   const user = rawUser
     ? {
-        armes: [],
-        equipements: [],
         ...rawUser,
+        equipements: [],
       }
     : undefined;
 
