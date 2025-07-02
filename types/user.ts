@@ -95,6 +95,7 @@ export interface Weapon {
   degats: string;
   taille: string;
   blessure: string;
+  nom: string;
   enc: string;
 }
 
@@ -103,7 +104,7 @@ export interface Equipment {
   userId: string;
   index: number;
 
-  type: 'armure' | 'casque' | 'bouclier';
+  type: "armure" | "casque" | "bouclier";
   nom: string;
   enc: string;
 }

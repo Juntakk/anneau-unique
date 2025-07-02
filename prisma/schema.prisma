@@ -9,121 +9,105 @@ datasource db {
 }
 
 model User {
-  id                  String   @id @default(cuid())
-  nom                 String   @unique
-
-  culture             String
-  niveau_de_vie       String
-  avantage_culturel   String
-  vocation            String
-  part_ombre          String
-  specialites         String
-  particularite       String
-
-  experience          Int
-  experience_totale   Int
-  vaillance           Int
-  sagesse             Int
-  corps               Int
-  corps_ameliore      Int
-  coeur               Int
-  coeur_ameliore      Int
-  esprit              Int
-  esprit_ameliore     Int
-
-  presence            Int
-  athletisme          Int
-  vigilance           Int
-  exploration         Int
-  chant               Int
-  artisanat           Int
-  inspiration         Int
-  voyage              Int
-  intuition           Int
-  guerison            Int
-  courtoisie          Int
-  art_de_la_guerre    Int
-  persuasion          Int
-  discretion          Int
-  fouille             Int
-  chasse              Int
-  enigmes             Int
-  connaissances       Int
-
-  personnalite        Int
-  deplacement         Int
-  perception          Int
-  survie              Int
-  coutume             Int
-  metier              Int
-
-  bonus_degats        Int
+  id                    String      @id @default(cuid())
+  nom                   String      @unique
+  culture               String
+  niveau_de_vie         String
+  avantage_culturel     String
+  vocation              String
+  part_ombre            String
+  specialites           String
+  particularite         String
+  experience            Int
+  experience_totale     Int
+  vaillance             Int
+  sagesse               Int
+  corps                 Int
+  corps_ameliore        Int
+  coeur                 Int
+  coeur_ameliore        Int
+  esprit                Int
+  esprit_ameliore       Int
+  presence              Int
+  athletisme            Int
+  vigilance             Int
+  exploration           Int
+  chant                 Int
+  artisanat             Int
+  inspiration           Int
+  voyage                Int
+  intuition             Int
+  guerison              Int
+  courtoisie            Int
+  art_de_la_guerre      Int
+  persuasion            Int
+  discretion            Int
+  fouille               Int
+  chasse                Int
+  enigmes               Int
+  connaissances         Int
+  personnalite          Int
+  deplacement           Int
+  perception            Int
+  survie                Int
+  coutume               Int
+  metier                Int
+  bonus_degats          Int
   bonus_degats_distance Int
-  parade              Int
-  bouclier            Int
-  armure_1            String
-  casque_1            String
-
-  endurance           String
-  endurance_depart    String
-  fatigue             String
-
-  espoir              String
-  espoir_depart       String
-  ombre               String
-
-  epuisement          Boolean
-  melancolie          Boolean
-  blesse              Boolean
-
-  communaute          String
-  points_progression  String
-  tresors             String
-  prestige            String
-
-  origine             String
-  guide               String @default("Yo mama")
-  eclaireur           String
-  chasseur            String
-  guetteur            String
-  lien_communaute     String
-  sanctuaires         String
-  garant              String
-
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-
-  // Relations
-  armes               Weapon[]
-  equipements         Equipment[]
+  parade                Int
+  bouclier              Int
+  armure_1              String
+  casque_1              String
+  endurance             String
+  endurance_depart      String
+  fatigue               String
+  espoir                String
+  espoir_depart         String
+  ombre                 String
+  epuisement            Boolean
+  melancolie            Boolean
+  blesse                Boolean
+  communaute            String
+  points_progression    String
+  tresors               String
+  prestige              String
+  origine               String
+  guide                 String      @default("Yo mama")
+  eclaireur             String
+  chasseur              String
+  guetteur              String
+  lien_communaute       String
+  sanctuaires           String
+  garant                String
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+  equipements           Equipment[]
+  armes                 Weapon[]
 }
 
 model Weapon {
-  id        String   @id @default(cuid())
-  userId    String
-  index     Int      // 1, 2, or 3 to represent arme_1, arme_2, arme_3
-
-  niveau    Int
-  degats    String
-  taille    String
-  blessure  String
-  enc       String
-
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id       String @id @default(cuid())
+  userId   String
+  index    Int
+  niveau   Int
+  degats   String
+  taille   String
+  blessure String
+  enc      String
+  nom      String @default("Arme sans nom")
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, index])
 }
 
 model Equipment {
-  id        String   @id @default(cuid())
-  userId    String
-  index     Int      // 1, 2, or 3 to represent equipement_1, 2, 3
-
-  type      String   // "armure", "casque", "bouclier"
-  nom       String
-  enc       String
-
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(cuid())
+  userId String
+  index  Int
+  type   String
+  nom    String
+  enc    String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, index])
 }

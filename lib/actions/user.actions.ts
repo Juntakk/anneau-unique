@@ -6,6 +6,10 @@ import { User } from "@/types/user";
 export async function getUserByName(name: string) {
   const user = await prisma.user.findUnique({
     where: { nom: name },
+    include: {
+      armes: true,
+      equipements: true,
+    },
   });
 
   return user;

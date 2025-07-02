@@ -203,7 +203,8 @@ exports.Prisma.WeaponScalarFieldEnum = {
   degats: 'degats',
   taille: 'taille',
   blessure: 'blessure',
-  enc: 'enc'
+  enc: 'enc',
+  nom: 'nom'
 };
 
 exports.Prisma.EquipmentScalarFieldEnum = {

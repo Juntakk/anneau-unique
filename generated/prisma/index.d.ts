@@ -1051,13 +1051,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    armes: number
     equipements: number
+    armes: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    armes?: boolean | UserCountOutputTypeCountArmesArgs
     equipements?: boolean | UserCountOutputTypeCountEquipementsArgs
+    armes?: boolean | UserCountOutputTypeCountArmesArgs
   }
 
   // Custom InputTypes
@@ -1074,15 +1074,15 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountArmesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: WeaponWhereInput
+  export type UserCountOutputTypeCountEquipementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EquipmentWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountEquipementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EquipmentWhereInput
+  export type UserCountOutputTypeCountArmesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WeaponWhereInput
   }
 
 
@@ -1972,8 +1972,8 @@ export namespace Prisma {
     garant?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    armes?: boolean | User$armesArgs<ExtArgs>
     equipements?: boolean | User$equipementsArgs<ExtArgs>
+    armes?: boolean | User$armesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2204,8 +2204,8 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nom" | "culture" | "niveau_de_vie" | "avantage_culturel" | "vocation" | "part_ombre" | "specialites" | "particularite" | "experience" | "experience_totale" | "vaillance" | "sagesse" | "corps" | "corps_ameliore" | "coeur" | "coeur_ameliore" | "esprit" | "esprit_ameliore" | "presence" | "athletisme" | "vigilance" | "exploration" | "chant" | "artisanat" | "inspiration" | "voyage" | "intuition" | "guerison" | "courtoisie" | "art_de_la_guerre" | "persuasion" | "discretion" | "fouille" | "chasse" | "enigmes" | "connaissances" | "personnalite" | "deplacement" | "perception" | "survie" | "coutume" | "metier" | "bonus_degats" | "bonus_degats_distance" | "parade" | "bouclier" | "armure_1" | "casque_1" | "endurance" | "endurance_depart" | "fatigue" | "espoir" | "espoir_depart" | "ombre" | "epuisement" | "melancolie" | "blesse" | "communaute" | "points_progression" | "tresors" | "prestige" | "origine" | "guide" | "eclaireur" | "chasseur" | "guetteur" | "lien_communaute" | "sanctuaires" | "garant" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    armes?: boolean | User$armesArgs<ExtArgs>
     equipements?: boolean | User$equipementsArgs<ExtArgs>
+    armes?: boolean | User$armesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2214,8 +2214,8 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      armes: Prisma.$WeaponPayload<ExtArgs>[]
       equipements: Prisma.$EquipmentPayload<ExtArgs>[]
+      armes: Prisma.$WeaponPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2684,8 +2684,8 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    armes<T extends User$armesArgs<ExtArgs> = {}>(args?: Subset<T, User$armesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     equipements<T extends User$equipementsArgs<ExtArgs> = {}>(args?: Subset<T, User$equipementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EquipmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    armes<T extends User$armesArgs<ExtArgs> = {}>(args?: Subset<T, User$armesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeaponPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3175,30 +3175,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.armes
-   */
-  export type User$armesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Weapon
-     */
-    select?: WeaponSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Weapon
-     */
-    omit?: WeaponOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WeaponInclude<ExtArgs> | null
-    where?: WeaponWhereInput
-    orderBy?: WeaponOrderByWithRelationInput | WeaponOrderByWithRelationInput[]
-    cursor?: WeaponWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: WeaponScalarFieldEnum | WeaponScalarFieldEnum[]
-  }
-
-  /**
    * User.equipements
    */
   export type User$equipementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3220,6 +3196,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: EquipmentScalarFieldEnum | EquipmentScalarFieldEnum[]
+  }
+
+  /**
+   * User.armes
+   */
+  export type User$armesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Weapon
+     */
+    select?: WeaponSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Weapon
+     */
+    omit?: WeaponOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeaponInclude<ExtArgs> | null
+    where?: WeaponWhereInput
+    orderBy?: WeaponOrderByWithRelationInput | WeaponOrderByWithRelationInput[]
+    cursor?: WeaponWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WeaponScalarFieldEnum | WeaponScalarFieldEnum[]
   }
 
   /**
@@ -3272,6 +3272,7 @@ export namespace Prisma {
     taille: string | null
     blessure: string | null
     enc: string | null
+    nom: string | null
   }
 
   export type WeaponMaxAggregateOutputType = {
@@ -3283,6 +3284,7 @@ export namespace Prisma {
     taille: string | null
     blessure: string | null
     enc: string | null
+    nom: string | null
   }
 
   export type WeaponCountAggregateOutputType = {
@@ -3294,6 +3296,7 @@ export namespace Prisma {
     taille: number
     blessure: number
     enc: number
+    nom: number
     _all: number
   }
 
@@ -3317,6 +3320,7 @@ export namespace Prisma {
     taille?: true
     blessure?: true
     enc?: true
+    nom?: true
   }
 
   export type WeaponMaxAggregateInputType = {
@@ -3328,6 +3332,7 @@ export namespace Prisma {
     taille?: true
     blessure?: true
     enc?: true
+    nom?: true
   }
 
   export type WeaponCountAggregateInputType = {
@@ -3339,6 +3344,7 @@ export namespace Prisma {
     taille?: true
     blessure?: true
     enc?: true
+    nom?: true
     _all?: true
   }
 
@@ -3437,6 +3443,7 @@ export namespace Prisma {
     taille: string
     blessure: string
     enc: string
+    nom: string
     _count: WeaponCountAggregateOutputType | null
     _avg: WeaponAvgAggregateOutputType | null
     _sum: WeaponSumAggregateOutputType | null
@@ -3467,6 +3474,7 @@ export namespace Prisma {
     taille?: boolean
     blessure?: boolean
     enc?: boolean
+    nom?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["weapon"]>
 
@@ -3479,6 +3487,7 @@ export namespace Prisma {
     taille?: boolean
     blessure?: boolean
     enc?: boolean
+    nom?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["weapon"]>
 
@@ -3491,6 +3500,7 @@ export namespace Prisma {
     taille?: boolean
     blessure?: boolean
     enc?: boolean
+    nom?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["weapon"]>
 
@@ -3503,9 +3513,10 @@ export namespace Prisma {
     taille?: boolean
     blessure?: boolean
     enc?: boolean
+    nom?: boolean
   }
 
-  export type WeaponOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "index" | "niveau" | "degats" | "taille" | "blessure" | "enc", ExtArgs["result"]["weapon"]>
+  export type WeaponOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "index" | "niveau" | "degats" | "taille" | "blessure" | "enc" | "nom", ExtArgs["result"]["weapon"]>
   export type WeaponInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -3530,6 +3541,7 @@ export namespace Prisma {
       taille: string
       blessure: string
       enc: string
+      nom: string
     }, ExtArgs["result"]["weapon"]>
     composites: {}
   }
@@ -3962,6 +3974,7 @@ export namespace Prisma {
     readonly taille: FieldRef<"Weapon", 'String'>
     readonly blessure: FieldRef<"Weapon", 'String'>
     readonly enc: FieldRef<"Weapon", 'String'>
+    readonly nom: FieldRef<"Weapon", 'String'>
   }
     
 
@@ -5581,7 +5594,8 @@ export namespace Prisma {
     degats: 'degats',
     taille: 'taille',
     blessure: 'blessure',
-    enc: 'enc'
+    enc: 'enc',
+    nom: 'nom'
   };
 
   export type WeaponScalarFieldEnum = (typeof WeaponScalarFieldEnum)[keyof typeof WeaponScalarFieldEnum]
@@ -5762,8 +5776,8 @@ export namespace Prisma {
     garant?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    armes?: WeaponListRelationFilter
     equipements?: EquipmentListRelationFilter
+    armes?: WeaponListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5839,8 +5853,8 @@ export namespace Prisma {
     garant?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    armes?: WeaponOrderByRelationAggregateInput
     equipements?: EquipmentOrderByRelationAggregateInput
+    armes?: WeaponOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5919,8 +5933,8 @@ export namespace Prisma {
     garant?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    armes?: WeaponListRelationFilter
     equipements?: EquipmentListRelationFilter
+    armes?: WeaponListRelationFilter
   }, "id" | "nom">
 
   export type UserOrderByWithAggregationInput = {
@@ -6093,6 +6107,7 @@ export namespace Prisma {
     taille?: StringFilter<"Weapon"> | string
     blessure?: StringFilter<"Weapon"> | string
     enc?: StringFilter<"Weapon"> | string
+    nom?: StringFilter<"Weapon"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -6105,6 +6120,7 @@ export namespace Prisma {
     taille?: SortOrder
     blessure?: SortOrder
     enc?: SortOrder
+    nom?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -6121,6 +6137,7 @@ export namespace Prisma {
     taille?: StringFilter<"Weapon"> | string
     blessure?: StringFilter<"Weapon"> | string
     enc?: StringFilter<"Weapon"> | string
+    nom?: StringFilter<"Weapon"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id" | "userId_index">
 
@@ -6133,6 +6150,7 @@ export namespace Prisma {
     taille?: SortOrder
     blessure?: SortOrder
     enc?: SortOrder
+    nom?: SortOrder
     _count?: WeaponCountOrderByAggregateInput
     _avg?: WeaponAvgOrderByAggregateInput
     _max?: WeaponMaxOrderByAggregateInput
@@ -6152,6 +6170,7 @@ export namespace Prisma {
     taille?: StringWithAggregatesFilter<"Weapon"> | string
     blessure?: StringWithAggregatesFilter<"Weapon"> | string
     enc?: StringWithAggregatesFilter<"Weapon"> | string
+    nom?: StringWithAggregatesFilter<"Weapon"> | string
   }
 
   export type EquipmentWhereInput = {
@@ -6281,7 +6300,7 @@ export namespace Prisma {
     tresors: string
     prestige: string
     origine: string
-    guide: string
+    guide?: string
     eclaireur: string
     chasseur: string
     guetteur: string
@@ -6290,8 +6309,8 @@ export namespace Prisma {
     garant: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    armes?: WeaponCreateNestedManyWithoutUserInput
     equipements?: EquipmentCreateNestedManyWithoutUserInput
+    armes?: WeaponCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6358,7 +6377,7 @@ export namespace Prisma {
     tresors: string
     prestige: string
     origine: string
-    guide: string
+    guide?: string
     eclaireur: string
     chasseur: string
     guetteur: string
@@ -6367,8 +6386,8 @@ export namespace Prisma {
     garant: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    armes?: WeaponUncheckedCreateNestedManyWithoutUserInput
     equipements?: EquipmentUncheckedCreateNestedManyWithoutUserInput
+    armes?: WeaponUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6444,8 +6463,8 @@ export namespace Prisma {
     garant?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    armes?: WeaponUpdateManyWithoutUserNestedInput
     equipements?: EquipmentUpdateManyWithoutUserNestedInput
+    armes?: WeaponUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6521,8 +6540,8 @@ export namespace Prisma {
     garant?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    armes?: WeaponUncheckedUpdateManyWithoutUserNestedInput
     equipements?: EquipmentUncheckedUpdateManyWithoutUserNestedInput
+    armes?: WeaponUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6589,7 +6608,7 @@ export namespace Prisma {
     tresors: string
     prestige: string
     origine: string
-    guide: string
+    guide?: string
     eclaireur: string
     chasseur: string
     guetteur: string
@@ -6758,6 +6777,7 @@ export namespace Prisma {
     taille: string
     blessure: string
     enc: string
+    nom?: string
     user: UserCreateNestedOneWithoutArmesInput
   }
 
@@ -6770,6 +6790,7 @@ export namespace Prisma {
     taille: string
     blessure: string
     enc: string
+    nom?: string
   }
 
   export type WeaponUpdateInput = {
@@ -6780,6 +6801,7 @@ export namespace Prisma {
     taille?: StringFieldUpdateOperationsInput | string
     blessure?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutArmesNestedInput
   }
 
@@ -6792,6 +6814,7 @@ export namespace Prisma {
     taille?: StringFieldUpdateOperationsInput | string
     blessure?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
   }
 
   export type WeaponCreateManyInput = {
@@ -6803,6 +6826,7 @@ export namespace Prisma {
     taille: string
     blessure: string
     enc: string
+    nom?: string
   }
 
   export type WeaponUpdateManyMutationInput = {
@@ -6813,6 +6837,7 @@ export namespace Prisma {
     taille?: StringFieldUpdateOperationsInput | string
     blessure?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
   }
 
   export type WeaponUncheckedUpdateManyInput = {
@@ -6824,6 +6849,7 @@ export namespace Prisma {
     taille?: StringFieldUpdateOperationsInput | string
     blessure?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
   }
 
   export type EquipmentCreateInput = {
@@ -6930,23 +6956,23 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type WeaponListRelationFilter = {
-    every?: WeaponWhereInput
-    some?: WeaponWhereInput
-    none?: WeaponWhereInput
-  }
-
   export type EquipmentListRelationFilter = {
     every?: EquipmentWhereInput
     some?: EquipmentWhereInput
     none?: EquipmentWhereInput
   }
 
-  export type WeaponOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type WeaponListRelationFilter = {
+    every?: WeaponWhereInput
+    some?: WeaponWhereInput
+    none?: WeaponWhereInput
   }
 
   export type EquipmentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WeaponOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7332,6 +7358,7 @@ export namespace Prisma {
     taille?: SortOrder
     blessure?: SortOrder
     enc?: SortOrder
+    nom?: SortOrder
   }
 
   export type WeaponAvgOrderByAggregateInput = {
@@ -7348,6 +7375,7 @@ export namespace Prisma {
     taille?: SortOrder
     blessure?: SortOrder
     enc?: SortOrder
+    nom?: SortOrder
   }
 
   export type WeaponMinOrderByAggregateInput = {
@@ -7359,6 +7387,7 @@ export namespace Prisma {
     taille?: SortOrder
     blessure?: SortOrder
     enc?: SortOrder
+    nom?: SortOrder
   }
 
   export type WeaponSumOrderByAggregateInput = {
@@ -7406,13 +7435,6 @@ export namespace Prisma {
     index?: SortOrder
   }
 
-  export type WeaponCreateNestedManyWithoutUserInput = {
-    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
-    createMany?: WeaponCreateManyUserInputEnvelope
-    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
-  }
-
   export type EquipmentCreateNestedManyWithoutUserInput = {
     create?: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput> | EquipmentCreateWithoutUserInput[] | EquipmentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: EquipmentCreateOrConnectWithoutUserInput | EquipmentCreateOrConnectWithoutUserInput[]
@@ -7420,7 +7442,7 @@ export namespace Prisma {
     connect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
   }
 
-  export type WeaponUncheckedCreateNestedManyWithoutUserInput = {
+  export type WeaponCreateNestedManyWithoutUserInput = {
     create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
     connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
     createMany?: WeaponCreateManyUserInputEnvelope
@@ -7432,6 +7454,13 @@ export namespace Prisma {
     connectOrCreate?: EquipmentCreateOrConnectWithoutUserInput | EquipmentCreateOrConnectWithoutUserInput[]
     createMany?: EquipmentCreateManyUserInputEnvelope
     connect?: EquipmentWhereUniqueInput | EquipmentWhereUniqueInput[]
+  }
+
+  export type WeaponUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
+    createMany?: WeaponCreateManyUserInputEnvelope
+    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -7454,20 +7483,6 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type WeaponUpdateManyWithoutUserNestedInput = {
-    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
-    upsert?: WeaponUpsertWithWhereUniqueWithoutUserInput | WeaponUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: WeaponCreateManyUserInputEnvelope
-    set?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
-    disconnect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
-    delete?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
-    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
-    update?: WeaponUpdateWithWhereUniqueWithoutUserInput | WeaponUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: WeaponUpdateManyWithWhereWithoutUserInput | WeaponUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: WeaponScalarWhereInput | WeaponScalarWhereInput[]
-  }
-
   export type EquipmentUpdateManyWithoutUserNestedInput = {
     create?: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput> | EquipmentCreateWithoutUserInput[] | EquipmentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: EquipmentCreateOrConnectWithoutUserInput | EquipmentCreateOrConnectWithoutUserInput[]
@@ -7482,7 +7497,7 @@ export namespace Prisma {
     deleteMany?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
   }
 
-  export type WeaponUncheckedUpdateManyWithoutUserNestedInput = {
+  export type WeaponUpdateManyWithoutUserNestedInput = {
     create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
     connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
     upsert?: WeaponUpsertWithWhereUniqueWithoutUserInput | WeaponUpsertWithWhereUniqueWithoutUserInput[]
@@ -7508,6 +7523,20 @@ export namespace Prisma {
     update?: EquipmentUpdateWithWhereUniqueWithoutUserInput | EquipmentUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: EquipmentUpdateManyWithWhereWithoutUserInput | EquipmentUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
+  }
+
+  export type WeaponUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput> | WeaponCreateWithoutUserInput[] | WeaponUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeaponCreateOrConnectWithoutUserInput | WeaponCreateOrConnectWithoutUserInput[]
+    upsert?: WeaponUpsertWithWhereUniqueWithoutUserInput | WeaponUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WeaponCreateManyUserInputEnvelope
+    set?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    disconnect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    delete?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    connect?: WeaponWhereUniqueInput | WeaponWhereUniqueInput[]
+    update?: WeaponUpdateWithWhereUniqueWithoutUserInput | WeaponUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WeaponUpdateManyWithWhereWithoutUserInput | WeaponUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WeaponScalarWhereInput | WeaponScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutArmesInput = {
@@ -7645,36 +7674,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type WeaponCreateWithoutUserInput = {
-    id?: string
-    index: number
-    niveau: number
-    degats: string
-    taille: string
-    blessure: string
-    enc: string
-  }
-
-  export type WeaponUncheckedCreateWithoutUserInput = {
-    id?: string
-    index: number
-    niveau: number
-    degats: string
-    taille: string
-    blessure: string
-    enc: string
-  }
-
-  export type WeaponCreateOrConnectWithoutUserInput = {
-    where: WeaponWhereUniqueInput
-    create: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput>
-  }
-
-  export type WeaponCreateManyUserInputEnvelope = {
-    data: WeaponCreateManyUserInput | WeaponCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type EquipmentCreateWithoutUserInput = {
     id?: string
     index: number
@@ -7699,6 +7698,66 @@ export namespace Prisma {
   export type EquipmentCreateManyUserInputEnvelope = {
     data: EquipmentCreateManyUserInput | EquipmentCreateManyUserInput[]
     skipDuplicates?: boolean
+  }
+
+  export type WeaponCreateWithoutUserInput = {
+    id?: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+    nom?: string
+  }
+
+  export type WeaponUncheckedCreateWithoutUserInput = {
+    id?: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+    nom?: string
+  }
+
+  export type WeaponCreateOrConnectWithoutUserInput = {
+    where: WeaponWhereUniqueInput
+    create: XOR<WeaponCreateWithoutUserInput, WeaponUncheckedCreateWithoutUserInput>
+  }
+
+  export type WeaponCreateManyUserInputEnvelope = {
+    data: WeaponCreateManyUserInput | WeaponCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EquipmentUpsertWithWhereUniqueWithoutUserInput = {
+    where: EquipmentWhereUniqueInput
+    update: XOR<EquipmentUpdateWithoutUserInput, EquipmentUncheckedUpdateWithoutUserInput>
+    create: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput>
+  }
+
+  export type EquipmentUpdateWithWhereUniqueWithoutUserInput = {
+    where: EquipmentWhereUniqueInput
+    data: XOR<EquipmentUpdateWithoutUserInput, EquipmentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type EquipmentUpdateManyWithWhereWithoutUserInput = {
+    where: EquipmentScalarWhereInput
+    data: XOR<EquipmentUpdateManyMutationInput, EquipmentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type EquipmentScalarWhereInput = {
+    AND?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
+    OR?: EquipmentScalarWhereInput[]
+    NOT?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
+    id?: StringFilter<"Equipment"> | string
+    userId?: StringFilter<"Equipment"> | string
+    index?: IntFilter<"Equipment"> | number
+    type?: StringFilter<"Equipment"> | string
+    nom?: StringFilter<"Equipment"> | string
+    enc?: StringFilter<"Equipment"> | string
   }
 
   export type WeaponUpsertWithWhereUniqueWithoutUserInput = {
@@ -7729,34 +7788,7 @@ export namespace Prisma {
     taille?: StringFilter<"Weapon"> | string
     blessure?: StringFilter<"Weapon"> | string
     enc?: StringFilter<"Weapon"> | string
-  }
-
-  export type EquipmentUpsertWithWhereUniqueWithoutUserInput = {
-    where: EquipmentWhereUniqueInput
-    update: XOR<EquipmentUpdateWithoutUserInput, EquipmentUncheckedUpdateWithoutUserInput>
-    create: XOR<EquipmentCreateWithoutUserInput, EquipmentUncheckedCreateWithoutUserInput>
-  }
-
-  export type EquipmentUpdateWithWhereUniqueWithoutUserInput = {
-    where: EquipmentWhereUniqueInput
-    data: XOR<EquipmentUpdateWithoutUserInput, EquipmentUncheckedUpdateWithoutUserInput>
-  }
-
-  export type EquipmentUpdateManyWithWhereWithoutUserInput = {
-    where: EquipmentScalarWhereInput
-    data: XOR<EquipmentUpdateManyMutationInput, EquipmentUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type EquipmentScalarWhereInput = {
-    AND?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
-    OR?: EquipmentScalarWhereInput[]
-    NOT?: EquipmentScalarWhereInput | EquipmentScalarWhereInput[]
-    id?: StringFilter<"Equipment"> | string
-    userId?: StringFilter<"Equipment"> | string
-    index?: IntFilter<"Equipment"> | number
-    type?: StringFilter<"Equipment"> | string
-    nom?: StringFilter<"Equipment"> | string
-    enc?: StringFilter<"Equipment"> | string
+    nom?: StringFilter<"Weapon"> | string
   }
 
   export type UserCreateWithoutArmesInput = {
@@ -7823,7 +7855,7 @@ export namespace Prisma {
     tresors: string
     prestige: string
     origine: string
-    guide: string
+    guide?: string
     eclaireur: string
     chasseur: string
     guetteur: string
@@ -7899,7 +7931,7 @@ export namespace Prisma {
     tresors: string
     prestige: string
     origine: string
-    guide: string
+    guide?: string
     eclaireur: string
     chasseur: string
     guetteur: string
@@ -8143,7 +8175,7 @@ export namespace Prisma {
     tresors: string
     prestige: string
     origine: string
-    guide: string
+    guide?: string
     eclaireur: string
     chasseur: string
     guetteur: string
@@ -8219,7 +8251,7 @@ export namespace Prisma {
     tresors: string
     prestige: string
     origine: string
-    guide: string
+    guide?: string
     eclaireur: string
     chasseur: string
     guetteur: string
@@ -8399,16 +8431,6 @@ export namespace Prisma {
     armes?: WeaponUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type WeaponCreateManyUserInput = {
-    id?: string
-    index: number
-    niveau: number
-    degats: string
-    taille: string
-    blessure: string
-    enc: string
-  }
-
   export type EquipmentCreateManyUserInput = {
     id?: string
     index: number
@@ -8417,34 +8439,15 @@ export namespace Prisma {
     enc: string
   }
 
-  export type WeaponUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    index?: IntFieldUpdateOperationsInput | number
-    niveau?: IntFieldUpdateOperationsInput | number
-    degats?: StringFieldUpdateOperationsInput | string
-    taille?: StringFieldUpdateOperationsInput | string
-    blessure?: StringFieldUpdateOperationsInput | string
-    enc?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type WeaponUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    index?: IntFieldUpdateOperationsInput | number
-    niveau?: IntFieldUpdateOperationsInput | number
-    degats?: StringFieldUpdateOperationsInput | string
-    taille?: StringFieldUpdateOperationsInput | string
-    blessure?: StringFieldUpdateOperationsInput | string
-    enc?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type WeaponUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    index?: IntFieldUpdateOperationsInput | number
-    niveau?: IntFieldUpdateOperationsInput | number
-    degats?: StringFieldUpdateOperationsInput | string
-    taille?: StringFieldUpdateOperationsInput | string
-    blessure?: StringFieldUpdateOperationsInput | string
-    enc?: StringFieldUpdateOperationsInput | string
+  export type WeaponCreateManyUserInput = {
+    id?: string
+    index: number
+    niveau: number
+    degats: string
+    taille: string
+    blessure: string
+    enc: string
+    nom?: string
   }
 
   export type EquipmentUpdateWithoutUserInput = {
@@ -8469,6 +8472,39 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WeaponUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WeaponUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type WeaponUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    index?: IntFieldUpdateOperationsInput | number
+    niveau?: IntFieldUpdateOperationsInput | number
+    degats?: StringFieldUpdateOperationsInput | string
+    taille?: StringFieldUpdateOperationsInput | string
+    blessure?: StringFieldUpdateOperationsInput | string
+    enc?: StringFieldUpdateOperationsInput | string
+    nom?: StringFieldUpdateOperationsInput | string
   }
 
 
