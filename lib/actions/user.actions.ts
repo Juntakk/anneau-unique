@@ -1,7 +1,7 @@
-'use server';
+"use server";
 
-import prisma from '@/lib/prisma';
-import { User, Weapon } from '@/types/user';
+import prisma from "@/lib/prisma";
+import { User, Weapon } from "@/types/user";
 
 export async function getUserByName(name: string) {
   const user = await prisma.user.findUnique({
@@ -38,6 +38,23 @@ export async function updateUserField(
 ) {
   return await prisma.user.update({
     where: { id: userId },
+    data: { [field]: value },
+  });
+}
+
+export async function updateWeaponLevel(
+  userId: string,
+  field: keyof Weapon,
+  index: number,
+  value: number
+) {
+  return await prisma.weapon.update({
+    where: {
+      userId_index: {
+        userId,
+        index,
+      },
+    },
     data: { [field]: value },
   });
 }
