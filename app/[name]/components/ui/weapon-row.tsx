@@ -3,29 +3,31 @@ import {
   updateWeaponField,
   updateWeaponLevel,
 } from "@/lib/actions/user.actions";
+import { handleEnterBlur } from "@/lib/utils";
 import { useUser } from "@/providers/UserContext";
 import { useEffect, useState } from "react";
+import { LabeledInput } from "./labeled-input";
 
 export const WeaponRow = ({ index }: { index: number }) => {
   const user = useUser();
   const weapon = user.armes[index];
   const dbIndex = weapon.index;
   const [weaponName, setWeaponName] = useState(weapon?.nom || "");
+  const [weaponLevel, setWeaponLevel] = useState(weapon?.niveau || 0);
   const [isSaving, setIsSaving] = useState(false);
-  const [value, setValue] = useState(weapon?.niveau || 0);
 
   useEffect(() => {
     setWeaponName(weapon?.nom || "");
   }, [weapon?.nom]);
 
   const handleCheck = async (index: number) => {
-    if (index + 1 === value) {
-      setValue(0);
+    if (index + 1 === weaponLevel) {
+      setWeaponLevel(0);
     } else {
-      setValue(index + 1);
+      setWeaponLevel(index + 1);
     }
-    const newValue = index + 1 === value ? index : index + 1;
-    setValue(newValue);
+    const newValue = index + 1 === weaponLevel ? index : index + 1;
+    setWeaponLevel(newValue);
     await updateWeaponLevel(user.id, "niveau", dbIndex, newValue);
   };
   const handleBlur = async () => {
@@ -56,6 +58,7 @@ export const WeaponRow = ({ index }: { index: number }) => {
         className='min-w-[300px] outline-none border-b border-black text-xl mr-10'
         onChange={(e) => setWeaponName(e.target.value)}
         onBlur={handleBlur}
+        onKeyDown={handleEnterBlur(handleBlur)}
         value={weaponName}
         disabled={isSaving}
       />
@@ -63,7 +66,7 @@ export const WeaponRow = ({ index }: { index: number }) => {
         {Array.from({ length: 6 }).map((_, i) => (
           <input
             key={i}
-            checked={i < value}
+            checked={i < weaponLevel}
             onChange={() => handleCheck(i)}
             type='checkbox'
             className='w-5 h-5 border-2 border-foreground rounded-sm transition duration-150 appearance-none checked:bg-amber-900 hover:cursor-pointer'
@@ -71,29 +74,31 @@ export const WeaponRow = ({ index }: { index: number }) => {
         ))}
       </div>
       <div className='ml-12 flex gap-x-4 gap-y-2'>
-        <LabeledInput label='dégâts' value={weapon?.degats || ""} />
-        <LabeledInput label='taille' value={weapon?.taille || ""} />
-        <LabeledInput label='blessure' value={weapon?.blessure || ""} />
-        <LabeledInput label='enc' value={weapon?.enc || ""} />
+        <LabeledInput
+          label='dégâts'
+          weapon={weapon}
+          value={weapon?.degats || ""}
+          field='degats'
+        />
+        <LabeledInput
+          label='taille'
+          weapon={weapon}
+          value={weapon?.taille || ""}
+          field='taille'
+        />
+        <LabeledInput
+          label='blessure'
+          weapon={weapon}
+          value={weapon?.blessure || ""}
+          field='blessure'
+        />
+        <LabeledInput
+          label='enc'
+          value={weapon?.enc || ""}
+          weapon={weapon}
+          field='enc'
+        />
       </div>
     </div>
   );
 };
-
-const LabeledInput = ({
-  label,
-  value,
-}: {
-  label: string;
-  value: string | number;
-}) => (
-  <div className='flex items-center gap-2'>
-    <label className='font-bold'>{label}</label>
-    <input
-      type='text'
-      className='max-w-[65px] outline-none text-2xl'
-      defaultValue={value}
-      readOnly
-    />
-  </div>
-);
