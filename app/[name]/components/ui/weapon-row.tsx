@@ -7,6 +7,7 @@ import { handleEnterBlur } from "@/lib/utils";
 import { useUser } from "@/providers/UserContext";
 import { useEffect, useState } from "react";
 import { LabeledInput } from "./labeled-input";
+import { toast } from "sonner";
 
 export const WeaponRow = ({ index }: { index: number }) => {
   const user = useUser();
@@ -28,7 +29,8 @@ export const WeaponRow = ({ index }: { index: number }) => {
     }
     const newValue = index + 1 === weaponLevel ? index : index + 1;
     setWeaponLevel(newValue);
-    await updateWeaponLevel(user.id, "niveau", dbIndex, newValue);
+    const res = await updateWeaponLevel(user.id, "niveau", dbIndex, newValue);
+    toast(res.message);
   };
   const handleBlur = async () => {
     if (!weapon) return;

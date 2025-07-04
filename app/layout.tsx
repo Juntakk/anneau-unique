@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import "./globals.css";
 import { MedievalSharp } from "next/font/google";
 
@@ -12,11 +13,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={medievalSharp.className}>
+    <html lang='en' className={medievalSharp.className}>
       <head>
         <title>Les Sentinelles de l&apos;Est</title>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Toaster
+          toastOptions={{
+            classNames: {
+              default: "!bg-amber-900 !text-white !border-none",
+            },
+          }}
+        />
+      </body>
     </html>
   );
 }

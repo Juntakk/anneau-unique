@@ -47,6 +47,9 @@ export interface User {
   coutume: number;
   metier: number;
 
+  recompenses: string;
+  vertus: string;
+
   bonus_degats: number;
   bonus_degats_distance: number;
   parade: number;

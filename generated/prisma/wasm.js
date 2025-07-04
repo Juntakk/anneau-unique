@@ -168,6 +168,8 @@ exports.Prisma.UserScalarFieldEnum = {
   bonus_degats_distance: 'bonus_degats_distance',
   parade: 'parade',
   bouclier: 'bouclier',
+  recompenses: 'recompenses',
+  vertus: 'vertus',
   armure_1: 'armure_1',
   casque_1: 'casque_1',
   endurance: 'endurance',

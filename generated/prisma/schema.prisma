@@ -56,6 +56,8 @@ model User {
   bonus_degats_distance Int
   parade                Int
   bouclier              Int
+  recompenses           String      @default("Aucune")
+  vertus                String      @default("Aucune")
   armure_1              String
   casque_1              String
   endurance             String

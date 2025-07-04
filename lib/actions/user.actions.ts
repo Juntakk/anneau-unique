@@ -20,7 +20,9 @@ export async function updateWeaponField(
   field: keyof Weapon,
   value: string | number
 ) {
-  return await prisma.weapon.update({
+  const data = field[0].toUpperCase() + field.slice(1);
+
+  await prisma.weapon.update({
     where: {
       userId_index: {
         userId,
@@ -29,6 +31,7 @@ export async function updateWeaponField(
     },
     data: { [field]: value },
   });
+  return { success: true, message: `${data} updated successfully` };
 }
 
 export async function updateUserField(
@@ -36,10 +39,12 @@ export async function updateUserField(
   field: keyof User | string,
   value: string | number
 ) {
-  return await prisma.user.update({
+  const data = field[0].toUpperCase() + field.slice(1);
+  await prisma.user.update({
     where: { id: userId },
     data: { [field]: value },
   });
+  return { success: true, message: ` ${data} updated successfully` };
 }
 
 export async function updateWeaponLevel(
@@ -48,7 +53,7 @@ export async function updateWeaponLevel(
   index: number,
   value: number
 ) {
-  return await prisma.weapon.update({
+  await prisma.weapon.update({
     where: {
       userId_index: {
         userId,
@@ -57,6 +62,7 @@ export async function updateWeaponLevel(
     },
     data: { [field]: value },
   });
+  return { success: true, message: `Weapon level updated successfully` };
 }
 
 export async function getCompanyRolesByName(nom: string): Promise<{
