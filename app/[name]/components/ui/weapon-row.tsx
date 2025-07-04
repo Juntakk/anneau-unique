@@ -3,7 +3,7 @@ import {
   updateWeaponField,
   updateWeaponLevel,
 } from "@/lib/actions/user.actions";
-import { handleEnterBlur } from "@/lib/utils";
+import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
 import { useUser } from "@/providers/UserContext";
 import { useEffect, useState } from "react";
 import { LabeledInput } from "./labeled-input";
@@ -33,6 +33,7 @@ export const WeaponRow = ({ index }: { index: number }) => {
     toast(res.message);
   };
   const handleBlur = async () => {
+    if (shouldSkipBlur()) return;
     if (!weapon) return;
 
     if (weaponName.trim() === "") {
@@ -43,7 +44,13 @@ export const WeaponRow = ({ index }: { index: number }) => {
     if (weaponName !== weapon.nom) {
       setIsSaving(true);
       try {
-        await updateWeaponField(user.id, dbIndex, "nom", weaponName);
+        const res = await updateWeaponField(
+          user.id,
+          dbIndex,
+          "nom",
+          weaponName
+        );
+        toast(res.message);
       } catch (error) {
         console.error(error);
         setWeaponName(weapon.nom);

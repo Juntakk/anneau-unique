@@ -1,6 +1,6 @@
 "use client";
 import { updateUserField } from "@/lib/actions/user.actions";
-import { handleEnterBlur } from "@/lib/utils";
+import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
 import { User } from "@/types/user";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -22,6 +22,7 @@ export default function LinedTextarea({
   const [value, setValue] = useState<string>(String(user[field]));
 
   const handleBlur = async () => {
+    if (shouldSkipBlur()) return;
     const res = await updateUserField(user.id, field, value);
     toast(res.message);
   };

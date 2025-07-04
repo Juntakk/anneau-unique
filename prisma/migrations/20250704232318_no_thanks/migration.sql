@@ -1,0 +1,9 @@
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "bonus_degats" SET DEFAULT '1',
+ALTER COLUMN "bonus_degats" SET DATA TYPE TEXT,
+ALTER COLUMN "bonus_degats_distance" SET DEFAULT '1',
+ALTER COLUMN "bonus_degats_distance" SET DATA TYPE TEXT,
+ALTER COLUMN "parade" SET DEFAULT '1',
+ALTER COLUMN "parade" SET DATA TYPE TEXT,
+ALTER COLUMN "bouclier" SET DEFAULT '1',
+ALTER COLUMN "bouclier" SET DATA TYPE TEXT;

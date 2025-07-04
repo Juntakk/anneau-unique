@@ -1,8 +1,10 @@
 "use client";
 import { updateWeaponField } from "@/lib/actions/user.actions";
+import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
 import { useUser } from "@/providers/UserContext";
 import { Weapon } from "@/types/user";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const LabeledInput = ({
   label,
@@ -19,7 +21,14 @@ export const LabeledInput = ({
   const [valueState, setValueState] = useState(value.toString());
 
   const handleBlur = async () => {
-    updateWeaponField(user.id, weapon.index, field, valueState.toString());
+    if (shouldSkipBlur()) return;
+    const res = await updateWeaponField(
+      user.id,
+      weapon.index,
+      field,
+      valueState.toString()
+    );
+    toast(res.message);
   };
 
   return (
@@ -33,6 +42,7 @@ export const LabeledInput = ({
         onChange={(e) => {
           setValueState(e.target.value);
         }}
+        onKeyDown={handleEnterBlur(handleBlur)}
       />
     </div>
   );

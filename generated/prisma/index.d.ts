@@ -1137,10 +1137,6 @@ export namespace Prisma {
     survie: number | null
     coutume: number | null
     metier: number | null
-    bonus_degats: number | null
-    bonus_degats_distance: number | null
-    parade: number | null
-    bouclier: number | null
   }
 
   export type UserSumAggregateOutputType = {
@@ -1178,10 +1174,6 @@ export namespace Prisma {
     survie: number | null
     coutume: number | null
     metier: number | null
-    bonus_degats: number | null
-    bonus_degats_distance: number | null
-    parade: number | null
-    bouclier: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -1228,14 +1220,14 @@ export namespace Prisma {
     survie: number | null
     coutume: number | null
     metier: number | null
-    bonus_degats: number | null
-    bonus_degats_distance: number | null
-    parade: number | null
-    bouclier: number | null
+    bonus_degats: string | null
+    bonus_degats_distance: string | null
+    parade: string | null
+    bouclier: string | null
+    armure: string | null
+    casque: string | null
     recompenses: string | null
     vertus: string | null
-    armure_1: string | null
-    casque_1: string | null
     endurance: string | null
     endurance_depart: string | null
     fatigue: string | null
@@ -1305,14 +1297,14 @@ export namespace Prisma {
     survie: number | null
     coutume: number | null
     metier: number | null
-    bonus_degats: number | null
-    bonus_degats_distance: number | null
-    parade: number | null
-    bouclier: number | null
+    bonus_degats: string | null
+    bonus_degats_distance: string | null
+    parade: string | null
+    bouclier: string | null
+    armure: string | null
+    casque: string | null
     recompenses: string | null
     vertus: string | null
-    armure_1: string | null
-    casque_1: string | null
     endurance: string | null
     endurance_depart: string | null
     fatigue: string | null
@@ -1386,10 +1378,10 @@ export namespace Prisma {
     bonus_degats_distance: number
     parade: number
     bouclier: number
+    armure: number
+    casque: number
     recompenses: number
     vertus: number
-    armure_1: number
-    casque_1: number
     endurance: number
     endurance_depart: number
     fatigue: number
@@ -1452,10 +1444,6 @@ export namespace Prisma {
     survie?: true
     coutume?: true
     metier?: true
-    bonus_degats?: true
-    bonus_degats_distance?: true
-    parade?: true
-    bouclier?: true
   }
 
   export type UserSumAggregateInputType = {
@@ -1493,10 +1481,6 @@ export namespace Prisma {
     survie?: true
     coutume?: true
     metier?: true
-    bonus_degats?: true
-    bonus_degats_distance?: true
-    parade?: true
-    bouclier?: true
   }
 
   export type UserMinAggregateInputType = {
@@ -1547,10 +1531,10 @@ export namespace Prisma {
     bonus_degats_distance?: true
     parade?: true
     bouclier?: true
+    armure?: true
+    casque?: true
     recompenses?: true
     vertus?: true
-    armure_1?: true
-    casque_1?: true
     endurance?: true
     endurance_depart?: true
     fatigue?: true
@@ -1624,10 +1608,10 @@ export namespace Prisma {
     bonus_degats_distance?: true
     parade?: true
     bouclier?: true
+    armure?: true
+    casque?: true
     recompenses?: true
     vertus?: true
-    armure_1?: true
-    casque_1?: true
     endurance?: true
     endurance_depart?: true
     fatigue?: true
@@ -1701,10 +1685,10 @@ export namespace Prisma {
     bonus_degats_distance?: true
     parade?: true
     bouclier?: true
+    armure?: true
+    casque?: true
     recompenses?: true
     vertus?: true
-    armure_1?: true
-    casque_1?: true
     endurance?: true
     endurance_depart?: true
     fatigue?: true
@@ -1861,14 +1845,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats: string
+    bonus_degats_distance: string
+    parade: string
+    bouclier: string
+    armure: string
+    casque: string
     recompenses: string
     vertus: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -1961,10 +1945,10 @@ export namespace Prisma {
     bonus_degats_distance?: boolean
     parade?: boolean
     bouclier?: boolean
+    armure?: boolean
+    casque?: boolean
     recompenses?: boolean
     vertus?: boolean
-    armure_1?: boolean
-    casque_1?: boolean
     endurance?: boolean
     endurance_depart?: boolean
     fatigue?: boolean
@@ -2041,10 +2025,10 @@ export namespace Prisma {
     bonus_degats_distance?: boolean
     parade?: boolean
     bouclier?: boolean
+    armure?: boolean
+    casque?: boolean
     recompenses?: boolean
     vertus?: boolean
-    armure_1?: boolean
-    casque_1?: boolean
     endurance?: boolean
     endurance_depart?: boolean
     fatigue?: boolean
@@ -2118,10 +2102,10 @@ export namespace Prisma {
     bonus_degats_distance?: boolean
     parade?: boolean
     bouclier?: boolean
+    armure?: boolean
+    casque?: boolean
     recompenses?: boolean
     vertus?: boolean
-    armure_1?: boolean
-    casque_1?: boolean
     endurance?: boolean
     endurance_depart?: boolean
     fatigue?: boolean
@@ -2195,10 +2179,10 @@ export namespace Prisma {
     bonus_degats_distance?: boolean
     parade?: boolean
     bouclier?: boolean
+    armure?: boolean
+    casque?: boolean
     recompenses?: boolean
     vertus?: boolean
-    armure_1?: boolean
-    casque_1?: boolean
     endurance?: boolean
     endurance_depart?: boolean
     fatigue?: boolean
@@ -2224,7 +2208,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nom" | "culture" | "niveau_de_vie" | "avantage_culturel" | "vocation" | "part_ombre" | "specialites" | "particularite" | "experience" | "experience_totale" | "vaillance" | "sagesse" | "corps" | "corps_ameliore" | "coeur" | "coeur_ameliore" | "esprit" | "esprit_ameliore" | "presence" | "athletisme" | "vigilance" | "exploration" | "chant" | "artisanat" | "inspiration" | "voyage" | "intuition" | "guerison" | "courtoisie" | "art_de_la_guerre" | "persuasion" | "discretion" | "fouille" | "chasse" | "enigmes" | "connaissances" | "personnalite" | "deplacement" | "perception" | "survie" | "coutume" | "metier" | "bonus_degats" | "bonus_degats_distance" | "parade" | "bouclier" | "recompenses" | "vertus" | "armure_1" | "casque_1" | "endurance" | "endurance_depart" | "fatigue" | "espoir" | "espoir_depart" | "ombre" | "epuisement" | "melancolie" | "blesse" | "communaute" | "points_progression" | "tresors" | "prestige" | "origine" | "guide" | "eclaireur" | "chasseur" | "guetteur" | "lien_communaute" | "sanctuaires" | "garant" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nom" | "culture" | "niveau_de_vie" | "avantage_culturel" | "vocation" | "part_ombre" | "specialites" | "particularite" | "experience" | "experience_totale" | "vaillance" | "sagesse" | "corps" | "corps_ameliore" | "coeur" | "coeur_ameliore" | "esprit" | "esprit_ameliore" | "presence" | "athletisme" | "vigilance" | "exploration" | "chant" | "artisanat" | "inspiration" | "voyage" | "intuition" | "guerison" | "courtoisie" | "art_de_la_guerre" | "persuasion" | "discretion" | "fouille" | "chasse" | "enigmes" | "connaissances" | "personnalite" | "deplacement" | "perception" | "survie" | "coutume" | "metier" | "bonus_degats" | "bonus_degats_distance" | "parade" | "bouclier" | "armure" | "casque" | "recompenses" | "vertus" | "endurance" | "endurance_depart" | "fatigue" | "espoir" | "espoir_depart" | "ombre" | "epuisement" | "melancolie" | "blesse" | "communaute" | "points_progression" | "tresors" | "prestige" | "origine" | "guide" | "eclaireur" | "chasseur" | "guetteur" | "lien_communaute" | "sanctuaires" | "garant" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     equipements?: boolean | User$equipementsArgs<ExtArgs>
     armes?: boolean | User$armesArgs<ExtArgs>
@@ -2283,14 +2267,14 @@ export namespace Prisma {
       survie: number
       coutume: number
       metier: number
-      bonus_degats: number
-      bonus_degats_distance: number
-      parade: number
-      bouclier: number
+      bonus_degats: string
+      bonus_degats_distance: string
+      parade: string
+      bouclier: string
+      armure: string
+      casque: string
       recompenses: string
       vertus: string
-      armure_1: string
-      casque_1: string
       endurance: string
       endurance_depart: string
       fatigue: string
@@ -2782,14 +2766,14 @@ export namespace Prisma {
     readonly survie: FieldRef<"User", 'Int'>
     readonly coutume: FieldRef<"User", 'Int'>
     readonly metier: FieldRef<"User", 'Int'>
-    readonly bonus_degats: FieldRef<"User", 'Int'>
-    readonly bonus_degats_distance: FieldRef<"User", 'Int'>
-    readonly parade: FieldRef<"User", 'Int'>
-    readonly bouclier: FieldRef<"User", 'Int'>
+    readonly bonus_degats: FieldRef<"User", 'String'>
+    readonly bonus_degats_distance: FieldRef<"User", 'String'>
+    readonly parade: FieldRef<"User", 'String'>
+    readonly bouclier: FieldRef<"User", 'String'>
+    readonly armure: FieldRef<"User", 'String'>
+    readonly casque: FieldRef<"User", 'String'>
     readonly recompenses: FieldRef<"User", 'String'>
     readonly vertus: FieldRef<"User", 'String'>
-    readonly armure_1: FieldRef<"User", 'String'>
-    readonly casque_1: FieldRef<"User", 'String'>
     readonly endurance: FieldRef<"User", 'String'>
     readonly endurance_depart: FieldRef<"User", 'String'>
     readonly fatigue: FieldRef<"User", 'String'>
@@ -5582,10 +5566,10 @@ export namespace Prisma {
     bonus_degats_distance: 'bonus_degats_distance',
     parade: 'parade',
     bouclier: 'bouclier',
+    armure: 'armure',
+    casque: 'casque',
     recompenses: 'recompenses',
     vertus: 'vertus',
-    armure_1: 'armure_1',
-    casque_1: 'casque_1',
     endurance: 'endurance',
     endurance_depart: 'endurance_depart',
     fatigue: 'fatigue',
@@ -5775,14 +5759,14 @@ export namespace Prisma {
     survie?: IntFilter<"User"> | number
     coutume?: IntFilter<"User"> | number
     metier?: IntFilter<"User"> | number
-    bonus_degats?: IntFilter<"User"> | number
-    bonus_degats_distance?: IntFilter<"User"> | number
-    parade?: IntFilter<"User"> | number
-    bouclier?: IntFilter<"User"> | number
+    bonus_degats?: StringFilter<"User"> | string
+    bonus_degats_distance?: StringFilter<"User"> | string
+    parade?: StringFilter<"User"> | string
+    bouclier?: StringFilter<"User"> | string
+    armure?: StringFilter<"User"> | string
+    casque?: StringFilter<"User"> | string
     recompenses?: StringFilter<"User"> | string
     vertus?: StringFilter<"User"> | string
-    armure_1?: StringFilter<"User"> | string
-    casque_1?: StringFilter<"User"> | string
     endurance?: StringFilter<"User"> | string
     endurance_depart?: StringFilter<"User"> | string
     fatigue?: StringFilter<"User"> | string
@@ -5858,10 +5842,10 @@ export namespace Prisma {
     bonus_degats_distance?: SortOrder
     parade?: SortOrder
     bouclier?: SortOrder
+    armure?: SortOrder
+    casque?: SortOrder
     recompenses?: SortOrder
     vertus?: SortOrder
-    armure_1?: SortOrder
-    casque_1?: SortOrder
     endurance?: SortOrder
     endurance_depart?: SortOrder
     fatigue?: SortOrder
@@ -5936,14 +5920,14 @@ export namespace Prisma {
     survie?: IntFilter<"User"> | number
     coutume?: IntFilter<"User"> | number
     metier?: IntFilter<"User"> | number
-    bonus_degats?: IntFilter<"User"> | number
-    bonus_degats_distance?: IntFilter<"User"> | number
-    parade?: IntFilter<"User"> | number
-    bouclier?: IntFilter<"User"> | number
+    bonus_degats?: StringFilter<"User"> | string
+    bonus_degats_distance?: StringFilter<"User"> | string
+    parade?: StringFilter<"User"> | string
+    bouclier?: StringFilter<"User"> | string
+    armure?: StringFilter<"User"> | string
+    casque?: StringFilter<"User"> | string
     recompenses?: StringFilter<"User"> | string
     vertus?: StringFilter<"User"> | string
-    armure_1?: StringFilter<"User"> | string
-    casque_1?: StringFilter<"User"> | string
     endurance?: StringFilter<"User"> | string
     endurance_depart?: StringFilter<"User"> | string
     fatigue?: StringFilter<"User"> | string
@@ -6019,10 +6003,10 @@ export namespace Prisma {
     bonus_degats_distance?: SortOrder
     parade?: SortOrder
     bouclier?: SortOrder
+    armure?: SortOrder
+    casque?: SortOrder
     recompenses?: SortOrder
     vertus?: SortOrder
-    armure_1?: SortOrder
-    casque_1?: SortOrder
     endurance?: SortOrder
     endurance_depart?: SortOrder
     fatigue?: SortOrder
@@ -6100,14 +6084,14 @@ export namespace Prisma {
     survie?: IntWithAggregatesFilter<"User"> | number
     coutume?: IntWithAggregatesFilter<"User"> | number
     metier?: IntWithAggregatesFilter<"User"> | number
-    bonus_degats?: IntWithAggregatesFilter<"User"> | number
-    bonus_degats_distance?: IntWithAggregatesFilter<"User"> | number
-    parade?: IntWithAggregatesFilter<"User"> | number
-    bouclier?: IntWithAggregatesFilter<"User"> | number
+    bonus_degats?: StringWithAggregatesFilter<"User"> | string
+    bonus_degats_distance?: StringWithAggregatesFilter<"User"> | string
+    parade?: StringWithAggregatesFilter<"User"> | string
+    bouclier?: StringWithAggregatesFilter<"User"> | string
+    armure?: StringWithAggregatesFilter<"User"> | string
+    casque?: StringWithAggregatesFilter<"User"> | string
     recompenses?: StringWithAggregatesFilter<"User"> | string
     vertus?: StringWithAggregatesFilter<"User"> | string
-    armure_1?: StringWithAggregatesFilter<"User"> | string
-    casque_1?: StringWithAggregatesFilter<"User"> | string
     endurance?: StringWithAggregatesFilter<"User"> | string
     endurance_depart?: StringWithAggregatesFilter<"User"> | string
     fatigue?: StringWithAggregatesFilter<"User"> | string
@@ -6318,14 +6302,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats?: string
+    bonus_degats_distance?: string
+    parade?: string
+    bouclier?: string
+    armure?: string
+    casque?: string
     recompenses?: string
     vertus?: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -6397,14 +6381,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats?: string
+    bonus_degats_distance?: string
+    parade?: string
+    bouclier?: string
+    armure?: string
+    casque?: string
     recompenses?: string
     vertus?: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -6476,14 +6460,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string
@@ -6555,14 +6539,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string
@@ -6634,14 +6618,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats?: string
+    bonus_degats_distance?: string
+    parade?: string
+    bouclier?: string
+    armure?: string
+    casque?: string
     recompenses?: string
     vertus?: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -6711,14 +6695,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string
@@ -6788,14 +6772,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string
@@ -7076,10 +7060,10 @@ export namespace Prisma {
     bonus_degats_distance?: SortOrder
     parade?: SortOrder
     bouclier?: SortOrder
+    armure?: SortOrder
+    casque?: SortOrder
     recompenses?: SortOrder
     vertus?: SortOrder
-    armure_1?: SortOrder
-    casque_1?: SortOrder
     endurance?: SortOrder
     endurance_depart?: SortOrder
     fatigue?: SortOrder
@@ -7140,10 +7124,6 @@ export namespace Prisma {
     survie?: SortOrder
     coutume?: SortOrder
     metier?: SortOrder
-    bonus_degats?: SortOrder
-    bonus_degats_distance?: SortOrder
-    parade?: SortOrder
-    bouclier?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -7194,10 +7174,10 @@ export namespace Prisma {
     bonus_degats_distance?: SortOrder
     parade?: SortOrder
     bouclier?: SortOrder
+    armure?: SortOrder
+    casque?: SortOrder
     recompenses?: SortOrder
     vertus?: SortOrder
-    armure_1?: SortOrder
-    casque_1?: SortOrder
     endurance?: SortOrder
     endurance_depart?: SortOrder
     fatigue?: SortOrder
@@ -7271,10 +7251,10 @@ export namespace Prisma {
     bonus_degats_distance?: SortOrder
     parade?: SortOrder
     bouclier?: SortOrder
+    armure?: SortOrder
+    casque?: SortOrder
     recompenses?: SortOrder
     vertus?: SortOrder
-    armure_1?: SortOrder
-    casque_1?: SortOrder
     endurance?: SortOrder
     endurance_depart?: SortOrder
     fatigue?: SortOrder
@@ -7335,10 +7315,6 @@ export namespace Prisma {
     survie?: SortOrder
     coutume?: SortOrder
     metier?: SortOrder
-    bonus_degats?: SortOrder
-    bonus_degats_distance?: SortOrder
-    parade?: SortOrder
-    bouclier?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7893,14 +7869,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats?: string
+    bonus_degats_distance?: string
+    parade?: string
+    bouclier?: string
+    armure?: string
+    casque?: string
     recompenses?: string
     vertus?: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -7971,14 +7947,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats?: string
+    bonus_degats_distance?: string
+    parade?: string
+    bouclier?: string
+    armure?: string
+    casque?: string
     recompenses?: string
     vertus?: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -8065,14 +8041,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string
@@ -8143,14 +8119,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string
@@ -8221,14 +8197,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats?: string
+    bonus_degats_distance?: string
+    parade?: string
+    bouclier?: string
+    armure?: string
+    casque?: string
     recompenses?: string
     vertus?: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -8299,14 +8275,14 @@ export namespace Prisma {
     survie: number
     coutume: number
     metier: number
-    bonus_degats: number
-    bonus_degats_distance: number
-    parade: number
-    bouclier: number
+    bonus_degats?: string
+    bonus_degats_distance?: string
+    parade?: string
+    bouclier?: string
+    armure?: string
+    casque?: string
     recompenses?: string
     vertus?: string
-    armure_1: string
-    casque_1: string
     endurance: string
     endurance_depart: string
     fatigue: string
@@ -8393,14 +8369,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string
@@ -8471,14 +8447,14 @@ export namespace Prisma {
     survie?: IntFieldUpdateOperationsInput | number
     coutume?: IntFieldUpdateOperationsInput | number
     metier?: IntFieldUpdateOperationsInput | number
-    bonus_degats?: IntFieldUpdateOperationsInput | number
-    bonus_degats_distance?: IntFieldUpdateOperationsInput | number
-    parade?: IntFieldUpdateOperationsInput | number
-    bouclier?: IntFieldUpdateOperationsInput | number
+    bonus_degats?: StringFieldUpdateOperationsInput | string
+    bonus_degats_distance?: StringFieldUpdateOperationsInput | string
+    parade?: StringFieldUpdateOperationsInput | string
+    bouclier?: StringFieldUpdateOperationsInput | string
+    armure?: StringFieldUpdateOperationsInput | string
+    casque?: StringFieldUpdateOperationsInput | string
     recompenses?: StringFieldUpdateOperationsInput | string
     vertus?: StringFieldUpdateOperationsInput | string
-    armure_1?: StringFieldUpdateOperationsInput | string
-    casque_1?: StringFieldUpdateOperationsInput | string
     endurance?: StringFieldUpdateOperationsInput | string
     endurance_depart?: StringFieldUpdateOperationsInput | string
     fatigue?: StringFieldUpdateOperationsInput | string

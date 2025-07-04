@@ -50,12 +50,12 @@ export interface User {
   recompenses: string;
   vertus: string;
 
-  bonus_degats: number;
-  bonus_degats_distance: number;
-  parade: number;
-  bouclier: number;
-  armure_1: string;
-  casque_1: string;
+  bonus_degats: string;
+  bonus_degats_distance: string;
+  parade: string;
+  bouclier: string;
+  armure: string;
+  casque: string;
 
   endurance: string;
   endurance_depart: string;

@@ -3,6 +3,7 @@ import { updateUserField } from "@/lib/actions/user.actions";
 import { useUser } from "@/providers/UserContext";
 import { User } from "@/types/user";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Competence = ({
   label,
@@ -22,7 +23,8 @@ const Competence = ({
     }
     const newValue = index + 1 === value ? index : index + 1;
     setValue(newValue);
-    await updateUserField(user.id, field, newValue);
+    const res = await updateUserField(user.id, field, newValue);
+    toast(res.message);
   };
 
   return (
