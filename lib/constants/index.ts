@@ -37,7 +37,7 @@ export const COMPANY_ROLES = [
 ] as const;
 
 export const STATUS_CONDITIONS = [
-  { label: "Épuisement", key: "exhaustion" },
-  { label: "Mélancolie", key: "melancholy" },
-  { label: "Blessé", key: "wounded" },
+  { label: "Épuisement", key: "epuisement" },
+  { label: "Mélancolie", key: "melancolie" },
+  { label: "Blessé", key: "blesse" },
 ] as const;

@@ -60,15 +60,18 @@ model User {
   casque                String @default("1")
   recompenses           String @default("Aucune")
   vertus                String @default("Aucune")
+
   endurance             String
   endurance_depart      String
   fatigue               String
   espoir                String
   espoir_depart         String
   ombre                 String
+  
   epuisement            Boolean
   melancolie            Boolean
   blesse                Boolean
+  
   communaute            String
   points_progression    String
   tresors               String

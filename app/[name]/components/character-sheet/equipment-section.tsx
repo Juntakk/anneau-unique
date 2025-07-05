@@ -6,7 +6,6 @@ import { useUser } from "@/providers/UserContext";
 
 export default function EquipmentSection() {
   const user = useUser();
-  console.log("user", user);
 
   return (
     <div className='flex mb-20 mt-20 w-full'>
@@ -41,6 +40,10 @@ export default function EquipmentSection() {
           <EnduranceEspoirCircle
             upperLabel='Valeur de départ'
             lowerLabel='Fatigue'
+            upperField='endurance_depart'
+            lowerField='fatigue'
+            bigField='endurance'
+            user={user}
           />
         </div>
         <div className='flex-col'>
@@ -48,16 +51,20 @@ export default function EquipmentSection() {
           <EnduranceEspoirCircle
             upperLabel='Valeur de départ'
             lowerLabel='Ombre'
+            upperField='espoir_depart'
+            lowerField='ombre'
+            bigField='espoir'
+            user={user}
           />
         </div>
       </div>
 
       {/* États */}
       <div className='flex flex-col justify-end items-end w-1/2 mr-20'>
-        {STATUS_CONDITIONS.map(({ label }) => (
+        {STATUS_CONDITIONS.map(({ label, key }) => (
           <div key={label} className='flex gap-x-4 p-6'>
             <label className='text-3xl'>{label}</label>
-            <CustomCheckbox />
+            <CustomCheckbox user={user} field={key} />
           </div>
         ))}
       </div>

@@ -52,11 +52,10 @@ export async function updateEquipmentField(
   });
   return { success: true, message: `${data} updated successfully` };
 }
-
 export async function updateUserField(
   userId: string,
   field: keyof User | string,
-  value: string | number
+  value: string | number | boolean
 ) {
   const data = field[0].toUpperCase() + field.slice(1);
   await prisma.user.update({
@@ -65,7 +64,6 @@ export async function updateUserField(
   });
   return { success: true, message: ` ${data} updated successfully` };
 }
-
 export async function updateWeaponLevel(
   userId: string,
   field: keyof Weapon,
@@ -83,7 +81,6 @@ export async function updateWeaponLevel(
   });
   return { success: true, message: `Weapon level updated successfully` };
 }
-
 export async function getCompanyRolesByName(nom: string): Promise<{
   guide: string;
   eclaireur: string;

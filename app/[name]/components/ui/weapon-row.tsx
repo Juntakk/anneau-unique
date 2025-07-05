@@ -64,7 +64,7 @@ export const WeaponRow = ({ index }: { index: number }) => {
     <div className='flex flex-wrap justify-start items-center gap-x-4 mb-4 w-full'>
       <input
         type='text'
-        className='min-w-[300px] outline-none border-b border-black text-xl mr-10'
+        className='min-w-[300px] outline-none border-b border-black text-xl mr-10 text-amber-900 font-semibold'
         onChange={(e) => setWeaponName(e.target.value)}
         onBlur={handleBlur}
         onKeyDown={handleEnterBlur(handleBlur)}

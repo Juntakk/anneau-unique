@@ -36,6 +36,7 @@ const MainInput = ({
   }, [user, field, name, uppercaseName]);
 
   const handleBlur = async () => {
+    if (name) return;
     if (shouldSkipBlur()) return;
     if (value !== String(user[field])) {
       try {
@@ -69,6 +70,7 @@ const MainInput = ({
         onSelect={() => setIsSelected(true)}
         onBlur={handleBlur}
         onKeyDown={handleEnterBlur(handleBlur)}
+        readOnly={name}
       />
     </div>
   );

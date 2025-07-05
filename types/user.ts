@@ -60,7 +60,6 @@ export interface User {
   endurance: string;
   endurance_depart: string;
   fatigue: string;
-
   espoir: string;
   espoir_depart: string;
   ombre: string;

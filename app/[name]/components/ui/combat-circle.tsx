@@ -27,12 +27,14 @@ const CombatCircle = ({
 
   const onInnerBlur = async () => {
     if (shouldSkipBlur()) return;
+    if (innerValue === String(user[innerField])) return;
     const res = await updateUserField(user.id, innerField, innerValue);
     toast(res.message);
   };
 
   const onOuterBlur = async () => {
     if (shouldSkipBlur()) return;
+    if (outerValue === String(user[outerField])) return;
     const res = await updateUserField(user.id, outerField, outerValue);
     toast(res.message);
   };
@@ -50,7 +52,7 @@ const CombatCircle = ({
         }}
         onBlur={onOuterBlur}
         onKeyDown={handleEnterBlur(onOuterBlur)}
-        className='absolute w-full h-full rounded-full border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none'
+        className='absolute w-full h-full rounded-full text-amber-900 border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none'
       />
 
       {/* SMALL Circle Input */}
@@ -63,7 +65,7 @@ const CombatCircle = ({
         }}
         onBlur={onInnerBlur}
         onKeyDown={handleEnterBlur(onInnerBlur)}
-        className='absolute w-[70px] top-[80%] left-[-36%] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none'
+        className='absolute w-[70px] top-[80%] left-[-36%] h-[70px] text-amber-900 rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none'
       />
 
       {/* Label for SMALL input - bottom left side */}

@@ -23,6 +23,7 @@ export default function LinedTextarea({
 
   const handleBlur = async () => {
     if (shouldSkipBlur()) return;
+    if (value === String(user[field])) return;
     const res = await updateUserField(user.id, field, value);
     toast(res.message);
   };
@@ -37,7 +38,7 @@ export default function LinedTextarea({
       onBlur={handleBlur}
       onKeyDown={handleEnterBlur(handleBlur)}
       value={value}
-      className={`w-full p-[0.3rem_1rem] text-2xl resize-none leading-[2rem]
+      className={`w-full p-[0.3rem_1rem] text-2xl text-amber-900 font-semibold resize-none leading-[2rem]
         bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
         bg-[length:100%_2rem] bg-repeat outline-none rounded `}
     />

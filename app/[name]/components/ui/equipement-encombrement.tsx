@@ -18,6 +18,7 @@ const EquipementRow = ({ userId, label, equipment }: EquipementRowProps) => {
   const handleNameBlur = async () => {
     if (shouldSkipBlur()) return;
     if (name.trim() === "") return;
+    if (name === equipment.nom && enc === equipment.enc) return;
     const res = await updateEquipmentField(
       userId,
       equipment.index,
@@ -29,6 +30,7 @@ const EquipementRow = ({ userId, label, equipment }: EquipementRowProps) => {
   const handleEncBlur = async () => {
     if (shouldSkipBlur()) return;
     if (name.trim() === "") return;
+    if (enc === equipment.enc && name === equipment.nom) return;
     const res = await updateEquipmentField(userId, equipment.index, "enc", enc);
     toast(res.message);
   };
@@ -37,7 +39,7 @@ const EquipementRow = ({ userId, label, equipment }: EquipementRowProps) => {
       <label className='font-semibold w-[80px]'>{label}</label>
       <input
         type='text'
-        className='w-[280px] h-8 text-2xl border-black border-b outline-none'
+        className='w-[280px] h-8 text-2xl border-black border-b text-amber-900 font-semibold outline-none'
         value={name}
         onChange={(e) => setName(e.currentTarget.value)}
         onBlur={handleNameBlur}
@@ -46,7 +48,7 @@ const EquipementRow = ({ userId, label, equipment }: EquipementRowProps) => {
       <label className='font-semibold w-[50px] text-right'>enc.</label>
       <input
         type='text'
-        className='w-[50px] outline-none h-8 text-2xl'
+        className='w-[30px] outline-none h-8 text-2xl text-amber-900 font-semibold border-black border-b text-center'
         value={enc}
         onChange={(e) => setEnc(e.currentTarget.value)}
         onBlur={handleEncBlur}
