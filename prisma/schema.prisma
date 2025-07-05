@@ -76,6 +76,7 @@ model User {
   points_progression    String
   tresors               String
   prestige              String
+  
   origine               String
   guide                 String      @default("Yo mama")
   eclaireur             String
