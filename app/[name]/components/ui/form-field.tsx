@@ -8,9 +8,6 @@ import { toast } from "sonner";
 
 interface FormFieldProps {
   label: string;
-  value?: string;
-  onChange?: (value: string) => void;
-  className?: string;
   field: keyof User;
   user: User;
 }

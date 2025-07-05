@@ -48,7 +48,7 @@ const CommunauteCircle = ({
 
   return (
     <div className='flex flex-col items-center'>
-      <h2 className='text-2xl text-center mb-2'>{label}</h2>
+      <h2 className='text-2xl text-center mb-2 font-semibold'>{label}</h2>
       <input
         type='text'
         maxLength={1}
@@ -58,7 +58,7 @@ const CommunauteCircle = ({
         }}
         onBlur={handleBlur}
         onKeyDown={handleEnterBlur(handleBlur)}
-        className='w-40 h-40 rounded-full border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none'
+        className='w-40 h-40 rounded-full border-2 border-foreground text-center text-amber-900 text-4xl font-bold bg-transparent outline-none'
       />
     </div>
   );

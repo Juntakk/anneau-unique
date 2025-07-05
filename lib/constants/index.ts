@@ -29,11 +29,11 @@ export const GROUPE_COMPETENCES = [
 ] as const;
 
 export const COMPANY_ROLES = [
-  "Guide",
-  "Éclaireur",
-  "Chasseur",
-  "Guetteur",
-  "Lien de Communauté",
+  { label: "Guide", field: "guide" },
+  { label: "Éclaireur", field: "eclaireur" },
+  { label: "Chasseur", field: "chasseur" },
+  { label: "Guetteur", field: "guetteur" },
+  { label: "Lien de Communauté", field: "lien_communaute" },
 ] as const;
 
 export const STATUS_CONDITIONS = [
