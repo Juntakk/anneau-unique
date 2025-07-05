@@ -213,7 +213,6 @@ exports.Prisma.EquipmentScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   index: 'index',
-  type: 'type',
   nom: 'nom',
   enc: 'enc'
 };

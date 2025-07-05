@@ -106,7 +106,6 @@ model Equipment {
   id     String @id @default(cuid())
   userId String
   index  Int
-  type   String
   nom    String
   enc    String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)

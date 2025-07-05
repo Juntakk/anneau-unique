@@ -4423,7 +4423,6 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     index: number | null
-    type: string | null
     nom: string | null
     enc: string | null
   }
@@ -4432,7 +4431,6 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     index: number | null
-    type: string | null
     nom: string | null
     enc: string | null
   }
@@ -4441,7 +4439,6 @@ export namespace Prisma {
     id: number
     userId: number
     index: number
-    type: number
     nom: number
     enc: number
     _all: number
@@ -4460,7 +4457,6 @@ export namespace Prisma {
     id?: true
     userId?: true
     index?: true
-    type?: true
     nom?: true
     enc?: true
   }
@@ -4469,7 +4465,6 @@ export namespace Prisma {
     id?: true
     userId?: true
     index?: true
-    type?: true
     nom?: true
     enc?: true
   }
@@ -4478,7 +4473,6 @@ export namespace Prisma {
     id?: true
     userId?: true
     index?: true
-    type?: true
     nom?: true
     enc?: true
     _all?: true
@@ -4574,7 +4568,6 @@ export namespace Prisma {
     id: string
     userId: string
     index: number
-    type: string
     nom: string
     enc: string
     _count: EquipmentCountAggregateOutputType | null
@@ -4602,7 +4595,6 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     index?: boolean
-    type?: boolean
     nom?: boolean
     enc?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -4612,7 +4604,6 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     index?: boolean
-    type?: boolean
     nom?: boolean
     enc?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -4622,7 +4613,6 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     index?: boolean
-    type?: boolean
     nom?: boolean
     enc?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -4632,12 +4622,11 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     index?: boolean
-    type?: boolean
     nom?: boolean
     enc?: boolean
   }
 
-  export type EquipmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "index" | "type" | "nom" | "enc", ExtArgs["result"]["equipment"]>
+  export type EquipmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "index" | "nom" | "enc", ExtArgs["result"]["equipment"]>
   export type EquipmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -4657,7 +4646,6 @@ export namespace Prisma {
       id: string
       userId: string
       index: number
-      type: string
       nom: string
       enc: string
     }, ExtArgs["result"]["equipment"]>
@@ -5087,7 +5075,6 @@ export namespace Prisma {
     readonly id: FieldRef<"Equipment", 'String'>
     readonly userId: FieldRef<"Equipment", 'String'>
     readonly index: FieldRef<"Equipment", 'Int'>
-    readonly type: FieldRef<"Equipment", 'String'>
     readonly nom: FieldRef<"Equipment", 'String'>
     readonly enc: FieldRef<"Equipment", 'String'>
   }
@@ -5617,7 +5604,6 @@ export namespace Prisma {
     id: 'id',
     userId: 'userId',
     index: 'index',
-    type: 'type',
     nom: 'nom',
     enc: 'enc'
   };
@@ -6202,7 +6188,6 @@ export namespace Prisma {
     id?: StringFilter<"Equipment"> | string
     userId?: StringFilter<"Equipment"> | string
     index?: IntFilter<"Equipment"> | number
-    type?: StringFilter<"Equipment"> | string
     nom?: StringFilter<"Equipment"> | string
     enc?: StringFilter<"Equipment"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -6212,7 +6197,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     index?: SortOrder
-    type?: SortOrder
     nom?: SortOrder
     enc?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -6226,7 +6210,6 @@ export namespace Prisma {
     NOT?: EquipmentWhereInput | EquipmentWhereInput[]
     userId?: StringFilter<"Equipment"> | string
     index?: IntFilter<"Equipment"> | number
-    type?: StringFilter<"Equipment"> | string
     nom?: StringFilter<"Equipment"> | string
     enc?: StringFilter<"Equipment"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -6236,7 +6219,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     index?: SortOrder
-    type?: SortOrder
     nom?: SortOrder
     enc?: SortOrder
     _count?: EquipmentCountOrderByAggregateInput
@@ -6253,7 +6235,6 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Equipment"> | string
     userId?: StringWithAggregatesFilter<"Equipment"> | string
     index?: IntWithAggregatesFilter<"Equipment"> | number
-    type?: StringWithAggregatesFilter<"Equipment"> | string
     nom?: StringWithAggregatesFilter<"Equipment"> | string
     enc?: StringWithAggregatesFilter<"Equipment"> | string
   }
@@ -6891,7 +6872,6 @@ export namespace Prisma {
   export type EquipmentCreateInput = {
     id?: string
     index: number
-    type: string
     nom: string
     enc: string
     user: UserCreateNestedOneWithoutEquipementsInput
@@ -6901,7 +6881,6 @@ export namespace Prisma {
     id?: string
     userId: string
     index: number
-    type: string
     nom: string
     enc: string
   }
@@ -6909,7 +6888,6 @@ export namespace Prisma {
   export type EquipmentUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     index?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutEquipementsNestedInput
@@ -6919,7 +6897,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     index?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
   }
@@ -6928,7 +6905,6 @@ export namespace Prisma {
     id?: string
     userId: string
     index: number
-    type: string
     nom: string
     enc: string
   }
@@ -6936,7 +6912,6 @@ export namespace Prisma {
   export type EquipmentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     index?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
   }
@@ -6945,7 +6920,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     index?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
   }
@@ -7438,7 +7412,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     index?: SortOrder
-    type?: SortOrder
     nom?: SortOrder
     enc?: SortOrder
   }
@@ -7451,7 +7424,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     index?: SortOrder
-    type?: SortOrder
     nom?: SortOrder
     enc?: SortOrder
   }
@@ -7460,7 +7432,6 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     index?: SortOrder
-    type?: SortOrder
     nom?: SortOrder
     enc?: SortOrder
   }
@@ -7711,7 +7682,6 @@ export namespace Prisma {
   export type EquipmentCreateWithoutUserInput = {
     id?: string
     index: number
-    type: string
     nom: string
     enc: string
   }
@@ -7719,7 +7689,6 @@ export namespace Prisma {
   export type EquipmentUncheckedCreateWithoutUserInput = {
     id?: string
     index: number
-    type: string
     nom: string
     enc: string
   }
@@ -7789,7 +7758,6 @@ export namespace Prisma {
     id?: StringFilter<"Equipment"> | string
     userId?: StringFilter<"Equipment"> | string
     index?: IntFilter<"Equipment"> | number
-    type?: StringFilter<"Equipment"> | string
     nom?: StringFilter<"Equipment"> | string
     enc?: StringFilter<"Equipment"> | string
   }
@@ -8484,7 +8452,6 @@ export namespace Prisma {
   export type EquipmentCreateManyUserInput = {
     id?: string
     index: number
-    type: string
     nom: string
     enc: string
   }
@@ -8503,7 +8470,6 @@ export namespace Prisma {
   export type EquipmentUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     index?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
   }
@@ -8511,7 +8477,6 @@ export namespace Prisma {
   export type EquipmentUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     index?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
   }
@@ -8519,7 +8484,6 @@ export namespace Prisma {
   export type EquipmentUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     index?: IntFieldUpdateOperationsInput | number
-    type?: StringFieldUpdateOperationsInput | string
     nom?: StringFieldUpdateOperationsInput | string
     enc?: StringFieldUpdateOperationsInput | string
   }

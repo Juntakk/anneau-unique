@@ -1,7 +1,7 @@
-import { NameProvider } from '@/providers/NameContext';
-import { UserProvider } from '@/providers/UserContext';
-import { getUserByName } from '@/lib/actions/user.actions';
-import MainPage from './main-page';
+import { NameProvider } from "@/providers/NameContext";
+import { UserProvider } from "@/providers/UserContext";
+import { getUserByName } from "@/lib/actions/user.actions";
+import MainPage from "./main-page";
 
 type Props = {
   params: Promise<{ name: string }>;
@@ -9,13 +9,7 @@ type Props = {
 
 const Home = async ({ params }: Props) => {
   const { name } = await params;
-  const rawUser = await getUserByName(name);
-  const user = rawUser
-    ? {
-        ...rawUser,
-        equipements: [],
-      }
-    : undefined;
+  const user = (await getUserByName(name)) ?? undefined;
 
   return (
     <NameProvider name={name}>

@@ -106,8 +106,6 @@ export interface Equipment {
   id: string;
   userId: string;
   index: number;
-
-  type: "armure" | "casque" | "bouclier";
   nom: string;
   enc: string;
 }

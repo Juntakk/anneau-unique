@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { User, Weapon } from "@/types/user";
+import { Equipment, User, Weapon } from "@/types/user";
 
 export async function getUserByName(name: string) {
   const user = await prisma.user.findUnique({
@@ -23,6 +23,25 @@ export async function updateWeaponField(
   const data = field[0].toUpperCase() + field.slice(1);
 
   await prisma.weapon.update({
+    where: {
+      userId_index: {
+        userId,
+        index,
+      },
+    },
+    data: { [field]: value },
+  });
+  return { success: true, message: `${data} updated successfully` };
+}
+export async function updateEquipmentField(
+  userId: string,
+  index: number,
+  field: keyof Equipment,
+  value: string | number
+) {
+  const data = field[0].toUpperCase() + field.slice(1);
+
+  await prisma.equipment.update({
     where: {
       userId_index: {
         userId,
