@@ -10,7 +10,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <h2
-      className={`text-center text-xl mt-12 mb-12 tracking-widest ${className}`}
+      className={`text-center text-xl mt-12 mb-12 tracking-widest font-semibold ${className}`}
     >
       {children}
     </h2>

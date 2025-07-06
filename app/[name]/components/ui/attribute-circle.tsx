@@ -63,7 +63,7 @@ const AttributeCircle = ({
         onChange={(e) => setValue(e.target.value)}
         onBlur={handleBlur}
         onKeyDown={handleEnterBlur(handleBlur)}
-        className='w-full h-full rounded-full border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none text-amber-900'
+        className='w-full h-full rounded-full border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none text-amber-900 focus:bg-white/10 hover:bg-white/10 hover:cursor-pointer'
       />
 
       {/* Inner Circle Input */}
@@ -74,7 +74,7 @@ const AttributeCircle = ({
         onBlur={handleSecondaryBlur}
         onKeyDown={handleEnterBlur(handleSecondaryBlur)}
         maxLength={1}
-        className='absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none text-amber-900 left-[85%] top-[-16%]'
+        className='absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none text-amber-900 left-[85%] top-[-16%] focus:bg-white/10 hover:bg-white/10 hover:cursor-pointer'
       />
 
       {/* Label for inner input - right side */}
