@@ -54,8 +54,6 @@ const AttributeCircle = ({
       <label className='absolute left-[-3.5rem] top-1/2 -translate-y-1/2 text-lg font-semibold text-foreground'>
         {outerLabel}
       </label>
-
-      {/* Outer Circle Input */}
       <input
         type='text'
         value={value}
@@ -65,8 +63,6 @@ const AttributeCircle = ({
         onKeyDown={handleEnterBlur(handleBlur)}
         className='w-full h-full rounded-full border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none text-amber-900 focus:bg-white/10 hover:bg-white/10 hover:cursor-pointer'
       />
-
-      {/* Inner Circle Input */}
       <input
         type='text'
         value={secondaryValue}
@@ -76,8 +72,6 @@ const AttributeCircle = ({
         maxLength={1}
         className='absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none text-amber-900 left-[85%] top-[-16%] focus:bg-white/10 hover:bg-white/10 hover:cursor-pointer'
       />
-
-      {/* Label for inner input - right side */}
       <label className='absolute left-[95%] top-[-10%] translate-x-[105%] translate-y-[40%] text-sm font-semibold text-foreground'>
         {innerLabel}
       </label>

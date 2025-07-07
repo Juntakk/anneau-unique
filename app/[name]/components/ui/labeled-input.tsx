@@ -1,4 +1,5 @@
 "use client";
+
 import { updateWeaponField } from "@/lib/actions/user.actions";
 import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
 import { useUser } from "@/providers/UserContext";

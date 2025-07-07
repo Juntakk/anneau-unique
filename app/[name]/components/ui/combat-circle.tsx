@@ -1,4 +1,5 @@
 "use client";
+
 import { updateUserField } from "@/lib/actions/user.actions";
 import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
 import { useUser } from "@/providers/UserContext";
@@ -42,7 +43,6 @@ const CombatCircle = ({
   return (
     <div className='relative w-[150px] h-[150px]'>
       <h1 className='text-center text-lg font-bold w-full'>{label}</h1>
-      {/* BIG Circle Input */}
       <input
         type='text'
         maxLength={1}
@@ -54,8 +54,6 @@ const CombatCircle = ({
         onKeyDown={handleEnterBlur(onOuterBlur)}
         className='absolute w-full h-full rounded-full text-amber-900 border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none'
       />
-
-      {/* SMALL Circle Input */}
       <input
         type='text'
         maxLength={1}
@@ -67,8 +65,6 @@ const CombatCircle = ({
         onKeyDown={handleEnterBlur(onInnerBlur)}
         className='absolute w-[70px] top-[80%] left-[-36%] h-[70px] text-amber-900 rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none'
       />
-
-      {/* Label for SMALL input - bottom left side */}
       <label className='absolute top-[50%] right-[55%] w-full text-sm font-semibold text-foreground'>
         {innerLabel}
       </label>

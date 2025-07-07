@@ -13,9 +13,9 @@ export default function PageNavigation({
 }: PageNavigationProps) {
   if (isNextPage) {
     return (
-      <div className="space-x-8 w-full flex justify-start items-center p-6">
+      <div className='space-x-8 w-full flex justify-start items-center p-6'>
         <button
-          className="text-primary text-3xl font-bold flex hover:text-secondary hover:cursor-pointer"
+          className='text-primary text-3xl font-bold flex hover:text-secondary hover:cursor-pointer'
           onClick={onPageChange}
         >
           <ChevronLeft size={32} strokeWidth={2.5} />
@@ -26,9 +26,9 @@ export default function PageNavigation({
   }
 
   return (
-    <div className="space-x-8 w-full flex justify-end items-center p-6">
+    <div className='space-x-8 w-full flex justify-end items-center p-6'>
       <button
-        className="text-primary text-3xl font-bold flex hover:text-secondary hover:cursor-pointer"
+        className='text-primary text-3xl font-bold flex hover:text-secondary hover:cursor-pointer'
         onClick={onPageChange}
       >
         Verso

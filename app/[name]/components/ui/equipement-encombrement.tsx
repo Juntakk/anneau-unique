@@ -1,4 +1,5 @@
 "use client";
+
 import { updateEquipmentField } from "@/lib/actions/user.actions";
 import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
 import { Equipment } from "@/types/user";

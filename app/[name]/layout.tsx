@@ -27,7 +27,6 @@ const MainLayout = ({
         height={1080}
         className='object-cover absolute inset-0 w-full h-full z-0'
       />
-
       <div className='w-full flex justify-center relative z-10'>
         <Image
           src='/images/anneau-unique-logo.png'
@@ -36,7 +35,6 @@ const MainLayout = ({
           height={300}
         />
       </div>
-
       <main className='relative z-10'>{children}</main>
     </div>
   );

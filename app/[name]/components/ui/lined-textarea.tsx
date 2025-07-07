@@ -1,4 +1,5 @@
 "use client";
+
 import { updateUserField } from "@/lib/actions/user.actions";
 import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
 import { User } from "@/types/user";

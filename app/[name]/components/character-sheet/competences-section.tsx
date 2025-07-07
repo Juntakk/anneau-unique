@@ -7,7 +7,6 @@ import SectionHeader from "../ui/section-header";
 export default function CompetencesSection() {
   return (
     <div className='flex mb-12 gap-8'>
-      {/* Compétences communes */}
       <div className='flex flex-col w-9/12'>
         <div className='flex justify-center'>
           <SectionHeader>– COMPÉTENCES COMMUNES –</SectionHeader>
@@ -26,8 +25,6 @@ export default function CompetencesSection() {
           })}
         </div>
       </div>
-
-      {/* Groupes de compétences */}
       <div className='flex flex-col w-3/12 items-center justify-center '>
         <div className='flex justify-center '>
           <SectionHeader>GROUPES DE COMPÉTENCES</SectionHeader>

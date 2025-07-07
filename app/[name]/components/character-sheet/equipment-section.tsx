@@ -9,7 +9,6 @@ export default function EquipmentSection() {
 
   return (
     <div className='flex mb-20 mt-20 w-full'>
-      {/* Équipement */}
       <div className='flex flex-col w-1/4 mr-20'>
         <h2 className='text-center font-semibold text-lg w-full mt-12 mb-6 tracking-widest'>
           - ÉQUIPEMENT -
@@ -32,8 +31,6 @@ export default function EquipmentSection() {
           />
         </div>
       </div>
-
-      {/* Endurance et Espoir */}
       <div className='flex w-full justify-evenly gap-x-24 items-center p-6'>
         <div className='flex flex-col'>
           <h4 className='w-full text-center text-3xl mb-4'>Endurance</h4>
@@ -58,8 +55,6 @@ export default function EquipmentSection() {
           />
         </div>
       </div>
-
-      {/* États */}
       <div className='flex flex-col justify-end items-end w-1/2 mr-20'>
         {STATUS_CONDITIONS.map(({ label, key }) => (
           <div key={label} className='flex gap-x-4 p-6'>

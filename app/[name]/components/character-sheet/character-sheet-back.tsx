@@ -14,12 +14,9 @@ export default function CharacterSheetBack({
   return (
     <div className="flex flex-col">
       <PageNavigation isNextPage={true} onPageChange={onPageChange} />
-
-      {/* Community Circles */}
       <div className="flex w-full justify-around items-center mb-2">
         <CommunauteSection />
       </div>
-
       <OriginSection />
       <CompanySection />
       <CommunityPhaseSection />

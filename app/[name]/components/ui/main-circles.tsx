@@ -54,7 +54,6 @@ const MainCircle = ({
       <label className='text-2xl mt-4 mb-0.5 flex justify-center items-center font-semibold text-foreground'>
         {label}
       </label>
-
       <input
         type='text'
         maxLength={2}
@@ -64,7 +63,6 @@ const MainCircle = ({
         onKeyDown={handleEnterBlur(handleBlur)}
         className='w-full h-full rounded-full border-2 text-amber-900 border-foreground text-center text-4xl font-bold bg-transparent outline-none focus:bg-white/10 hover:bg-white/10 hover:cursor-pointer'
       />
-
       {isFirst && secondaryField && (
         <>
           <input

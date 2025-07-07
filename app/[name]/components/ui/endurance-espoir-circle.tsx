@@ -55,8 +55,6 @@ const EnduranceEspoirCircle = ({
       <label className='absolute text-sm right-[105%] min-w-[100px] font-semibold text-foreground'>
         {upperLabel}
       </label>
-
-      {/* Small Circle Input 1*/}
       <input
         type='text'
         maxLength={1}
@@ -67,8 +65,6 @@ const EnduranceEspoirCircle = ({
         }}
         className='absolute w-[70px] h-[70px] rounded-full text-amber-900 border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none right-[85%] top-[-10%]'
       />
-
-      {/* Big Circle Input */}
       <input
         type='text'
         maxLength={1}
@@ -79,8 +75,6 @@ const EnduranceEspoirCircle = ({
         }}
         className='w-full h-full rounded-full border-2 border-foreground text-amber-900 text-center text-4xl font-bold bg-transparent outline-none'
       />
-
-      {/* Small Circle Input 2*/}
       <input
         type='text'
         maxLength={1}
@@ -91,8 +85,6 @@ const EnduranceEspoirCircle = ({
         }}
         className='absolute w-[70px] h-[70px] rounded-full border-2 text-amber-900 border-foreground text-center text-2xl font-bold outline-none right-[85%] top-[73%]'
       />
-
-      {/* Label for lower input */}
       <label className='absolute right-[125%] bottom-[0%] text-sm font-semibold text-foreground'>
         {lowerLabel}
       </label>
