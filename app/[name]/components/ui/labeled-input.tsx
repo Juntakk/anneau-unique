@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { updateWeaponField } from "@/lib/actions/user.actions";
-import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
-import { useUser } from "@/providers/UserContext";
-import { Weapon } from "@/types/user";
-import { useState } from "react";
-import { toast } from "sonner";
+import { updateWeaponField } from '@/lib/actions/user.actions';
+import { handleEnterBlur, shouldSkipBlur } from '@/lib/utils';
+import { useUser } from '@/providers/UserContext';
+import { Weapon } from '@/types/user';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 export const LabeledInput = ({
   label,
@@ -34,11 +34,11 @@ export const LabeledInput = ({
   };
 
   return (
-    <div className='flex items-center gap-2'>
-      <label className='font-bold'>{label}</label>
+    <div className="flex items-center gap-2">
+      <label className="font-bold">{label}</label>
       <input
-        type='text'
-        className='max-w-[65px] outline-none text-2xl text-amber-900 font-semibold'
+        type="text"
+        className="max-w-[65px] outline-none text-2xl text-amber-900 font-semibold interactive-bg"
         value={valueState}
         onBlur={handleBlur}
         onChange={(e) => {

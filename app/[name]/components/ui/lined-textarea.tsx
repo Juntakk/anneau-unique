@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { updateUserField } from "@/lib/actions/user.actions";
-import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
-import { User } from "@/types/user";
-import { useState } from "react";
-import { toast } from "sonner";
+import { updateUserField } from '@/lib/actions/user.actions';
+import { handleEnterBlur, shouldSkipBlur } from '@/lib/utils';
+import { User } from '@/types/user';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 interface LinedTextareaProps {
   rows?: number;
@@ -39,7 +39,7 @@ export default function LinedTextarea({
       onBlur={handleBlur}
       onKeyDown={handleEnterBlur(handleBlur)}
       value={value}
-      className={`w-full p-[0.3rem_1rem] text-2xl text-amber-900 font-semibold resize-none leading-[2rem]
+      className={`w-full p-[0.3rem_1rem] text-2xl text-amber-900 font-semibold resize-none leading-[2rem] interactive-bg
         bg-[linear-gradient(to_bottom,transparent_1.9rem,#000_1.9rem,#000_2rem,transparent_2rem)]
         bg-[length:100%_2rem] bg-repeat outline-none rounded `}
     />

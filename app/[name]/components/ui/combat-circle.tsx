@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { updateUserField } from "@/lib/actions/user.actions";
-import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
-import { useUser } from "@/providers/UserContext";
-import { User } from "@/types/user";
-import { useState } from "react";
-import { toast } from "sonner";
+import { updateUserField } from '@/lib/actions/user.actions';
+import { handleEnterBlur, shouldSkipBlur } from '@/lib/utils';
+import { useUser } from '@/providers/UserContext';
+import { User } from '@/types/user';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const CombatCircle = ({
   innerLabel,
@@ -20,10 +20,10 @@ const CombatCircle = ({
 }) => {
   const user = useUser();
   const [innerValue, setInnerValue] = useState(
-    innerField ? String(user[innerField]) : ""
+    innerField ? String(user[innerField]) : ''
   );
   const [outerValue, setOuterValue] = useState(
-    outerField ? String(user[outerField]) : ""
+    outerField ? String(user[outerField]) : ''
   );
 
   const onInnerBlur = async () => {
@@ -41,10 +41,10 @@ const CombatCircle = ({
   };
 
   return (
-    <div className='relative w-[150px] h-[150px]'>
-      <h1 className='text-center text-lg font-bold w-full'>{label}</h1>
+    <div className="relative w-[150px] h-[150px]">
+      <h1 className="text-center text-lg font-bold w-full">{label}</h1>
       <input
-        type='text'
+        type="text"
         maxLength={1}
         value={outerValue}
         onChange={(e) => {
@@ -52,10 +52,10 @@ const CombatCircle = ({
         }}
         onBlur={onOuterBlur}
         onKeyDown={handleEnterBlur(onOuterBlur)}
-        className='absolute w-full h-full rounded-full text-amber-900 border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none'
+        className="absolute w-full h-full interactive-bg rounded-full text-amber-900 border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none"
       />
       <input
-        type='text'
+        type="text"
         maxLength={1}
         value={innerValue}
         onChange={(e) => {
@@ -63,9 +63,9 @@ const CombatCircle = ({
         }}
         onBlur={onInnerBlur}
         onKeyDown={handleEnterBlur(onInnerBlur)}
-        className='absolute w-[70px] top-[80%] left-[-36%] h-[70px] text-amber-900 rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none'
+        className="absolute w-[70px] top-[80%] interactive-bg left-[-36%] h-[70px] text-amber-900 rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none"
       />
-      <label className='absolute top-[50%] right-[55%] w-full text-sm font-semibold text-foreground'>
+      <label className="absolute top-[50%] right-[55%] w-full text-sm font-semibold text-foreground">
         {innerLabel}
       </label>
     </div>

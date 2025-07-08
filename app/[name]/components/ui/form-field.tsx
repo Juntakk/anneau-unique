@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { updateUserField } from "@/lib/actions/user.actions";
-import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
-import { User } from "@/types/user";
-import { useState } from "react";
-import { toast } from "sonner";
+import { updateUserField } from '@/lib/actions/user.actions';
+import { handleEnterBlur, shouldSkipBlur } from '@/lib/utils';
+import { User } from '@/types/user';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 interface FormFieldProps {
   label: string;
@@ -22,15 +22,15 @@ export default function FormField({ label, field, user }: FormFieldProps) {
     toast(res.message);
   };
   return (
-    <div className='flex items-center gap-4 '>
-      <label className='w-[200px] text-lg font-semibold'>{label}</label>
+    <div className="flex items-center gap-4 ">
+      <label className="w-[200px] text-lg font-semibold">{label}</label>
       <input
-        type='text'
+        type="text"
         value={valueState}
         onChange={(e) => setValueState(e.target.value)}
         onBlur={handleBlur}
         onKeyDown={handleEnterBlur(handleBlur)}
-        className='border-b border-black w-full bg-transparent outline-none text-2xl text-amber-900 font-semibold'
+        className="border-b border-black w-full bg-transparent interactive-bg outline-none text-2xl text-amber-900 font-semibold"
       />
     </div>
   );

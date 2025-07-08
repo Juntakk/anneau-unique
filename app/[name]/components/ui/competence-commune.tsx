@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { updateUserField } from "@/lib/actions/user.actions";
-import { useUser } from "@/providers/UserContext";
-import { User } from "@/types/user";
-import { useState } from "react";
-import { toast } from "sonner";
+import { updateUserField } from '@/lib/actions/user.actions';
+import { useUser } from '@/providers/UserContext';
+import { User } from '@/types/user';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const Competence = ({
   label,
@@ -29,9 +29,9 @@ const Competence = ({
   };
 
   return (
-    <div className='flex items-center gap-2'>
+    <div className="flex items-center gap-2">
       {label && (
-        <label className='min-w-[120px] text-md font-semibold text-foreground'>
+        <label className="min-w-[120px] text-md font-semibold text-foreground">
           {label}
         </label>
       )}
@@ -40,8 +40,8 @@ const Competence = ({
           key={i}
           checked={i < value}
           onChange={() => handleCheck(i)}
-          type='checkbox'
-          className='w-5 h-5 border-2 border-foreground rounded-sm transition duration-150 appearance-none checked:bg-amber-900 hover:cursor-pointer'
+          type="checkbox"
+          className="w-5 h-5 border-2 border-foreground rounded-sm transition duration-150 appearance-none checked:bg-amber-900 interactive-bg"
         />
       ))}
     </div>

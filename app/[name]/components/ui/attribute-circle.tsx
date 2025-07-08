@@ -1,10 +1,10 @@
-"use client";
-import { updateUserField } from "@/lib/actions/user.actions";
-import { handleEnterBlur, shouldSkipBlur } from "@/lib/utils";
-import { useUser } from "@/providers/UserContext";
-import { User } from "@/types/user";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
+'use client';
+import { updateUserField } from '@/lib/actions/user.actions';
+import { handleEnterBlur, shouldSkipBlur } from '@/lib/utils';
+import { useUser } from '@/providers/UserContext';
+import { User } from '@/types/user';
+import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 type AttributeCirclesProps = {
   outerLabel: string;
@@ -20,13 +20,13 @@ const AttributeCircle = ({
   secondaryField,
 }: AttributeCirclesProps) => {
   const user = useUser();
-  const [value, setValue] = useState("");
-  const [secondaryValue, setSecondaryValue] = useState("");
+  const [value, setValue] = useState('');
+  const [secondaryValue, setSecondaryValue] = useState('');
 
   useEffect(() => {
-    setValue(user[field]?.toString() ?? "");
+    setValue(user[field]?.toString() ?? '');
     if (secondaryField) {
-      setSecondaryValue(user[secondaryField]?.toString() ?? "");
+      setSecondaryValue(user[secondaryField]?.toString() ?? '');
     }
   }, [user, field, secondaryField]);
 
@@ -50,29 +50,29 @@ const AttributeCircle = ({
   };
 
   return (
-    <div className='relative w-[150px] h-[150px]'>
-      <label className='absolute left-[-3.5rem] top-1/2 -translate-y-1/2 text-lg font-semibold text-foreground'>
+    <div className="relative w-[150px] h-[150px]">
+      <label className="absolute left-[-3.5rem] top-1/2 -translate-y-1/2 text-lg font-semibold text-foreground">
         {outerLabel}
       </label>
       <input
-        type='text'
+        type="text"
         value={value}
         maxLength={1}
         onChange={(e) => setValue(e.target.value)}
         onBlur={handleBlur}
         onKeyDown={handleEnterBlur(handleBlur)}
-        className='w-full h-full rounded-full border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none text-amber-900 focus:bg-white/10 hover:bg-white/10 hover:cursor-pointer'
+        className="w-full h-full rounded-full border-2 border-foreground text-center text-4xl font-bold bg-transparent outline-none text-amber-900 interactive-bg"
       />
       <input
-        type='text'
+        type="text"
         value={secondaryValue}
         onChange={(e) => setSecondaryValue(e.target.value)}
         onBlur={handleSecondaryBlur}
         onKeyDown={handleEnterBlur(handleSecondaryBlur)}
         maxLength={1}
-        className='absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none text-amber-900 left-[85%] top-[-16%] focus:bg-white/10 hover:bg-white/10 hover:cursor-pointer'
+        className="absolute w-[70px] h-[70px] rounded-full border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none text-amber-900 left-[85%] top-[-16%] interactive-bg"
       />
-      <label className='absolute left-[95%] top-[-10%] translate-x-[105%] translate-y-[40%] text-sm font-semibold text-foreground'>
+      <label className="absolute left-[95%] top-[-10%] translate-x-[105%] translate-y-[40%] text-sm font-semibold text-foreground">
         {innerLabel}
       </label>
     </div>

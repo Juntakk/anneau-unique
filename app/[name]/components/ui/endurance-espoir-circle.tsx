@@ -1,8 +1,8 @@
-import { updateUserField } from "@/lib/actions/user.actions";
-import { shouldSkipBlur } from "@/lib/utils";
-import { User } from "@/types/user";
-import { useState } from "react";
-import { toast } from "sonner";
+import { updateUserField } from '@/lib/actions/user.actions';
+import { shouldSkipBlur } from '@/lib/utils';
+import { User } from '@/types/user';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 const EnduranceEspoirCircle = ({
   upperLabel,
@@ -20,13 +20,13 @@ const EnduranceEspoirCircle = ({
   user: User;
 }) => {
   const [upperValue, setUpperValue] = useState(
-    (user[upperField] as string) || "0"
+    (user[upperField] as string) || '0'
   );
   const [lowerValue, setLowerValue] = useState(
-    (user[lowerField] as string) || "0"
+    (user[lowerField] as string) || '0'
   );
   const [bigCircleValue, setBigCircleValue] = useState(
-    (user[bigField] as string) || "0"
+    (user[bigField] as string) || '0'
   );
 
   const handleUpperBlur = async () => {
@@ -51,41 +51,41 @@ const EnduranceEspoirCircle = ({
   };
 
   return (
-    <div className='relative w-[180px] h-[180px]'>
-      <label className='absolute text-sm right-[105%] min-w-[100px] font-semibold text-foreground'>
+    <div className="relative w-[180px] h-[180px]">
+      <label className="absolute text-sm right-[105%] min-w-[100px] font-semibold text-foreground">
         {upperLabel}
       </label>
       <input
-        type='text'
+        type="text"
         maxLength={1}
         value={upperValue}
         onBlur={handleUpperBlur}
         onChange={(e) => {
           setUpperValue(e.target.value);
         }}
-        className='absolute w-[70px] h-[70px] rounded-full text-amber-900 border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none right-[85%] top-[-10%]'
+        className="absolute w-[70px] interactive-bg h-[70px] rounded-full text-amber-900 border-2 border-foreground text-center text-2xl font-bold bg-transparent outline-none right-[85%] top-[-10%]"
       />
       <input
-        type='text'
+        type="text"
         maxLength={1}
         value={bigCircleValue}
         onBlur={handleBigBlur}
         onChange={(e) => {
           setBigCircleValue(e.target.value);
         }}
-        className='w-full h-full rounded-full border-2 border-foreground text-amber-900 text-center text-4xl font-bold bg-transparent outline-none'
+        className="w-full h-full rounded-full interactive-bg border-2 border-foreground text-amber-900 text-center text-4xl font-bold bg-transparent outline-none"
       />
       <input
-        type='text'
+        type="text"
         maxLength={1}
         value={lowerValue}
         onBlur={handleLowerBlur}
         onChange={(e) => {
           setLowerValue(e.target.value);
         }}
-        className='absolute w-[70px] h-[70px] rounded-full border-2 text-amber-900 border-foreground text-center text-2xl font-bold outline-none right-[85%] top-[73%]'
+        className="absolute w-[70px] h-[70px] rounded-full interactive-bg border-2 text-amber-900 border-foreground text-center text-2xl font-bold outline-none right-[85%] top-[73%]"
       />
-      <label className='absolute right-[125%] bottom-[0%] text-sm font-semibold text-foreground'>
+      <label className="absolute right-[125%] bottom-[0%] text-sm font-semibold text-foreground">
         {lowerLabel}
       </label>
     </div>
