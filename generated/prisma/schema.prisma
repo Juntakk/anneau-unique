@@ -9,8 +9,8 @@ datasource db {
 }
 
 model User {
-  id                    String      @id @default(cuid())
-  nom                   String      @unique
+  id                    String @id @default(cuid())
+  nom                   String @unique
   culture               String
   niveau_de_vie         String
   avantage_culturel     String
@@ -52,39 +52,43 @@ model User {
   survie                Int
   coutume               Int
   metier                Int
-  bonus_degats          String      @default("1")
-  bonus_degats_distance String      @default("1")
-  parade                String      @default("1")
-  bouclier              String      @default("1")
-  armure                String      @default("1")
-  casque                String      @default("1")
-  recompenses           String      @default("Aucune")
-  vertus                String      @default("Aucune")
-  endurance             String
-  endurance_depart      String
-  fatigue               String
-  espoir                String
-  espoir_depart         String
-  ombre                 String
-  epuisement            Boolean
-  melancolie            Boolean
-  blesse                Boolean
-  communaute            String
-  points_progression    String
-  tresors               String
-  prestige              String
-  origine               String
-  guide                 String      @default("Yo mama")
-  eclaireur             String
-  chasseur              String
-  guetteur              String
-  lien_communaute       String
-  sanctuaires           String
-  garant                String
-  createdAt             DateTime    @default(now())
-  updatedAt             DateTime    @updatedAt
-  equipements           Equipment[]
-  armes                 Weapon[]
+  bonus_degats          String @default("1")
+  bonus_degats_distance String @default("1")
+  parade                String @default("1")
+  bouclier              String @default("1")
+  armure                String @default("1")
+  casque                String @default("1")
+  recompenses           String @default("Aucune")
+  vertus                String @default("Aucune")
+
+  endurance        String
+  endurance_depart String
+  fatigue          String
+  espoir           String
+  espoir_depart    String
+  ombre            String
+
+  epuisement Boolean
+  melancolie Boolean
+  blesse     Boolean
+
+  communaute         String
+  points_progression String
+  tresors            String
+  prestige           String
+
+  origine         String
+  guide           String      @default("Yo mama")
+  eclaireur       String
+  chasseur        String
+  guetteur        String
+  lien_communaute String
+  sanctuaires     String
+  garant          String
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  equipements     Equipment[]
+  armes           Weapon[]
 }
 
 model Weapon {
