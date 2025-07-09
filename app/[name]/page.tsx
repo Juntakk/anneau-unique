@@ -4,16 +4,16 @@ import { getUserByName } from "@/lib/actions/user.actions";
 import MainPage from "./main-page";
 
 type Props = {
-  params: Promise<{ name: string }>;
+  params: { name: string };
 };
 
 const Home = async ({ params }: Props) => {
-  const { name } = await params;
-  const user = (await getUserByName(name)) ?? undefined;
+  const { name } = params;
+  const user = await getUserByName(name);
 
   return (
     <NameProvider name={name}>
-      <UserProvider user={user}>
+      <UserProvider user={user ?? undefined}>
         <MainPage />
       </UserProvider>
     </NameProvider>
