@@ -35,12 +35,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.10.1
- * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
+ * Prisma Client JS version: 6.11.1
+ * Query Engine version: f40f79ec31188888a2e33acda0ecc8fd10a853a9
  */
 Prisma.prismaVersion = {
-  client: "6.10.1",
-  engine: "9b628578b3b7cae625e8c927178f15a170e74a9c"
+  client: "6.11.1",
+  engine: "f40f79ec31188888a2e33acda0ecc8fd10a853a9"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -235,12 +235,12 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
-  "clientVersion": "6.10.1",
-  "engineVersion": "9b628578b3b7cae625e8c927178f15a170e74a9c",
+  "clientVersion": "6.11.1",
+  "engineVersion": "f40f79ec31188888a2e33acda0ecc8fd10a853a9",
   "datasourceNames": [
     "db"
   ],
@@ -256,7 +256,7 @@ const config = {
   },
   "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id                    String @id @default(cuid())\n  nom                   String @unique\n  culture               String\n  niveau_de_vie         String\n  avantage_culturel     String\n  vocation              String\n  part_ombre            String\n  specialites           String\n  particularite         String\n  experience            Int\n  experience_totale     Int\n  vaillance             Int\n  sagesse               Int\n  corps                 Int\n  corps_ameliore        Int\n  coeur                 Int\n  coeur_ameliore        Int\n  esprit                Int\n  esprit_ameliore       Int\n  presence              Int\n  athletisme            Int\n  vigilance             Int\n  exploration           Int\n  chant                 Int\n  artisanat             Int\n  inspiration           Int\n  voyage                Int\n  intuition             Int\n  guerison              Int\n  courtoisie            Int\n  art_de_la_guerre      Int\n  persuasion            Int\n  discretion            Int\n  fouille               Int\n  chasse                Int\n  enigmes               Int\n  connaissances         Int\n  personnalite          Int\n  deplacement           Int\n  perception            Int\n  survie                Int\n  coutume               Int\n  metier                Int\n  bonus_degats          String @default(\"1\")\n  bonus_degats_distance String @default(\"1\")\n  parade                String @default(\"1\")\n  bouclier              String @default(\"1\")\n  armure                String @default(\"1\")\n  casque                String @default(\"1\")\n  recompenses           String @default(\"Aucune\")\n  vertus                String @default(\"Aucune\")\n\n  endurance        String\n  endurance_depart String\n  fatigue          String\n  espoir           String\n  espoir_depart    String\n  ombre            String\n\n  epuisement Boolean\n  melancolie Boolean\n  blesse     Boolean\n\n  communaute         String\n  points_progression String\n  tresors            String\n  prestige           String\n\n  origine         String\n  guide           String      @default(\"Yo mama\")\n  eclaireur       String\n  chasseur        String\n  guetteur        String\n  lien_communaute String\n  sanctuaires     String\n  garant          String\n  createdAt       DateTime    @default(now())\n  updatedAt       DateTime    @updatedAt\n  equipements     Equipment[]\n  armes           Weapon[]\n}\n\nmodel Weapon {\n  id       String @id @default(cuid())\n  userId   String\n  index    Int\n  niveau   Int\n  degats   String\n  taille   String\n  blessure String\n  enc      String\n  nom      String @default(\"Arme sans nom\")\n  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@unique([userId, index])\n}\n\nmodel Equipment {\n  id     String @id @default(cuid())\n  userId String\n  index  Int\n  nom    String\n  enc    String\n  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@unique([userId, index])\n}\n",
   "inlineSchemaHash": "3e6ebfb74c4ee1efb353720f0d1ebcdd43b8a943342c61f7b977f0874609c656",
-  "copyEngine": false
+  "copyEngine": true
 }
 
 const fs = require('fs')
@@ -293,3 +293,9 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
+// file annotations for bundling tools to include these files
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
+// file annotations for bundling tools to include these files
+path.join(__dirname, "schema.prisma");
+path.join(process.cwd(), "generated/prisma/schema.prisma")
