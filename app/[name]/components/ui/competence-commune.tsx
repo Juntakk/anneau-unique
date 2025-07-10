@@ -41,7 +41,7 @@ const Competence = ({
           checked={i < value}
           onChange={() => handleCheck(i)}
           type="checkbox"
-          className="w-5 h-5 border-2 border-foreground rounded-sm transition duration-150 appearance-none checked:bg-amber-900 interactive-bg"
+          className="w-5 h-5 border-2 border-foreground rounded-sm transition duration-150 appearance-none checked:bg-amber-900 cursor-pointer"
         />
       ))}
     </div>
