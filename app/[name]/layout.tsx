@@ -1,6 +1,8 @@
+import FullPageLoader from "@/components/shared/full-page-loader";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 const MainLayout = ({
   children,
@@ -35,7 +37,9 @@ const MainLayout = ({
           height={300}
         />
       </div>
-      <main className='relative z-10'>{children}</main>
+      <Suspense fallback={<FullPageLoader />}>
+        <main className='relative z-10'>{children}</main>
+      </Suspense>{" "}
     </div>
   );
 };
