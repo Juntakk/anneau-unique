@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Home = async ({ params }: Props) => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 900));
 
   const { name } = params;
   const user = await getUserByName(name);
