@@ -16,7 +16,7 @@ export default function FullPageLoader() {
         width={600}
         height={300}
         alt='Sentinelles Est Logo'
-        className='z-10 w-2/3 sm:w-1/2 md:w-[400px] lg:w-[600px] animate-pulse'
+        className='z-10 w-2/3 sm:w-1/2 md:w-[400px] lg:w-[600px]'
       />
     </div>
   );
