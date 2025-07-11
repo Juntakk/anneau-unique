@@ -21,7 +21,7 @@ const UserAvatar = ({ name, image }: { name: string; image: string }) => {
       <Avatar
         className={cn(
           "relative rounded-full overflow-hidden cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110",
-          "w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 xl:w-64 xl:h-64"
+          "w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48"
         )}
         onClick={() => router.push(`/${name.toLowerCase()}`)}
       >
