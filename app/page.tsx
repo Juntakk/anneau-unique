@@ -12,7 +12,7 @@ export default async function Home() {
         className='object-cover z-0 absolute inset-0 w-full h-full'
       />
 
-      <div className='z-20 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12'>
+      <div className='z-20 flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10'>
         <UserAvatar name='Raenvild' image='/images/raenvild_1.png' />
         <UserAvatar name='Varr' image='/images/varr_1.png' />
         <UserAvatar name='Firiel' image='/images/firiel_1.png' />

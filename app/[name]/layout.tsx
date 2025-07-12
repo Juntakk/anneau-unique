@@ -15,7 +15,7 @@ const MainLayout = ({
         <div className='space-x-8'>
           <Link
             href='/'
-            className='text-primary text-3xl font-semibold flex hover:text-amber-900'
+            className='text-primary text-3xl font-semibold flex hover:text-secondary hover:cursor-pointer'
           >
             <ChevronLeft size={34} strokeWidth={2.5} />
             Home
