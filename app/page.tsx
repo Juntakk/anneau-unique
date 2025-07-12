@@ -12,11 +12,11 @@ export default function Home() {
         className='object-cover z-0 absolute inset-0 w-full h-full'
       />
 
-      <h1 className='absolute top-20 w-full text-center text-6xl underline-offset-8 underline font-bold text-amber-950 drop-shadow-lg z-0'>
+      <h1 className='absolute top-20 w-full text-center text-6xl font-bold text-amber-950 drop-shadow-lg z-0'>
         Les Sentinelles de l&apos;Est
       </h1>
 
-      <div className='z-10 flex justify-center items-center w-full'>
+      <div className='z-10 flex justify-center items-center w-full animate-fade-in'>
         <UserAvatar name='Raenvild' image='/images/raenvild_1.png' />
         <UserAvatar name='Varr' image='/images/varr_1.png' />
         <UserAvatar name='Firiel' image='/images/firiel_1.png' />
