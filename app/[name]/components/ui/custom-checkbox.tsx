@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react"; // or any icon lib
+import { Check } from "lucide-react";
 import { User } from "@/types/user";
 import { updateUserField } from "@/lib/actions/user.actions";
 import { toast } from "sonner";
