@@ -33,7 +33,9 @@ export default function EquipmentSection() {
       </div>
       <div className='flex w-full justify-evenly gap-x-24 items-center p-6'>
         <div className='flex flex-col'>
-          <h4 className='w-full text-center text-3xl mb-4'>Endurance</h4>
+          <h2 className='w-full text-center font-semibold text-2xl mb-4 tracking-widest'>
+            Endurance
+          </h2>
           <EnduranceEspoirCircle
             upperLabel='Valeur de départ'
             lowerLabel='Fatigue'
@@ -44,7 +46,9 @@ export default function EquipmentSection() {
           />
         </div>
         <div className='flex-col'>
-          <h2 className='w-full text-center text-3xl mb-4'>Espoir</h2>
+          <h2 className='w-full text-center font-semibold text-2xl mb-4 tracking-widest'>
+            Espoir
+          </h2>
           <EnduranceEspoirCircle
             upperLabel='Valeur de départ'
             lowerLabel='Ombre'
@@ -58,7 +62,7 @@ export default function EquipmentSection() {
       <div className='flex flex-col justify-end items-end w-1/2 mr-20'>
         {STATUS_CONDITIONS.map(({ label, key }) => (
           <div key={label} className='flex gap-x-4 p-6'>
-            <label className='text-3xl'>{label}</label>
+            <label className='text-2xl font-semibold'>{label}</label>
             <CustomCheckbox user={user} field={key} />
           </div>
         ))}
