@@ -21,7 +21,7 @@ const UserAvatar = ({ name, image }: { name: string; image: string }) => {
     >
       <div
         className={cn(
-          "w-full aspect-[3/4] overflow-hidden cursor-pointer transition-all duration-700 ease-in-out mt-12",
+          "w-full aspect-[3/4] overflow-hidden cursor-pointer transition-all duration-700 ease-in-out mt-10",
           isHovered ? "rounded-2xl shadow-lg" : ""
         )}
       >
