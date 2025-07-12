@@ -14,7 +14,7 @@ export default function Home() {
       />
 
       {/* Title over avatars */}
-      <h1 className='absolute top-20 w-full text-center text-4xl sm:text-5xl md:text-6xl font-bold text-amber-950 drop-shadow-lg z-20'>
+      <h1 className='z-1 absolute top-20 w-full text-center text-4xl sm:text-5xl md:text-6xl font-bold text-amber-950 drop-shadow-lg z-20'>
         Les Sentinelles de l&apos;Est
       </h1>
 
